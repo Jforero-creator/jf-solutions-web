@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JF Solutions | Calidad e inocuidad alimentaria</title>
+<meta name="description" content="JF Solutions: diagnóstico, mejora y verificación en piso de calidad e inocuidad alimentaria para plantas de alimentos y bebidas. Método ORA + PDCA + RACI. Servicio en español e inglés.">
+<link rel="canonical" href="https://www.jfsolutionsq.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.jfsolutionsq.com/">
+<meta property="og:title" content="JF Solutions | Calidad e inocuidad alimentaria">
+<meta property="og:description" content="Diagnóstico, plan de mejora y verificación en piso para plantas de alimentos y bebidas. Método ORA + PDCA + RACI.">
+<meta name="theme-color" content="#123238">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23123238'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EJF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --steel:#EEF2F3;      /* fondo: acero inoxidable claro */
+  --white:#FFFFFF;
+  --ink:#123238;        /* texto principal: azul petróleo profundo */
+  --ink-soft:#4A6166;
+  --line:#C8D5D8;
+  --release:#1E7048;    /* verde "liberado" */
+  --release-bg:#E3F1E9;
+  --hold:#B42B20;       /* rojo "retenido" */
+  --tag:#F6D44A;        /* amarillo etiqueta de inspección */
+  --display:"Archivo", "Arial Narrow", sans-serif;
+  --body:"Public Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--steel);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--release);outline-offset:3px;border-radius:4px}
+
+/* idioma */
+html[data-lang="es"] [lang="en"],
+html[data-lang="en"] [lang="es"]{display:none !important}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* encabezado */
+.top{position:sticky;top:0;z-index:10;background:rgba(238,242,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none;font-stretch:85%}
+.brand small{font-family:var(--body);font-weight:500;font-size:13px;color:var(--ink-soft);margin-left:8px;letter-spacing:0}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--ink-soft)}
+.nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--white)}
+.lang button{font:600 13px var(--body);border:0;background:none;padding:6px 11px;cursor:pointer;color:var(--ink-soft)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+h1{font-family:var(--display);font-weight:800;font-stretch:80%;font-size:clamp(42px,6.2vw,76px);line-height:.98;letter-spacing:-.02em;margin:0 0 24px}
+.lead{font-size:19px;color:var(--ink-soft);max-width:34em;margin:0 0 32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 16px var(--body);text-decoration:none;padding:13px 22px;border-radius:8px;border:2px solid var(--ink)}
+.btn-main{background:var(--ink);color:var(--white)}
+.btn-main:hover{background:#0b2328}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--white)}
+
+/* la etiqueta de inspección: el elemento memorable */
+.tag{position:relative;background:var(--white);border:2px solid var(--ink);border-radius:10px 10px 10px 40px;padding:26px 26px 22px 34px;box-shadow:10px 10px 0 var(--ink);transform:rotate(1.5deg);max-width:400px;justify-self:center}
+.tag::before{content:"";position:absolute;left:16px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;border:2px solid var(--ink);background:var(--steel)}
+.tag-head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:14px;margin-left:14px}
+.tag-title{font-family:var(--display);font-weight:800;font-stretch:75%;font-size:30px;line-height:1;color:var(--release)}
+.tag-id{font-size:13px;color:var(--ink-soft)}
+.tag dl{margin:0 0 0 14px;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:15px}
+.tag dt{color:var(--ink-soft)}
+.tag dd{margin:0;font-weight:600}
+.check{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--release);margin-right:6px;vertical-align:1px}
+.pend{background:var(--tag)}
+.tag-foot{margin:16px 0 0 14px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-soft)}
+
+/* secciones */
+section{padding:88px 0}
+.section-white{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:clamp(32px,4.2vw,48px);line-height:1.05;letter-spacing:-.015em;margin:0 0 16px}
+.intro{color:var(--ink-soft);max-width:38em;margin:0 0 48px;font-size:18px}
+
+/* prioridades: secuencia real */
+.priorities{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--white)}
+.priorities li{padding:26px 22px 28px;border-right:2px solid var(--ink)}
+.priorities li:last-child{border-right:0;background:var(--release-bg)}
+.p-num{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--release);display:block;margin-bottom:12px}
+.priorities h3{font-family:var(--display);font-weight:700;font-stretch:90%;font-size:21px;line-height:1.15;margin:0 0 8px}
+.priorities p{margin:0;font-size:15px;color:var(--ink-soft)}
+.note{margin:20px 0 0;font-weight:600}
+
+/* método: línea de proceso */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:72px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:800;font-size:40px;line-height:1;color:var(--ink);width:56px;height:56px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:24px}
+.steps h3{font-family:var(--display);font-weight:700;font-stretch:90%;font-size:23px;margin:4px 0 6px}
+.steps p{margin:0;color:var(--ink-soft);max-width:44em}
+
+/* servicios */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink)}
+.service{padding:30px 32px 32px 0;border-bottom:1px solid var(--line)}
+.service:nth-child(odd){border-right:1px solid var(--line)}
+.service:nth-child(even){padding-left:32px;padding-right:0}
+.service h3{font-family:var(--display);font-weight:700;font-stretch:90%;font-size:24px;margin:0 0 8px}
+.service p{margin:0;color:var(--ink-soft)}
+
+/* ORA */
+.ora{background:var(--ink);color:var(--white)}
+.ora .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ora h2{color:var(--white)}
+.ora p{color:#C9DADC;margin:0 0 16px}
+.ora ul{margin:0 0 28px;padding-left:20px;color:#E4EEEF}
+.ora li{margin-bottom:6px}
+.ora .btn-main{background:var(--tag);color:var(--ink);border-color:var(--tag)}
+.ora .btn-main:hover{background:#ffe066}
+.screen{background:#0b2328;border:1px solid #2c4c52;border-radius:12px;padding:18px}
+.screen-bar{display:flex;gap:6px;margin-bottom:14px}
+.screen-bar span{width:10px;height:10px;border-radius:50%;background:#2c4c52}
+.risk{display:grid;gap:8px}
+.risk div{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:6px;background:#123238;font-size:14px}
+.risk b{font-weight:600}
+.lvl{font-size:12px;font-weight:700;padding:3px 8px;border-radius:4px}
+.l-crit{background:var(--hold);color:#fff}
+.l-high{background:#E07A1F;color:#fff}
+.l-med{background:var(--tag);color:var(--ink)}
+.l-low{background:var(--release);color:#fff}
+
+/* sobre mí */
+.about .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+.about-card{background:var(--white);border:2px solid var(--ink);border-radius:10px;padding:28px}
+.about-card .name{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:28px;line-height:1.1;margin:0 0 6px}
+.about-card .role{color:var(--ink-soft);margin:0 0 20px}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:15px}
+.facts .k{color:var(--ink-soft)}
+.facts .v{font-weight:600;text-align:right}
+.about p{margin:0 0 16px;max-width:38em}
+
+/* contacto */
+.contact{text-align:left}
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.contact-link{display:block;text-decoration:none;background:var(--white);border:2px solid var(--ink);border-radius:10px;padding:22px 24px}
+.contact-link:hover{background:var(--release-bg)}
+.contact-link strong{display:block;font-family:var(--display);font-weight:700;font-stretch:90%;font-size:22px;margin-bottom:4px}
+.contact-link span{color:var(--ink-soft);font-size:15px;word-break:break-word}
+
+footer{padding:32px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* entrada única del hero */
+@media (prefers-reduced-motion:no-preference){
+  .tag{animation:hang .9s cubic-bezier(.2,.8,.2,1) .15s both}
+  @keyframes hang{from{opacity:0;transform:rotate(-6deg) translateY(-24px)}to{opacity:1;transform:rotate(1.5deg) translateY(0)}}
+}
+
+/* responsive */
+@media (max-width:900px){
+  .nav a{display:none}
+  .hero .wrap,.ora .wrap,.about .wrap{grid-template-columns:1fr;gap:44px}
+  .priorities{grid-template-columns:1fr 1fr}
+  .priorities li:nth-child(2){border-right:0}
+  .priorities li:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+  .contact-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .brand small{display:none}
+  .hero{padding:44px 0 64px}
+  section{padding:64px 0}
+  .tag{box-shadow:6px 6px 0 var(--ink);max-width:100%}
+  .priorities{grid-template-columns:1fr}
+  .priorities li{border-right:0;border-bottom:2px solid var(--ink)}
+  .priorities li:last-child{border-bottom:0}
+  .steps li{grid-template-columns:48px 1fr;gap:16px}
+  .steps li::before{width:44px;height:44px;font-size:19px}
+  .services{grid-template-columns:1fr}
+  .service,.service:nth-child(even){padding:24px 0;border-right:0}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">JF Solutions<small lang="es">Calidad e inocuidad</small><small lang="en">Quality &amp; food safety</small></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#metodo"><span lang="es">Método</span><span lang="en">Method</span></a>
+      <a href="#servicios"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <a href="#ora">ORA</a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set="es" aria-pressed="true">ES</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 lang="es">Calidad e inocuidad que se verifican en el piso de planta, no solo en papel.</h1>
+      <h1 lang="en">Quality and food safety verified on the plant floor, not just on paper.</h1>
+      <p class="lead" lang="es">Ayudo a plantas de alimentos y bebidas a entender su realidad, priorizar lo que de verdad importa y cerrar cada acción con evidencia. Diagnóstico, plan de mejora y seguimiento con mi método ORA + PDCA + RACI.</p>
+      <p class="lead" lang="en">I help food and beverage plants understand where they really stand, prioritize what matters and close every action with evidence. Assessment, improvement plan and follow-up with my ORA + PDCA + RACI method.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#contacto"><span lang="es">Agenda un diagnóstico</span><span lang="en">Book an assessment</span></a>
+        <a class="btn btn-ghost" href="#metodo"><span lang="es">Ver cómo trabajo</span><span lang="en">See how I work</span></a>
+      </div>
+    </div>
+
+    <div class="tag" role="img" aria-label="Etiqueta de inspección: lote liberado / Inspection tag: lot released">
+      <div class="tag-head">
+        <span class="tag-title"><span lang="es">LIBERADO</span><span lang="en">RELEASED</span></span>
+        <span class="tag-id">ORA · PDCA · RACI</span>
+      </div>
+      <dl>
+        <dt lang="es">Diagnóstico</dt><dt lang="en">Assessment</dt>
+        <dd><span class="check"></span><span lang="es">Completo</span><span lang="en">Complete</span></dd>
+        <dt lang="es">Hallazgos</dt><dt lang="en">Findings</dt>
+        <dd><span class="check"></span><span lang="es">Clasificados por riesgo</span><span lang="en">Ranked by risk</span></dd>
+        <dt lang="es">Plan de acción</dt><dt lang="en">Action plan</dt>
+        <dd><span class="check"></span><span lang="es">Con responsable</span><span lang="en">Owner assigned</span></dd>
+        <dt lang="es">Verificación</dt><dt lang="en">Verification</dt>
+        <dd><span class="check pend"></span>30 / 60 / 90 <span lang="es">días</span><span lang="en">days</span></dd>
+      </dl>
+      <p class="tag-foot" lang="es">Nada se libera sin evidencia en piso.</p>
+      <p class="tag-foot" lang="en">Nothing is released without floor evidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIORIDADES -->
+<section class="section-white" id="prioridades">
+  <div class="wrap">
+    <h2 lang="es">El orden en que tomo decisiones</h2>
+    <h2 lang="en">The order I make decisions in</h2>
+    <p class="intro" lang="es">Cada recomendación pasa por este filtro, en este orden. Nunca al revés.</p>
+    <p class="intro" lang="en">Every recommendation goes through this filter, in this order. Never the other way around.</p>
+    <ol class="priorities">
+      <li>
+        <span class="p-num">1</span>
+        <h3 lang="es">Dignidad humana</h3><h3 lang="en">Human dignity</h3>
+        <p lang="es">Ninguna meta justifica actuar en contra de las personas.</p>
+        <p lang="en">No target justifies acting against people.</p>
+      </li>
+      <li>
+        <span class="p-num">2</span>
+        <h3 lang="es">Seguridad e inocuidad</h3><h3 lang="en">Safety and food safety</h3>
+        <p lang="es">La seguridad de quien trabaja y de quien consume el producto.</p>
+        <p lang="en">The safety of the people who make the product and the people who eat it.</p>
+      </li>
+      <li>
+        <span class="p-num">3</span>
+        <h3 lang="es">Servicio al cliente</h3><h3 lang="en">Customer service</h3>
+        <p lang="es">Cliente interno y externo: cada área le entrega a la siguiente.</p>
+        <p lang="en">Internal and external customers: every area serves the next one.</p>
+      </li>
+      <li>
+        <span class="p-num">4</span>
+        <h3 lang="es">Costo y productividad</h3><h3 lang="en">Cost and productivity</h3>
+        <p lang="es">Mejora continua con números reales.</p>
+        <p lang="en">Continuous improvement backed by real numbers.</p>
+      </li>
+    </ol>
+    <p class="note" lang="es">La productividad es el resultado de respetar este orden.</p>
+    <p class="note" lang="en">Productivity is the result of respecting this order.</p>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section id="metodo">
+  <div class="wrap">
+    <h2 lang="es">Cómo trabajo</h2>
+    <h2 lang="en">How I work</h2>
+    <p class="intro" lang="es">Un proceso de cinco pasos, desde entender la planta hasta auditar que el cambio se sostiene.</p>
+    <p class="intro" lang="en">A five-step process, from understanding the plant to auditing that the change holds.</p>
+    <ol class="steps">
+      <li><div>
+        <h3 lang="es">Entender la realidad</h3><h3 lang="en">Understand reality</h3>
+        <p lang="es">Cuestionario estratégico para gerencia (misión, visión, valores, historia), preguntas Gemba basadas en normas para el personal de piso y clasificación de cada hallazgo por naturaleza y tipo de riesgo.</p>
+        <p lang="en">A strategic questionnaire for management (mission, vision, values, history), standards-based Gemba questions for floor staff, and classification of every finding by nature and risk type.</p>
+      </div></li>
+      <li><div>
+        <h3 lang="es">Informe de oportunidades</h3><h3 lang="en">Opportunities report</h3>
+        <p lang="es">Los hallazgos se cruzan con los objetivos del negocio para priorizar lo que más impacto tiene.</p>
+        <p lang="en">Findings are crossed with business objectives to prioritize what has the most impact.</p>
+      </div></li>
+      <li><div>
+        <h3 lang="es">Plan de acción</h3><h3 lang="en">Action plan</h3>
+        <p lang="es">Se define el alcance del proyecto de mejora antes de empezar, para no prometer lo que no se puede cumplir.</p>
+        <p lang="en">The scope of the improvement project is defined up front, so nothing is promised that can't be delivered.</p>
+      </div></li>
+      <li><div>
+        <h3 lang="es">Ejecución con PDCA + RACI</h3><h3 lang="en">Execution with PDCA + RACI</h3>
+        <p lang="es">Cada acción tiene un responsable claro y se verifica en piso con KPIs Lean que cada persona actualiza desde su celular.</p>
+        <p lang="en">Every action has a clear owner and is verified on the floor with Lean KPIs that each person updates from their phone.</p>
+      </div></li>
+      <li><div>
+        <h3 lang="es">Evaluación 30/60/90 y auditoría de cierre</h3><h3 lang="en">30/60/90 review and closing audit</h3>
+        <p lang="es">El proyecto se evalúa a los 30, 60 y 90 días y cierra con una auditoría de proceso.</p>
+        <p lang="en">The project is reviewed at 30, 60 and 90 days and closes with a process audit.</p>
+      </div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section-white" id="servicios">
+  <div class="wrap">
+    <h2 lang="es">Servicios</h2>
+    <h2 lang="en">Services</h2>
+    <p class="intro" lang="es">Cada planta es diferente. La herramienta que te entrego se adapta a tu operación.</p>
+    <p class="intro" lang="en">Every plant is different. The tools I deliver are adapted to your operation.</p>
+    <div class="services">
+      <div class="service">
+        <h3 lang="es">Diagnóstico ORA</h3><h3 lang="en">ORA assessment</h3>
+        <p lang="es">Evaluación de calidad, inocuidad y operación con un informe priorizado por riesgo.</p>
+        <p lang="en">Quality, food safety and operations assessment with a risk-prioritized report.</p>
+      </div>
+      <div class="service">
+        <h3 lang="es">Proyectos de mejora</h3><h3 lang="en">Improvement projects</h3>
+        <p lang="es">Implementación con PDCA + RACI, responsables claros y seguimiento a 30/60/90 días.</p>
+        <p lang="en">Implementation with PDCA + RACI, clear owners and 30/60/90-day follow-up.</p>
+      </div>
+      <div class="service">
+        <h3 lang="es">Indicadores y tableros</h3><h3 lang="en">KPIs and dashboards</h3>
+        <p lang="es">KPIs de inspecciones, no conformidades, retenciones y quejas, con tableros que la gerencia sí revisa.</p>
+        <p lang="en">KPIs for inspections, nonconformances, holds and complaints, on dashboards management actually uses.</p>
+      </div>
+      <div class="service">
+        <h3 lang="es">Inocuidad y trazabilidad</h3><h3 lang="en">Food safety and traceability</h3>
+        <p lang="es">Revisión de procesos de QA, trazabilidad y preparación para auditorías.</p>
+        <p lang="en">Review of QA processes, traceability and audit readiness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORA -->
+<section class="ora" id="ora">
+  <div class="wrap">
+    <div>
+      <h2 lang="es">ORA Diagnóstico</h2>
+      <h2 lang="en">ORA Assessment</h2>
+      <p lang="es">Mi plataforma digital para hacer el diagnóstico. Registra los datos de la planta, recoge el cuestionario estratégico y usa inteligencia artificial para cruzar las respuestas con los hallazgos de campo.</p>
+      <p lang="en">My digital platform for running the assessment. It records plant data, collects the strategic questionnaire and uses AI to cross the answers with field findings.</p>
+      <ul lang="es">
+        <li>Hallazgos clasificados por nivel de riesgo</li>
+        <li>Prioridades alineadas al objetivo del negocio</li>
+        <li>Plan de acción listo para ejecutar con PDCA + RACI</li>
+      </ul>
+      <ul lang="en">
+        <li>Findings ranked by risk level</li>
+        <li>Priorities aligned to business goals</li>
+        <li>Action plan ready to run with PDCA + RACI</li>
+      </ul>
+      <!-- CAMBIAR si ORA queda en otra dirección -->
+      <a class="btn btn-main" href="https://ora.jfsolutionsq.com"><span lang="es">Abrir ORA</span><span lang="en">Open ORA</span></a>
+    </div>
+    <div class="screen" aria-hidden="true">
+      <div class="screen-bar"><span></span><span></span><span></span></div>
+      <div class="risk">
+        <div><b lang="es">Perfil de riesgo</b><b lang="en">Risk profile</b><span></span></div>
+        <div><span lang="es">Contaminación cruzada en línea 2</span><span lang="en">Cross-contamination, line 2</span><span class="lvl l-crit"><span lang="es">CRÍTICO</span><span lang="en">CRITICAL</span></span></div>
+        <div><span lang="es">Registros de PCC incompletos</span><span lang="en">Incomplete CCP records</span><span class="lvl l-high"><span lang="es">ALTO</span><span lang="en">HIGH</span></span></div>
+        <div><span lang="es">Etiquetado de lotes en bodega</span><span lang="en">Lot labeling in storage</span><span class="lvl l-med"><span lang="es">MEDIO</span><span lang="en">MEDIUM</span></span></div>
+        <div><span lang="es">Orden y limpieza en empaque</span><span lang="en">Housekeeping in packing</span><span class="lvl l-low"><span lang="es">BAJO</span><span lang="en">LOW</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-card">
+      <p class="name">José Luis Forero Rodríguez</p>
+      <p class="role" lang="es">Fundador de JF Solutions</p>
+      <p class="role" lang="en">Founder, JF Solutions</p>
+      <ul class="facts">
+        <li><span class="k" lang="es">Experiencia</span><span class="k" lang="en">Experience</span><span class="v" lang="es">10 años en la industria</span><span class="v" lang="en">10 years in the industry</span></li>
+        <li><span class="k" lang="es">Especialidad</span><span class="k" lang="en">Focus</span><span class="v" lang="es">Calidad e inocuidad alimentaria</span><span class="v" lang="en">Quality and food safety</span></li>
+        <li><span class="k" lang="es">Idiomas</span><span class="k" lang="en">Languages</span><span class="v" lang="es">Español e inglés</span><span class="v" lang="en">Spanish and English</span></li>
+        <li><span class="k" lang="es">Ubicación</span><span class="k" lang="en">Based in</span><span class="v" lang="es">Nueva Jersey, EE. UU.</span><span class="v" lang="en">New Jersey, USA</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2 lang="es">Sobre mí</h2>
+      <h2 lang="en">About me</h2>
+      <p lang="es">Llevo 10 años trabajando en calidad e inocuidad alimentaria: inspecciones, trazabilidad, no conformidades, retenciones de producto y seguimiento de indicadores.</p>
+      <p lang="en">I've spent 10 years working in quality and food safety: inspections, traceability, nonconformances, product holds and KPI tracking.</p>
+      <p lang="es">Creé JF Solutions porque vi que muchos planes de mejora se quedan en el papel. Mi trabajo es que cada acción tenga un responsable, una fecha y una verificación real en el piso de planta.</p>
+      <p lang="en">I started JF Solutions because I saw too many improvement plans stay on paper. My job is to make sure every action has an owner, a date and real verification on the plant floor.</p>
+      <p lang="es">Trabajo en español y en inglés, para que la gerencia y el personal de piso entiendan lo mismo.</p>
+      <p lang="en">I work in Spanish and English, so management and floor staff understand the same thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section-white contact" id="contacto">
+  <div class="wrap">
+    <h2 lang="es">Hablemos de tu planta</h2>
+    <h2 lang="en">Let's talk about your plant</h2>
+    <p class="intro" lang="es">Cuéntame qué está pasando en tu operación y te digo cómo empezar.</p>
+    <p class="intro" lang="en">Tell me what's going on in your operation and I'll tell you where to start.</p>
+    <div class="contact-grid">
+      <a class="contact-link" href="https://wa.me/12012506729" target="_blank" rel="noopener">
+        <strong>WhatsApp</strong>
+        <span>+1 (201) 250-6729</span>
+      </a>
+      <a class="contact-link" href="https://www.instagram.com/jfsolutionsq" target="_blank" rel="noopener">
+        <strong>Instagram</strong>
+        <span>@jfsolutionsq</span>
+      </a>
+      <a class="contact-link" href="https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg" target="_blank" rel="noopener">
+        <strong>YouTube</strong>
+        <span lang="es">Videos y demostraciones</span><span lang="en">Videos and demos</span>
+      </a>
+      <a class="contact-link" href="https://www.fiverr.com/s/oddQWXV" target="_blank" rel="noopener">
+        <strong>Fiverr</strong>
+        <span lang="es">Contrata servicios en línea</span><span lang="en">Hire online services</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> JF Solutions</span>
+    <span lang="es">Calidad e inocuidad alimentaria · Nueva Jersey</span>
+    <span lang="en">Quality and food safety · New Jersey</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var buttons=document.querySelectorAll('.lang button');
+  function setLang(l){
+    root.setAttribute('data-lang',l);
+    root.setAttribute('lang',l);
+    buttons.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l?'true':'false');});
+    try{localStorage.setItem('jf-lang',l);}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem('jf-lang');}catch(e){}
+  if(saved==='es'||saved==='en'){setLang(saved);}
+  buttons.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
