@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Qué traes en las manos?</title>
+<meta name="description" content="Reto GMP interactivo de 2 minutos: tus manos bajo luz UV, 20 segundos de lavado y situaciones reales de planta. JF Solutions Industrial.">
+<link rel="canonical" href="https://www.jfsolutionsq.com/manos.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.jfsolutionsq.com/manos.html">
+<meta property="og:title" content="¿Qué traes en las manos? · Reto GMP">
+<meta property="og:description" content="Mira tus manos bajo luz UV, lávalas 20 segundos y saca tu puntaje. ¿Cuánto sacas tú?">
+<meta name="theme-color" content="#160f33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one vertical 9:16 "story" stage, scenes swap inside it; UV-lamp single dark theme by choice */
+:root{
+  --uv:#160f33; --uv-2:#221a4a; --uv-3:#2f2563;
+  --ink:#f1edff; --muted:#a79fd2;
+  --germ:#ff4fd8; --clean:#5ff2e0; --warn:#ffb547; --skin:#3b316f; --skin-edge:#5a4fa0;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--uv);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;
+  background-image:radial-gradient(120% 60% at 50% 0%, #2b1f66 0%, var(--uv) 60%)}
+.app{display:flex;justify-content:center;min-height:100%}
+.stage{width:100%;max-width:420px;min-height:min(780px,calc(100dvh - 24px));display:flex;flex-direction:column;gap:14px;
+  background:var(--uv-2);border:1px solid var(--uv-3);border-radius:28px;padding:16px 18px 18px;position:relative;overflow:hidden}
+.top{display:flex;flex-direction:column;gap:10px}
+.bars{display:flex;gap:4px}
+.bars span{flex:1;height:3px;border-radius:2px;background:var(--uv-3);overflow:hidden}
+.bars span i{display:block;height:100%;width:0;background:var(--ink);transition:width .4s}
+.bars span.done i{width:100%}
+.bars span.on i{width:100%;background:var(--clean)}
+.meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--uv-3);border-radius:99px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font:inherit;padding:4px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--uv)}
+.scene{flex:1;display:flex;flex-direction:column;gap:14px;animation:in .35s ease}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--clean)}
+h1,h2{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.08}
+h1{font-size:clamp(34px,10vw,44px);font-weight:800}
+h2{font-size:clamp(24px,7vw,30px);font-weight:700}
+p{margin:0;max-width:60ch}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.hand-wrap{position:relative;display:flex;justify-content:center;align-items:center;flex:1;min-height:220px}
+.hand{width:min(62vw,230px);height:auto;overflow:visible}
+.hand .skin{fill:var(--skin);stroke:var(--skin-edge);stroke-width:2}
+.germ{fill:var(--germ);filter:url(#glow);transition:opacity .5s, r .5s}
+.germ.gone{opacity:0}
+.lamp .hand .skin{fill:#2a2160}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip{display:flex;align-items:center;gap:10px;text-align:left;background:var(--uv);border:1.5px solid var(--uv-3);color:var(--ink);
+  border-radius:14px;padding:11px 12px;font:500 15px/1.2 var(--f-body);cursor:pointer;transition:border-color .2s,background .2s}
+.chip .dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--muted);flex:none}
+.chip[aria-pressed="true"]{border-color:var(--germ);background:#2c1648}
+.chip[aria-pressed="true"] .dot{background:var(--germ);border-color:var(--germ);box-shadow:0 0 10px var(--germ)}
+.chip.ok[aria-pressed="true"]{border-color:var(--clean);background:#123a44}
+.chip.ok[aria-pressed="true"] .dot{background:var(--clean);border-color:var(--clean);box-shadow:0 0 10px var(--clean)}
+.meter{display:flex;flex-direction:column;gap:6px}
+.meter-row{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.meter-row b{font-size:22px;color:var(--germ);font-variant-numeric:tabular-nums}
+.track{height:8px;border-radius:4px;background:var(--uv);overflow:hidden}
+.track i{display:block;height:100%;background:var(--germ);box-shadow:0 0 12px var(--germ);transition:width .3s}
+.bridge{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bridge div{background:var(--uv);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px}
+.bridge small{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.bridge b{font-family:var(--f-display);font-size:16px;font-weight:700}
+.bridge div:last-child b{color:var(--germ)}
+.note{border-left:2px solid var(--clean);padding-left:10px;font-size:13px;color:var(--muted)}
+.nav{display:flex;gap:10px;margin-top:auto}
+.btn{flex:1;border:0;border-radius:16px;padding:15px 16px;font:700 16px var(--f-body);cursor:pointer;background:var(--ink);color:var(--uv)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.ghost{flex:0 0 auto;background:transparent;color:var(--muted);border:1.5px solid var(--uv-3)}
+.btn.clean{background:var(--clean);color:#06232a}
+button:focus-visible,input:focus-visible{outline:3px solid var(--clean);outline-offset:2px}
+.timer{white-space:nowrap;flex:none;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:36px;font-weight:700;line-height:1;color:var(--clean)}
+.timer small{font-size:14px;color:var(--muted);margin-left:4px}
+.wash-head{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:13px;color:var(--muted)}
+.steps li{display:flex;gap:6px;align-items:center}
+.steps li::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--uv-3);flex:none}
+.steps li.now{color:var(--ink);font-weight:700}
+.steps li.now::before{border-color:var(--clean)}
+.steps li.ok{color:var(--clean)}
+.steps li.ok::before{background:var(--clean);border-color:var(--clean)}
+.scrub{width:100%;border:0;border-radius:18px;padding:20px;font:700 17px var(--f-body);cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;
+  background:repeating-linear-gradient(45deg,#e9fffb 0 12px,#d2fbf5 12px 24px);color:#06232a}
+.scrub.active{background-size:200% 200%;animation:foam .6s linear infinite;box-shadow:0 0 0 4px #5ff2e055}
+@keyframes foam{from{background-position:0 0}to{background-position:34px 0}}
+.bubbles .b{position:absolute;border-radius:50%;border:1.5px solid #e9fffbaa;animation:rise 1.6s ease-out forwards;pointer-events:none}
+@keyframes rise{from{transform:translateY(0) scale(.6);opacity:1}to{transform:translateY(-120px) scale(1.2);opacity:0}}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts .chip{grid-template-columns:none}
+.feedback{border-radius:14px;padding:12px 14px;font-size:14px;background:var(--uv)}
+.feedback.good{border:1.5px solid var(--clean)}
+.feedback.bad{border:1.5px solid var(--warn)}
+.feedback b{display:block;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.feedback.good b{color:var(--clean)} .feedback.bad b{color:var(--warn)}
+.q-count{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.scenario{font-family:var(--f-display);font-size:19px;font-weight:500;line-height:1.3;background:var(--uv);border-radius:18px;padding:18px}
+.score{display:flex;align-items:baseline;gap:8px}
+.score b{font-family:var(--f-display);font-size:64px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:var(--clean)}
+.rows{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.rows div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--uv-3);padding-bottom:6px}
+.rows span:last-child{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+label{font-size:13px;color:var(--muted)}
+input[type=text]{width:100%;background:var(--uv);border:1.5px solid var(--uv-3);border-radius:12px;color:var(--ink);font:500 16px var(--f-body);padding:11px 12px}
+.cert{border:1.5px solid var(--clean);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:6px;background:linear-gradient(160deg,#123a44,var(--uv) 70%)}
+.cert small{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clean)}
+.cert strong{font-family:var(--f-display);font-size:22px;word-break:break-word}
+.reg{font-size:11px;color:var(--muted);font-family:var(--f-mono);line-height:1.5}
+.sharebox{font-size:13px;background:var(--uv);border-radius:12px;padding:10px 12px;color:var(--muted);user-select:all}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="app"><main class="stage" id="stage" aria-live="polite"></main></div>
+
+<script>
+const T={
+es:{brand:"JF Solutions · Industrial",hook_eyebrow:"Reto GMP · 2 minutos",hook_title:"¿Qué traes en las manos?",
+hook_body:"Antes de llegar a la línea, tus manos ya vivieron todo un día. Vamos a verlo con luz UV.",start:"Empezar el reto",
+day_title:"Esta mañana tocaste…",day_body:"Marca todo lo que tocaste desde que te levantaste.",
+obj:{phone:"Tu celular",door:"Manijas y puertas",cash:"Dinero",wheel:"Volante o tubo del bus",pet:"Tu mascota",restroom:"El baño",raw:"Carne o huevo crudo",face:"Tu cara o tu pelo"},
+load:"Carga en tus manos",units:"unidades ilustrativas",
+uv_title:"Ahora, con luz UV",uv_body:"Así se ve lo que no se ve. En casa contaminas un sándwich. En la planta, un turno entero de producto.",
+home:"En casa",home_v:"1 sándwich",plant:"En la planta",plant_v:"Miles de empaques por turno",
+uv_note:"En capacitaciones GMP se usa una loción fluorescente y una lámpara UV para mostrar exactamente esto.",
+prep_title:"Antes del jabón",prep_body:"En el área de proceso no entra joyería: acumula suciedad y puede caer al producto. Toca cada pieza para quitártela.",
+jw:{ring:"Anillo",watch:"Reloj",bracelet:"Pulsera"},prep_done:"Manos listas. Uñas cortas, limpias y sin esmalte.",
+wash_title:"Lávalas en serio",wash_body:"Mantén presionado para frotar con jabón. La meta: 20 segundos de frote.",
+hold:"Mantén presionado para frotar",scrubbing:"Frotando…",rinse:"Enjuagar y seguir",sec:"seg",
+steps:["Palma con palma","Palma sobre dorso","Entre los dedos","Dorso de los dedos","Pulgares","Yemas y uñas","Muñecas"],
+dry_title:"¿Con qué te secas?",
+dry:{towel:"Toalla de papel desechable",apron:"Mi uniforme o delantal",shake:"Sacudo las manos y listo"},
+dry_fb:{towel:"Úsala también para cerrar la llave si no es de pedal o sensor.",apron:"El uniforme ya está sucio. Acabas de deshacer el lavado.",shake:"Gotas por todo el piso y las manos siguen húmedas. Sécalas por completo con toalla desechable."},
+good:"Correcto",bad:"Ojo",quiz_title:"¿Te lavas otra vez?",yes:"Sí, me lavo",no:"No hace falta",
+qs:[
+["Ya te lavaste en el baño de la cafetería. Vuelves del descanso a la línea.",1,"Cada vez que regresas al área, te lavas en la estación de esa área. El pasillo también cuenta."],
+["En la línea, te acomodas la cofia y el pelo.",1,"Tocaste el pelo. Lávate antes de tocar producto o superficies de contacto."],
+["Vas a ponerte guantes nuevos.",1,"Los guantes no reemplazan el lavado. Manos limpias, luego guantes; cámbialos si se ensucian o rompen."],
+["Te lavaste, te secaste con toalla desechable y caminaste directo a tu puesto sin tocar nada.",0,"Bien. Si no tocaste nada en el camino, tus manos siguen listas."],
+["Contestaste un mensaje en el celular durante el turno.",1,"El celular va contigo a todas partes. Muchas plantas no lo permiten en proceso; si lo tocaste, lávate."]],
+result_title:"Tu resultado",rows:["Joyería","Lavado de 20 s","Secado","Situaciones"],
+lvl:["Repite el reto antes de entrar a la línea","Casi listo para la línea","Nivel línea limpia"],
+name_label:"Tu nombre para el certificado",name_ph:"Ej. Ana Rodríguez",cert_head:"Certificado · Manos limpias",
+cert_line:"completó el reto GMP de lavado de manos",anon:"Tu nombre aquí",
+share:"Copiar texto para compartir",copied:"Copiado",select:"Texto seleccionado. Cópialo manualmente.",retry:"Hacer el reto otra vez",
+share_text:s=>`Saqué ${s}/100 en el reto "¿Qué traes en las manos?" de JF Solutions. 20 segundos de frote, sin joyería, toalla desechable. ¿Tú cuánto sacas?`,
+reg:"Base regulatoria: FDA 21 CFR 117.10(b)(3) — lavado de manos antes de empezar a trabajar, después de cada ausencia y cada vez que puedan haberse ensuciado.",
+next:"Siguiente",back:"Atrás",site:"Conoce JF Solutions"},
+en:{brand:"JF Solutions · Industrial",hook_eyebrow:"GMP challenge · 2 minutes",hook_title:"What's on your hands?",
+hook_body:"Before you reach the line, your hands have already lived a whole day. Let's look at it under UV light.",start:"Start the challenge",
+day_title:"This morning you touched…",day_body:"Tap everything you touched since you woke up.",
+obj:{phone:"Your phone",door:"Handles and doors",cash:"Cash",wheel:"Steering wheel or bus pole",pet:"Your pet",restroom:"The restroom",raw:"Raw meat or eggs",face:"Your face or hair"},
+load:"Load on your hands",units:"illustrative units",
+uv_title:"Now, under UV light",uv_body:"This is what you can't see. At home you contaminate one sandwich. At the plant, a whole shift of product.",
+home:"At home",home_v:"1 sandwich",plant:"At the plant",plant_v:"Thousands of packages per shift",
+uv_note:"GMP trainings use a fluorescent lotion and a UV lamp to show exactly this.",
+prep_title:"Before the soap",prep_body:"No jewelry in processing areas: it traps dirt and can fall into product. Tap each piece to take it off.",
+jw:{ring:"Ring",watch:"Watch",bracelet:"Bracelet"},prep_done:"Hands ready. Nails short, clean and unpolished.",
+wash_title:"Wash for real",wash_body:"Press and hold to scrub with soap. Goal: 20 seconds of scrubbing.",
+hold:"Press and hold to scrub",scrubbing:"Scrubbing…",rinse:"Rinse and continue",sec:"sec",
+steps:["Palm to palm","Palm over back","Between fingers","Backs of fingers","Thumbs","Fingertips and nails","Wrists"],
+dry_title:"What do you dry with?",
+dry:{towel:"Disposable paper towel",apron:"My uniform or apron",shake:"I shake them off"},
+dry_fb:{towel:"Also use it to turn off the faucet if it isn't foot- or sensor-operated.",apron:"Your uniform is already dirty. You just undid the wash.",shake:"Drops all over the floor and your hands are still wet. Dry them completely with a paper towel."},
+good:"Correct",bad:"Careful",quiz_title:"Do you wash again?",yes:"Yes, I wash",no:"Not needed",
+qs:[
+["You already washed in the cafeteria restroom. You're back from break to the line.",1,"Every time you return to the area, wash at that area's station. The hallway counts too."],
+["On the line, you adjust your hairnet and hair.",1,"You touched your hair. Wash before touching product or contact surfaces."],
+["You're about to put on new gloves.",1,"Gloves don't replace washing. Clean hands, then gloves; change them if they get dirty or torn."],
+["You washed, dried with a paper towel and walked straight to your station touching nothing.",0,"Good. If you touched nothing on the way, your hands are still ready."],
+["You answered a text on your phone during the shift.",1,"Your phone goes everywhere with you. Many plants ban it in processing; if you touched it, wash."]],
+result_title:"Your result",rows:["Jewelry","20-second wash","Drying","Situations"],
+lvl:["Retake the challenge before entering the line","Almost ready for the line","Clean-line level"],
+name_label:"Your name for the certificate",name_ph:"e.g. Ana Rodríguez",cert_head:"Certificate · Clean hands",
+cert_line:"completed the GMP handwashing challenge",anon:"Your name here",
+share:"Copy text to share",copied:"Copied",select:"Text selected. Copy it manually.",retry:"Take the challenge again",
+share_text:s=>`I scored ${s}/100 on JF Solutions' "What's on your hands?" challenge. 20 seconds of scrubbing, no jewelry, paper towel. What's your score?`,
+reg:"Regulatory basis: FDA 21 CFR 117.10(b)(3) — wash hands before starting work, after each absence, and any time they may have become soiled.",
+next:"Next",back:"Back",site:"Visit JF Solutions"}};
+
+const OBJ={phone:18,door:12,cash:14,wheel:10,pet:16,restroom:20,raw:22,face:8};
+const SCENES=["hook","day","uv","prep","wash","dry","quiz","result"];
+const STEP_SEC=3, GOAL=21;
+const S={lang:"es",i:0,picked:new Set(),germs:[],jewel:new Set(),scrub:0,dry:null,qi:0,ans:[],name:""};
+try{const l=localStorage.getItem("jf-manos-lang");if(l==="en"||l==="es")S.lang=l}catch(e){}
+const t=()=>T[S.lang];
+const stage=document.getElementById("stage");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const load=()=>[...S.picked].reduce((a,k)=>a+OBJ[k],0);
+
+// Hand geometry (SVG units) — germs are seeded inside these boxes
+const BOXES=[[44,112,112,120],[50,36,20,84],[80,18,22,100],[112,30,20,88],[142,62,16,70],[14,128,22,52]];
+function seedGerms(){
+  const n=Math.min(90,6+Math.round(load()*0.75));S.germs=[];
+  let seed=load()*97+S.picked.size*13+7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+  for(let k=0;k<n;k++){const b=BOXES[k%5===0?0:Math.floor(rnd()*BOXES.length)];
+    S.germs.push({x:b[0]+rnd()*b[2],y:b[1]+rnd()*b[3],r:1.8+rnd()*3.2})}
+}
+function handSVG(removed=0){
+  const g=S.germs.map((p,k)=>`<circle class="germ${k<removed?" gone":""}" data-k="${k}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}"/>`).join("");
+  return `<svg class="hand" viewBox="0 0 200 260" role="img" aria-label="hand">
+  <defs><filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <g><rect class="skin" x="10" y="122" width="28" height="84" rx="14" transform="rotate(-32 24 164)"/>
+  <rect class="skin" x="46" y="30" width="26" height="104" rx="13"/><rect class="skin" x="78" y="12" width="28" height="112" rx="14"/>
+  <rect class="skin" x="110" y="24" width="26" height="104" rx="13"/><rect class="skin" x="140" y="56" width="22" height="82" rx="11"/>
+  <rect class="skin" x="40" y="106" width="124" height="140" rx="44"/></g>${g}</svg>`;
+}
+function removedNow(){return Math.floor(S.germs.length*Math.min(1,S.scrub/GOAL))}
+function score(){
+  const j=Math.round(S.jewel.size/3*15), w=S.scrub>=GOAL?35:Math.round(S.scrub/GOAL*35),
+  d=S.dry==="towel"?10:0, q=S.ans.filter((a,k)=>a===t().qs[k][1]).length*8;
+  return {j,w,d,q,total:j+w+d+q};
+}
+const canNext={hook:()=>true,day:()=>S.picked.size>0,uv:()=>true,prep:()=>S.jewel.size===3,wash:()=>S.scrub>=GOAL,dry:()=>!!S.dry,quiz:()=>S.ans.length===5,result:()=>false};
+
+const V={
+hook:L=>`<div class="eyebrow">${L.hook_eyebrow}</div><h1>${L.hook_title}</h1><p class="muted">${L.hook_body}</p>
+  <div class="hand-wrap lamp">${handSVG()}</div>
+  <div class="nav"><button class="btn clean" data-go="next">${L.start}</button></div>`,
+day:L=>`<h2>${L.day_title}</h2><p class="muted">${L.day_body}</p>
+  <div class="chips">${Object.keys(OBJ).map(k=>`<button class="chip" data-obj="${k}" aria-pressed="${S.picked.has(k)}"><span class="dot"></span>${L.obj[k]}</button>`).join("")}</div>
+  <div class="meter"><div class="meter-row"><span>${L.load}</span><span><b id="ld">${load()}</b> ${L.units}</span></div><div class="track"><i id="lt" style="width:${Math.min(100,load()/120*100)}%"></i></div></div>
+  ${nav()}`,
+uv:L=>`<div class="eyebrow">UV · 365 nm</div><h2>${L.uv_title}</h2>
+  <div class="hand-wrap lamp">${handSVG()}</div><p>${L.uv_body}</p>
+  <div class="bridge"><div><small>${L.home}</small><b>${L.home_v}</b></div><div><small>${L.plant}</small><b>${L.plant_v}</b></div></div>
+  <p class="note">${L.uv_note}</p>${nav()}`,
+prep:L=>`<h2>${L.prep_title}</h2><p class="muted">${L.prep_body}</p>
+  <div class="opts">${Object.keys(L.jw).map(k=>`<button class="chip ok" data-jw="${k}" aria-pressed="${S.jewel.has(k)}"><span class="dot"></span>${S.jewel.has(k)?"✓ ":""}${L.jw[k]}</button>`).join("")}</div>
+  ${S.jewel.size===3?`<div class="feedback good"><b>${L.good}</b>${L.prep_done}</div>`:""}
+  <div class="hand-wrap lamp" style="min-height:160px">${handSVG()}</div>${nav()}`,
+wash:L=>`<div class="wash-head"><h2>${L.wash_title}</h2><div class="timer"><span id="tm">${Math.min(S.scrub,GOAL).toFixed(1)}</span><small>/ 20 ${L.sec}</small></div></div>
+  <p class="muted small">${L.wash_body}</p>
+  <ol class="steps" id="steps">${L.steps.map((s,k)=>`<li>${s}</li>`).join("")}</ol>
+  <div class="hand-wrap lamp bubbles" id="hw" style="min-height:190px">${handSVG(removedNow())}</div>
+  <button class="scrub" id="scrub" aria-label="${L.hold}">${L.hold}</button>
+  <div class="nav"><button class="btn ghost" data-go="back">${L.back}</button><button class="btn clean" data-go="next" id="nx" ${S.scrub>=GOAL?"":"disabled"}>${L.rinse}</button></div>`,
+dry:L=>`<h2>${L.dry_title}</h2><div class="opts">${Object.keys(L.dry).map(k=>`<button class="chip ${k==="towel"?"ok":""}" data-dry="${k}" aria-pressed="${S.dry===k}"><span class="dot"></span>${L.dry[k]}</button>`).join("")}</div>
+  ${S.dry?`<div class="feedback ${S.dry==="towel"?"good":"bad"}"><b>${S.dry==="towel"?L.good:L.bad}</b>${L.dry_fb[S.dry]}</div>`:""}
+  <div class="hand-wrap" style="min-height:150px">${handSVG(S.germs.length)}</div>${nav()}`,
+quiz:L=>{const q=L.qs[S.qi],a=S.ans[S.qi];const ok=a===q[1];
+  return `<div class="wash-head"><h2>${L.quiz_title}</h2><span class="q-count">${S.qi+1} / 5</span></div>
+  <div class="scenario">${q[0]}</div>
+  <div class="opts"><button class="chip ok" data-a="1" aria-pressed="${a===1}"><span class="dot"></span>${L.yes}</button>
+  <button class="chip" data-a="0" aria-pressed="${a===0}"><span class="dot"></span>${L.no}</button></div>
+  ${a!==undefined?`<div class="feedback ${ok?"good":"bad"}"><b>${ok?L.good:L.bad}</b>${q[2]}</div>`:""}
+  <div class="nav"><button class="btn ghost" data-go="back">${L.back}</button><button class="btn" data-go="qnext" ${a===undefined?"disabled":""}>${L.next}</button></div>`},
+result:L=>{const s=score();const lv=s.total>=90?2:s.total>=70?1:0;const d=new Date().toLocaleDateString(S.lang==="es"?"es-US":"en-US",{year:"numeric",month:"long",day:"numeric"});
+  return `<div class="eyebrow">${L.result_title}</div><div class="score"><b>${s.total}</b><span class="muted">/ 100</span></div>
+  <p><strong>${L.lvl[lv]}</strong></p>
+  <div class="rows">${[[s.j,15],[s.w,35],[s.d,10],[s.q,40]].map((v,k)=>`<div><span>${L.rows[k]}</span><span>${v[0]} / ${v[1]}</span></div>`).join("")}</div>
+  <label for="nm">${L.name_label}</label><input type="text" id="nm" maxlength="40" placeholder="${L.name_ph}" value="${esc(S.name)}">
+  <div class="cert"><small>${L.cert_head}</small><strong id="cn">${esc(S.name)||L.anon}</strong><span class="small">${L.cert_line} · ${s.total}/100</span><span class="small muted">${d} · JF Solutions Industrial</span></div>
+  <div class="sharebox" id="sh">${esc(L.share_text(s.total))}</div>
+  <button class="btn clean" id="cp">${L.share}</button>
+  <p class="reg">${L.reg}</p>
+  <div class="nav"><button class="btn ghost" data-go="reset">${L.retry}</button></div>
+  <a class="btn" href="/" style="text-align:center;text-decoration:none">${L.site}</a>`}
+};
+function nav(){const L=t(),n=SCENES[S.i];return `<div class="nav">${S.i>0?`<button class="btn ghost" data-go="back">${L.back}</button>`:""}<button class="btn" data-go="next" ${canNext[n]()?"":"disabled"}>${L.next}</button></div>`}
+
+function render(){
+  const L=t(),name=SCENES[S.i];
+  stage.innerHTML=`<div class="top"><div class="bars">${SCENES.map((_,k)=>`<span class="${k<S.i?"done":k===S.i?"on":""}"><i></i></span>`).join("")}</div>
+  <div class="meta"><span>${L.brand}</span><div class="lang" role="group" aria-label="Idioma / Language"><button data-lang="es" aria-pressed="${S.lang==="es"}">ES</button><button data-lang="en" aria-pressed="${S.lang==="en"}">EN</button></div></div></div>
+  <section class="scene">${V[name](L)}</section>`;
+  if(name==="wash")bindWash();
+  if(name==="result")bindResult();
+}
+stage.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+  if(d.lang){S.lang=d.lang;try{localStorage.setItem("jf-manos-lang",S.lang)}catch(e){}render();return}
+  if(d.obj){S.picked.has(d.obj)?S.picked.delete(d.obj):S.picked.add(d.obj);seedGerms();render();return}
+  if(d.jw){S.jewel.add(d.jw);render();return}
+  if(d.dry){S.dry=d.dry;render();return}
+  if(d.a!==undefined){S.ans[S.qi]=+d.a;render();return}
+  if(d.go==="next"&&canNext[SCENES[S.i]]()){S.i++;render();stage.scrollIntoView({block:"start"})}
+  else if(d.go==="back"){if(SCENES[S.i]==="quiz"&&S.qi>0)S.qi--;else S.i--;render()}
+  else if(d.go==="qnext"){if(S.qi<4)S.qi++;else S.i++;render()}
+  else if(d.go==="reset"){Object.assign(S,{i:0,picked:new Set(),germs:[],jewel:new Set(),scrub:0,dry:null,qi:0,ans:[]});seedGerms();render()}
+});
+
+let raf=null,last=0;
+function bindWash(){
+  const btn=document.getElementById("scrub"),L=t();
+  const paint=()=>{
+    document.getElementById("tm").textContent=Math.min(S.scrub,GOAL).toFixed(1);
+    const cur=Math.min(6,Math.floor(S.scrub/STEP_SEC));
+    document.querySelectorAll("#steps li").forEach((li,k)=>{li.className=S.scrub>=(k+1)*STEP_SEC?"ok":k===cur?"now":""});
+    const rm=removedNow();document.querySelectorAll("#hw .germ").forEach(c=>c.classList.toggle("gone",+c.dataset.k<rm));
+    if(S.scrub>=GOAL){document.getElementById("nx").disabled=false;stop()}
+  };
+  const loop=ts=>{if(last)S.scrub+=Math.min(.1,(ts-last)/1000);last=ts;
+    if(Math.random()<.25)bubble();paint();if(S.scrub<GOAL)raf=requestAnimationFrame(loop)};
+  const start=e=>{e.preventDefault();if(S.scrub>=GOAL||raf)return;btn.classList.add("active");btn.textContent=L.scrubbing;last=0;raf=requestAnimationFrame(loop)};
+  const stop=()=>{if(raf)cancelAnimationFrame(raf);raf=null;btn.classList.remove("active");btn.textContent=L.hold};
+  btn.addEventListener("pointerdown",start);["pointerup","pointerleave","pointercancel"].forEach(ev=>btn.addEventListener(ev,stop));
+  btn.addEventListener("keydown",e=>{if((e.key===" "||e.key==="Enter")&&!e.repeat)start(e)});
+  btn.addEventListener("keyup",e=>{if(e.key===" "||e.key==="Enter")stop()});
+  paint();
+}
+function bubble(){const hw=document.getElementById("hw");if(!hw)return;const b=document.createElement("span");b.className="b";
+  const s=6+Math.random()*16;Object.assign(b.style,{width:s+"px",height:s+"px",left:(20+Math.random()*60)+"%",top:(40+Math.random()*45)+"%"});
+  hw.appendChild(b);setTimeout(()=>b.remove(),1700)}
+function bindResult(){
+  const L=t(),nm=document.getElementById("nm");
+  nm.addEventListener("input",()=>{S.name=nm.value;document.getElementById("cn").textContent=S.name||L.anon});
+  document.getElementById("cp").addEventListener("click",ev=>{
+    const txt=L.share_text(score().total),btn=ev.currentTarget;
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("sh"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);btn.textContent=L.select};
+    try{navigator.clipboard.writeText(txt).then(()=>{btn.textContent=L.copied},fallback)}catch(e){fallback()}
+  });
+}
+// Sample state so the first frame shows the concept: two typical morning touches, glowing under UV
+S.picked=new Set(["phone","door"]);seedGerms();
+render();
+</script>
+</body>
+</html>

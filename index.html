@@ -131,6 +131,17 @@ h2{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:clamp(3
 .l-med{background:var(--tag);color:var(--ink)}
 .l-low{background:var(--release);color:#fff}
 
+/* reto GMP */
+.reto .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.reto p{color:var(--ink-soft);max-width:36em;margin:0 0 16px}
+.reto ul{margin:0 0 28px;padding-left:20px}
+.reto li{margin-bottom:6px}
+.uv{background:#160f33;color:#f1edff;border:2px solid var(--ink);border-radius:10px;padding:26px;box-shadow:10px 10px 0 var(--ink);display:grid;gap:10px}
+.uv small{font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#5ff2e0}
+.uv strong{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:30px;line-height:1.05}
+.uv strong em{font-style:normal;color:#ff4fd8;text-shadow:0 0 14px #ff4fd8}
+.uv span{color:#a79fd2;font-size:15px}
+
 /* sobre mí */
 .about .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
 .about-card{background:var(--white);border:2px solid var(--ink);border-radius:10px;padding:28px}
@@ -162,7 +173,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 /* responsive */
 @media (max-width:900px){
   .nav a{display:none}
-  .hero .wrap,.ora .wrap,.about .wrap{grid-template-columns:1fr;gap:44px}
+  .hero .wrap,.ora .wrap,.about .wrap,.reto .wrap{grid-template-columns:1fr;gap:44px}
   .priorities{grid-template-columns:1fr 1fr}
   .priorities li:nth-child(2){border-right:0}
   .priorities li:nth-child(-n+2){border-bottom:2px solid var(--ink)}
@@ -194,6 +205,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <nav class="nav" aria-label="Principal">
       <a href="#metodo"><span lang="es">Método</span><span lang="en">Method</span></a>
       <a href="#servicios"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <a href="#reto-gmp"><span lang="es">Reto GMP</span><span lang="en">GMP challenge</span></a>
       <a href="#ora">ORA</a>
       <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
       <div class="lang" role="group" aria-label="Idioma / Language">
@@ -344,6 +356,40 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
         <p lang="es">Revisión de procesos de QA, trazabilidad y preparación para auditorías.</p>
         <p lang="en">Review of QA processes, traceability and audit readiness.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETO GMP -->
+<section class="reto" id="reto-gmp">
+  <div class="wrap">
+    <div>
+      <h2 lang="es">Reto GMP: ¿Qué traes en las manos?</h2>
+      <h2 lang="en">GMP challenge: What's on your hands?</h2>
+      <p lang="es">Un entrenamiento interactivo de 2 minutos sobre lavado de manos. Conecta lo que tocas en tu día con lo que pasa en la línea de producción.</p>
+      <p lang="en">A 2-minute interactive handwashing training. It connects what you touch every day with what happens on the production line.</p>
+      <ul lang="es">
+        <li>Tus manos bajo luz UV</li>
+        <li>20 segundos de frote, paso a paso</li>
+        <li>Situaciones reales de planta y certificado con puntaje</li>
+      </ul>
+      <ul lang="en">
+        <li>Your hands under UV light</li>
+        <li>20 seconds of scrubbing, step by step</li>
+        <li>Real plant situations and a scored certificate</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-main" href="manos.html"><span lang="es">Haz el reto GMP</span><span lang="en">Take the GMP challenge</span></a>
+        <a class="btn btn-ghost" href="#contacto"><span lang="es">Llévalo a tu planta</span><span lang="en">Bring it to your plant</span></a>
+      </div>
+    </div>
+    <div class="uv" role="img" aria-label="Reto GMP de lavado de manos / GMP handwashing challenge">
+      <small lang="es">Reto GMP · 2 minutos · ES / EN</small>
+      <small lang="en">GMP challenge · 2 minutes · ES / EN</small>
+      <strong lang="es">¿Qué traes en las <em>manos</em>?</strong>
+      <strong lang="en">What's on your <em>hands</em>?</strong>
+      <span lang="es">En casa contaminas un sándwich. En la planta, un turno entero de producto.</span>
+      <span lang="en">At home you contaminate one sandwich. At the plant, a whole shift of product.</span>
     </div>
   </div>
 </section>
