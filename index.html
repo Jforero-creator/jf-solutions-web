@@ -178,7 +178,8 @@ h3{text-wrap:balance}
 .priorities li:first-child h3{color:var(--ivory)}
 .priorities li:first-child p{color:var(--mist)}
 .priorities li:last-child{border-right:0}
-.p-num{font:800 52px/1 var(--display);color:var(--gold);display:block;margin-bottom:14px}
+.p-num{font:800 52px/1 var(--display);color:var(--paper-ink);display:block;margin-bottom:14px}
+.priorities li:first-child .p-num{color:var(--gold)}
 .priorities h3{font:800 22px/1.12 var(--display);margin:0 0 8px}
 .priorities p{margin:0;font-size:15px}
 .note{margin:22px 0 0;font-weight:700;color:var(--paper-ink)!important}
@@ -359,7 +360,8 @@ details[open] .svc-plus{transform:rotate(45deg);background:var(--gold);color:var
   .quick{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
   .quick a{text-decoration:none;font:600 14px var(--body);border:1px solid var(--line);border-radius:999px;padding:8px 13px;white-space:nowrap}
   .quick a:first-child{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
-  .pause{display:none}
+  .areas-head{align-items:center}
+  .pause{padding:8px 12px;font-size:12px}
   .panels{flex-direction:column;height:auto;gap:12px}
   .p,.p.on{flex:none;height:auto;min-height:380px;border-color:var(--line)}
   .p[data-d="0"]{min-height:410px;border-color:var(--gold)}
@@ -413,6 +415,34 @@ details[open] .svc-plus{transform:rotate(45deg);background:var(--gold);color:var
   .reto-card{grid-template-columns:1fr;padding:24px}
   .about-card::after{font-size:150px}
 }
+@media (max-width:640px){
+  .hero{padding:28px 0 8px}
+  .hero .wrap{gap:28px}
+  .eyebrow{margin-bottom:12px}
+  h1{font-size:clamp(34px,9.6vw,44px);margin-bottom:14px}
+  .lead{font-size:16px;margin-bottom:20px}
+  .hero .btn-ghost{display:none}
+  .hero .btn-main{width:100%}
+  .tag{max-width:none;padding:16px 16px 14px 32px;transform:rotate(1deg);box-shadow:6px 6px 0 rgba(224,180,90,.25)}
+  .tag-title{font-size:24px}
+  .tag dl{font-size:13.5px;gap:6px 12px}
+  .tag-foot{display:none}
+  .areas{padding:28px 0 48px}
+  .areas-head{margin-bottom:12px}
+  .areas-head h2{font-size:26px}
+  .areas-head p{font-size:15px;margin-top:4px}
+  .quick{gap:6px;margin-bottom:12px}
+  .quick a{font-size:13px;padding:7px 11px}
+  .panels{gap:10px}
+  .p,.p.on{min-height:270px;border-radius:20px}
+  .p[data-d="0"]{min-height:300px}
+  .p .art,.p.on .art{top:38px;width:min(36%,150px)}
+  .p .ptag{top:16px;left:18px;right:18px}
+  .p .copy{padding:16px 18px 18px;gap:9px}
+  .p .q{font-size:clamp(23px,6.4vw,28px)}
+  .chips > span{font-size:12px;padding:4px 9px}
+  .enter{padding:10px 15px;font-size:15px}
+}
 @media (max-width:380px){.mbar{grid-template-columns:1fr 1fr}.mbar .m-areas{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.n2,.n1{display:none}}
 </style>
@@ -452,8 +482,8 @@ details[open] .svc-plus{transform:rotate(45deg);background:var(--gold);color:var
       <p class="eyebrow mono"><span lang="es">Calidad e inocuidad · Nueva Jersey</span><span lang="en">Quality &amp; food safety · New Jersey</span></p>
       <h1 lang="es">Calidad e inocuidad que se verifican <em class="g">en el piso de planta,</em> no solo en papel.</h1>
       <h1 lang="en">Quality and food safety verified <em class="g">on the plant floor,</em> not just on paper.</h1>
-      <p class="lead" lang="es">Ayudo a plantas procesadoras de alimentos y bebidas a entender su realidad, priorizar lo que de verdad importa y cerrar cada acción con evidencia. Ese mismo rigor lo llevo a pequeños negocios, marcas y personas que buscan empleo.</p>
-      <p class="lead" lang="en">I help food and beverage processing plants understand where they really stand, prioritize what matters and close every action with evidence. I bring that same rigor to small businesses, brands and job seekers.</p>
+      <p class="lead" lang="es">Ayudo a plantas de alimentos y bebidas a priorizar lo que importa y cerrar cada acción con evidencia. El mismo rigor, aplicado a tu negocio, tu marca y tu carrera.</p>
+      <p class="lead" lang="en">I help food and beverage plants prioritize what matters and close every action with evidence. The same rigor, applied to your business, your brand and your career.</p>
       <div class="actions">
         <a class="btn btn-main" href="#contacto" data-div="industrial"><span lang="es">Agenda un diagnóstico</span><span lang="en">Book an assessment</span></a>
         <a class="btn btn-ghost" href="#divisiones"><span lang="es">Ver las cuatro divisiones</span><span lang="en">See all four divisions</span></a>
@@ -486,8 +516,8 @@ details[open] .svc-plus{transform:rotate(45deg);background:var(--gold);color:var
     <div class="areas-head">
       <div>
         <h2><span lang="es">Cuatro divisiones, <em class="g">un mismo</em> estándar</span><span lang="en">Four divisions, <em class="g">one</em> standard</span></h2>
-        <p lang="es">Industrial es la base. Las otras tres aplican el mismo método a tu negocio, tu marca y tu carrera.</p>
-        <p lang="en">Industrial is the foundation. The other three apply the same method to your business, your brand and your career.</p>
+        <p lang="es">Elige la tuya. Industrial es la base; las otras tres usan el mismo método.</p>
+        <p lang="en">Pick yours. Industrial is the foundation; the other three use the same method.</p>
       </div>
       <button class="pause" type="button" id="pause" aria-pressed="false">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
@@ -1049,7 +1079,7 @@ details[open] .svc-plus{transform:rotate(45deg);background:var(--gold);color:var
   function jump(el){el.scrollIntoView({behavior:'instant',block:'start'});setTimeout(function(){el.scrollIntoView({behavior:'instant',block:'start'});},350);}
   function onHash(){
     var h=location.hash.slice(1);
-    document.title=DIV[h]?DIV[h].es+' | JF Solutions':'JF Solutions | Industria, negocios, marca y carrera';
+    document.title=DIV[h]?DIV[h].es+' | JF Solutions':(L()==='en'?'JF Solutions | Plant-floor quality and food safety, business, brand and career':'JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera');
     if(DIV[h]){window.scrollTo(0,0);return;}
     if(pending){fillForm(pending.div,pending.svc);pending=null;}
     var el=h&&document.getElementById(h);
