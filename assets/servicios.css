@@ -1,0 +1,128 @@
+/* Páginas de servicio de JF Solutions — se cargan después de site.css (misma identidad navy + dorado). */
+
+/* Enlace para saltar al contenido (teclado) */
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:var(--gold);color:var(--on-gold);font-weight:700;padding:10px 14px;border-radius:10px;text-decoration:none}
+.skip:focus{top:10px}
+
+/* Selector de idioma con enlaces reales a la página equivalente */
+.lang a{font:600 13px/1 var(--mono);padding:8px 11px;border-radius:999px;color:var(--mist);text-decoration:none}
+.lang a[aria-current="true"]{background:var(--ivory);color:var(--n9)}
+.lang a:hover{color:var(--ivory)}
+.lang a[aria-current="true"]:hover{color:var(--n9)}
+@media (max-width:1060px){.nav .lang a{display:inline-block!important}}
+
+/* Héroe de servicio */
+.svc-hero{position:relative;padding:40px 0 64px;overflow:hidden;
+  background:radial-gradient(60% 70% at 85% 10%,rgba(224,180,90,.14),transparent 70%),linear-gradient(var(--n8),var(--n9) 85%)}
+.svc-hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.svc-hero h1{font-size:clamp(34px,4.6vw,62px);line-height:1.02}
+.svc-hero .lead{margin-bottom:26px}
+.svc-hero figure{margin:0;position:relative}
+.svc-hero figure img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:22px;border:2px solid var(--gold);box-shadow:12px 12px 0 rgba(224,180,90,.22)}
+.crumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.crumb li+li::before{content:"/";margin-right:6px;color:var(--mist)}
+.crumb [aria-current="page"]{color:var(--ivory)}
+.chips.hero-chips{margin:0 0 26px}
+.hero-chips span{font:600 12px var(--mono);letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--gold2)}
+
+/* Secciones */
+.sec{padding:76px 0}
+.sec.navy{background:var(--n9)}
+.sec.navy2{background:var(--n8)}
+.sec h2{font-size:clamp(28px,3.6vw,46px)}
+.sec .intro{margin-bottom:36px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{background:var(--paper2);border:1px solid var(--pline);border-radius:18px;padding:22px 22px 20px}
+.card h3{font:800 21px/1.15 var(--display);margin:0 0 8px}
+.card p{margin:0;font-size:16px}
+.navy .card,.navy2 .card{background:var(--n7);border-color:var(--line)}
+.navy .card p,.navy2 .card p{color:var(--mist)}
+.card .k{display:inline-block;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-white .card .k{color:#8A6418}
+
+/* Problemas: lista estilo hallazgo */
+.issues{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.issues li{position:relative;background:var(--n7);border:1px solid var(--line);border-left:4px solid var(--hold);border-radius:12px;padding:16px 18px 16px 20px}
+.issues strong{display:block;font:800 18px/1.2 var(--display);margin-bottom:4px;color:var(--ivory)}
+.issues span{color:var(--mist);font-size:16px}
+
+/* Alcance y entregables */
+.svc-scope{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ticks li{position:relative;padding-left:28px}
+.ticks li::before{content:"";position:absolute;left:2px;top:.5em;width:12px;height:12px;border-radius:3px;background:var(--ok)}
+.deliv{background:var(--n8);color:var(--ivory);border:2px solid var(--gold);border-radius:12px 12px 12px 40px;padding:26px 26px 22px 30px;box-shadow:10px 10px 0 rgba(224,180,90,.25)}
+.section-white .deliv h3{color:var(--gold);font:800 22px var(--display);margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
+.deliv ol{margin:0;padding-left:20px;display:grid;gap:9px}
+.section-white .deliv li{color:var(--ivory)}
+.deliv li::marker{color:var(--gold);font-weight:700}
+.svc-note{margin-top:28px;border:1px dashed var(--pline);border-radius:14px;padding:16px 18px;background:var(--paper2);font-size:15px}
+.section-white .svc-note p{margin:0}
+.svc-note strong{color:var(--paper-ink)}
+
+/* Cómo trabajo */
+.svc-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:st}
+.svc-steps li{position:relative;background:var(--n7);border:1px solid var(--line);border-radius:18px;padding:22px 20px 20px;counter-increment:st}
+.svc-steps li::before{content:counter(st,decimal-leading-zero);display:block;font:600 13px var(--mono);letter-spacing:.14em;color:var(--gold);margin-bottom:12px}
+.svc-steps h3{font:800 22px/1.1 var(--display);margin:0 0 8px}
+.svc-steps p{margin:0;color:var(--mist);font-size:16px}
+
+/* Preguntas frecuentes */
+.faq{display:grid;gap:12px;max-width:880px}
+.faq details{background:var(--paper2);border:1px solid var(--pline);border-radius:14px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;font:700 18px/1.3 var(--body);color:var(--paper-ink);padding:18px 28px 18px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:14px;font:600 24px var(--mono);color:#8A6418}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0 0 18px}
+
+/* Otros servicios */
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rel a{display:block;text-decoration:none;background:var(--n7);border:1px solid var(--line);border-radius:16px;padding:20px;transition:border-color .2s,transform .15s}
+.rel a:hover{border-color:var(--gold);transform:translateY(-2px)}
+.rel strong{display:block;font:800 19px/1.2 var(--display);margin-bottom:6px}
+.rel span{color:var(--mist);font-size:15px}
+.rel a[aria-current="page"]{border-color:var(--gold)}
+
+/* Tarjetas de servicio (página índice) */
+.svc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{display:flex;flex-direction:column;text-decoration:none;color:var(--paper-ink);background:var(--paper2);border:1px solid var(--pline);border-radius:20px;overflow:hidden;transition:transform .15s,box-shadow .2s}
+.svc-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(11,23,48,.6)}
+.svc-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.svc-card .b{padding:20px 22px 22px;display:grid;gap:8px;flex:1}
+.svc-card h3{font:800 22px/1.15 var(--display);margin:0}
+.svc-card p{margin:0;font-size:16px}
+.svc-card .go{margin-top:auto;font-weight:700;color:var(--n6)}
+
+/* Casos prácticos */
+.case{background:var(--n7);border:2px dashed var(--gold);border-radius:20px;padding:26px}
+.badge-demo{display:inline-block;font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--on-gold);border-radius:999px;padding:6px 12px;margin-bottom:14px}
+.case h3{font:800 24px/1.15 var(--display);margin:0 0 6px}
+.case .disc{color:var(--gold2);font-size:15px;margin:0 0 18px}
+.case dl{display:grid;grid-template-columns:180px 1fr;gap:10px 18px;margin:0}
+.case dt{font-weight:700;color:var(--ivory)}
+.case dd{margin:0;color:var(--mist)}
+.case-empty{margin:0 0 22px;color:var(--mist);max-width:44em}
+
+/* Contacto en página de servicio */
+.svc-contact .req-form{margin-bottom:22px}
+.svc-contact .contact-grid{grid-template-columns:1.5fr 1fr 1fr}
+
+@media (max-width:900px){
+  .svc-hero .wrap,.svc-scope,.grid2{grid-template-columns:1fr}
+  .svc-hero figure{max-width:560px}
+  .grid3,.svc-cards,.rel{grid-template-columns:1fr 1fr}
+  .svc-steps{grid-template-columns:1fr 1fr}
+  .issues{grid-template-columns:1fr}
+  .case dl{grid-template-columns:1fr;gap:4px}
+  .case dd{margin-bottom:10px}
+}
+@media (max-width:640px){
+  .sec{padding:56px 0}
+  .svc-hero{padding:28px 0 48px}
+  .grid3,.svc-cards,.rel,.svc-steps{grid-template-columns:1fr}
+  .svc-contact .contact-grid{grid-template-columns:1fr}
+  .req-form .row{grid-template-columns:1fr}
+  .brand small{display:none}
+}
