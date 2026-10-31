@@ -508,6 +508,26 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
 }
 @media (max-width:380px){.mbar{grid-template-columns:1fr 1fr}.mbar .m-areas{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.n2,.n1{display:none}}
+/* ===== MENÚ SERVICIOS Y TARJETAS DE PÁGINAS DE SERVICIO ===== */
+.nav-dd{position:relative}
+.dd-menu{display:none;position:absolute;top:100%;left:-14px;min-width:290px;padding:10px;margin-top:8px;background:var(--n8);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -20px rgba(0,0,0,.6);z-index:35}
+.dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:grid;gap:2px}
+.nav .dd-menu a{display:block;padding:10px 12px;border-radius:9px;font-size:15px;color:var(--ivory)}
+.nav .dd-menu a:hover,.nav .dd-menu a:focus-visible{background:var(--n7);color:var(--gold)}
+.nav .dd-menu a.dd-all{color:var(--gold);border-top:1px solid var(--line);margin-top:4px;border-radius:0 0 9px 9px}
+.svc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0 0 14px}
+.svc-link{display:flex;flex-direction:column;text-decoration:none;background:var(--paper2);border:1px solid var(--pline);border-radius:20px;overflow:hidden;color:var(--paper-ink);transition:transform .15s,box-shadow .2s}
+.svc-link:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(11,23,48,.6)}
+.svc-link img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.svc-link div{padding:18px 20px 20px;display:grid;gap:6px;flex:1}
+.svc-link h3{font:800 21px/1.15 var(--display);margin:0}
+.section-white .svc-link p{margin:0;font-size:15px}
+.svc-link .go{margin-top:auto;font-weight:700;color:var(--n6)}
+.svc-all{margin:0 0 40px;font-weight:700}
+.svc-all a{color:var(--n6)}
+@media (max-width:900px){.svc-links{grid-template-columns:1fr}.svc-link{flex-direction:row}.svc-link img{width:38%;aspect-ratio:auto;min-height:100%}}
+@media (max-width:480px){.svc-link{flex-direction:column}.svc-link img{width:100%;aspect-ratio:16/9}}
 </style>
 </head>
 <body>
@@ -519,7 +539,19 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
     <nav class="nav" aria-label="Principal">
       <a href="#divisiones"><span lang="es">Divisiones</span><span lang="en">Divisions</span></a>
       <a href="#metodo"><span lang="es">Método</span><span lang="en">Method</span></a>
-      <a href="#servicios"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+      <div class="nav-dd">
+        <a href="#servicios" aria-haspopup="true"><span lang="es">Servicios</span><span lang="en">Services</span></a>
+        <div class="dd-menu">
+          <a lang="es" href="/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/">Consultoría de calidad e inocuidad</a>
+          <a lang="es" href="/servicios/gmp-haccp-procedimientos-acciones-correctivas/">GMP, HACCP, procedimientos y CAPA</a>
+          <a lang="es" href="/servicios/mejora-procesos-trazabilidad/">Mejora de procesos y trazabilidad</a>
+          <a lang="es" class="dd-all" href="/servicios/">Todos los servicios →</a>
+          <a lang="en" href="/en/services/food-safety-quality-consulting-new-jersey/">Food safety &amp; quality consulting</a>
+          <a lang="en" href="/en/services/gmp-haccp-procedures-corrective-actions/">GMP, HACCP, SOPs and CAPA</a>
+          <a lang="en" href="/en/services/process-improvement-traceability/">Process improvement &amp; traceability</a>
+          <a lang="en" class="dd-all" href="/en/services/">All services →</a>
+        </div>
+      </div>
       <a href="#ora">ORA</a>
       <a href="#sobre"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
       <a class="nav-cta" href="#contacto"><span lang="es">Evaluación gratis</span><span lang="en">Free assessment</span></a>
@@ -822,6 +854,15 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
     <h2 lang="en">Services</h2>
     <p class="intro" lang="es">Cada planta es diferente. La herramienta que te entrego se adapta a tu operación.</p>
     <p class="intro" lang="en">Every plant is different. The tools I deliver are adapted to your operation.</p>
+    <div class="svc-links">
+      <a class="svc-link" lang="es" href="/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1551884171-004163219904?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Profesional de calidad con bata blanca y guantes en una planta de alimentos"><div><h3>Consultoría de calidad e inocuidad en New Jersey</h3><p>Diagnóstico en piso, plan priorizado por riesgo y verificación de cada acción.</p><span class="go">Ver servicio →</span></div></a>
+      <a class="svc-link" lang="es" href="/servicios/gmp-haccp-procedimientos-acciones-correctivas/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1684259498900-afdea87b1a97?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Analista revisando muestras en un laboratorio de alimentos"><div><h3>GMP, HACCP, procedimientos y acciones correctivas</h3><p>Programas escritos como se trabajan y CAPAs cerradas con evidencia.</p><span class="go">Ver servicio →</span></div></a>
+      <a class="svc-link" lang="es" href="/servicios/mejora-procesos-trazabilidad/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1530037335614-e68828dcf258?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Botellas de vidrio avanzando en una línea de llenado"><div><h3>Mejora de procesos y trazabilidad</h3><p>Lotes rastreables, retenciones con dueño e indicadores útiles.</p><span class="go">Ver servicio →</span></div></a>
+      <a class="svc-link" lang="en" href="/en/services/food-safety-quality-consulting-new-jersey/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1551884171-004163219904?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Quality professional in a white coat and gloves at a food plant"><div><h3>Food safety &amp; quality consulting in New Jersey</h3><p>On-the-floor assessment, a risk-ranked plan and verified follow-through.</p><span class="go">See service →</span></div></a>
+      <a class="svc-link" lang="en" href="/en/services/gmp-haccp-procedures-corrective-actions/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1684259498900-afdea87b1a97?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Analyst reviewing samples in a food laboratory"><div><h3>GMP, HACCP, procedures and corrective actions</h3><p>Programs written the way the work is done, CAPAs closed with evidence.</p><span class="go">See service →</span></div></a>
+      <a class="svc-link" lang="en" href="/en/services/process-improvement-traceability/"><img loading="lazy" decoding="async" width="800" height="450" src="https://images.unsplash.com/photo-1530037335614-e68828dcf258?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=70" alt="Glass bottles moving along a filling line"><div><h3>Process improvement &amp; traceability</h3><p>Traceable lots, holds with owners and KPIs that get used.</p><span class="go">See service →</span></div></a>
+    </div>
+    <p class="svc-all"><a lang="es" href="/servicios/">Ver todos los servicios y casos prácticos →</a><a lang="en" href="/en/services/">See all services and case studies →</a></p>
     <div class="services">
       <div class="service">
         <img class="ph" loading="lazy" src="https://images.unsplash.com/photo-1551884171-004163219904?auto=format&fit=crop&w=800&q=70" alt="Profesional de calidad con bata blanca y guantes">
