@@ -1,0 +1,38 @@
+[
+ {
+  "id": "B-GA",
+  "test": "ANTES: GA se carga sin consentimiento",
+  "result": "PASA",
+  "evidence": "gtag.js=1 cookies=_ga=GA1.1.test"
+ },
+ {
+  "id": "B-WA",
+  "test": "ANTES: la pestaña del sitio también navega a WhatsApp",
+  "result": "PASA",
+  "evidence": "https://wa.me/12012506729?text=Solicitud%20de%20propuesta%20"
+ },
+ {
+  "id": "B-XSS",
+  "test": "ANTES: HTML del correo se inyecta en el mensaje de éxito (auto-XSS)",
+  "result": "PASA",
+  "evidence": "img=1 __x=None"
+ },
+ {
+  "id": "B-VAL",
+  "test": "ANTES: error sin role=alert ni aria-invalid; foco no se mueve",
+  "result": "PASA",
+  "evidence": "role=None"
+ },
+ {
+  "id": "B-H1",
+  "test": "ANTES: número de H1 en inicio",
+  "result": "PASA",
+  "evidence": "6"
+ },
+ {
+  "id": "B-VID",
+  "test": "ANTES: videos en iPhone 13 (emulado)",
+  "result": "PASA",
+  "evidence": "['holds.mp4', 'utilidades.mp4', 'empleo-720.mp4']"
+ }
+]

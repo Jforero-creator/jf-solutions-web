@@ -13,6 +13,8 @@
   var en=lang==='en';
   var WA='12012506729', MAIL='jforero@jfsolutions80.com', W3F_KEY='8d3fd0e5-b687-434f-816b-74fb0331bb81';
   var service=form.getAttribute('data-service'), page=location.origin+location.pathname;
+  /* al corregir un campo se quita su marca de error */
+  document.getElementById('req-form').addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')){e.target.removeAttribute('aria-invalid');e.target.removeAttribute('aria-describedby');}});
   var via='web';
   form.querySelectorAll('[data-via]').forEach(function(b){b.addEventListener('click',function(){via=b.getAttribute('data-via');});});
   function v(id){return document.getElementById(id).value.trim();}
@@ -25,7 +27,10 @@
     if(!/^\S+@\S+\.\S+$/.test(v('f-correo'))) miss.push(en?'a valid email':'un correo válido');
     if(!v('f-msg')) miss.push(en?'your case':'tu caso');
     var err=document.getElementById('f-err');
-    if(miss.length){err.hidden=false;err.textContent=(en?'Please complete: ':'Falta completar: ')+miss.join(', ')+'.';return;}
+    [['f-nombre',!v('f-nombre')],['f-correo',!/^\S+@\S+\.\S+$/.test(v('f-correo'))],['f-msg',!v('f-msg')]].forEach(function(x){
+      var el=document.getElementById(x[0]); if(x[1]){el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','f-err');}else{el.removeAttribute('aria-invalid');el.removeAttribute('aria-describedby');}
+    });
+    if(miss.length){err.hidden=false;err.textContent=(en?'Please complete: ':'Falta completar: ')+miss.join(', ')+'.';var bad=form.querySelector('[aria-invalid="true"]');if(bad)bad.focus();return;}
     err.hidden=true;
     var idioma=form.querySelector('input[name="f-idioma"]:checked').value;
     var lines=[(en?'Name: ':'Nombre: ')+v('f-nombre'),
@@ -45,12 +50,16 @@
     }
     if(via==='web'){
       var btn=document.getElementById('send-web'), label=btn.textContent;
+      if(btn.disabled) return;
+      var cap=window.JFCAP&&window.JFCAP.token();
+      if(!cap){err.hidden=false;err.textContent=window.JFCAP&&window.JFCAP.failed()?(en?'The security check could not load. Please use the WhatsApp or email buttons.':'No se pudo cargar la verificación de seguridad. Usa los botones de WhatsApp o correo.'):(en?'Complete the security check (the “I am human” box) and try again.':'Completa la verificación de seguridad (la casilla «Soy humano») e inténtalo de nuevo.');return;}
       btn.disabled=true; btn.textContent=en?'Sending…':'Enviando…';
-      var payload={access_key:W3F_KEY,subject:'New Service Request – JF Solutions',from_name:'JF Solutions – Sitio web',
+      var payload={access_key:W3F_KEY,'h-captcha-response':cap,subject:'New Service Request – JF Solutions',from_name:'JF Solutions – Sitio web',
         botcheck:document.getElementById('f-bot').checked,
         name:v('f-nombre'),email:v('f-correo'),phone:v('f-tel'),company:v('f-empresa'),
         division:'Industrial Solutions',service:service,reply_language:idioma,page:page,message:v('f-msg')};
-      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      var ctl=window.AbortController?new AbortController():null, tmo=setTimeout(function(){if(ctl)ctl.abort();},15000);
+      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
         .then(function(r){return r.json().catch(function(){return {success:false};});})
         .then(function(res){
           if(!(res&&res.success)) throw new Error('fail');
@@ -63,13 +72,14 @@
           box.innerHTML='<b style="color:var(--hold)">'+(en?'Could not send':'No se pudo enviar')+'</b><p>'
             +(en?'Check your connection and try again, or use the WhatsApp or email buttons.':'Revisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo.')+'</p>';
         })
-        .then(function(){btn.disabled=false;btn.textContent=label;show();});
+        .then(function(){clearTimeout(tmo);if(window.JFCAP)window.JFCAP.reset();btn.disabled=false;btn.textContent=label;show();});
       return;
     }
     var txt=(en?'Proposal request – JF Solutions':'Solicitud de propuesta – JF Solutions')+'\n'+lines.join('\n');
     if(via==='wa'){
       var wurl='https://wa.me/'+WA+'?text='+encodeURIComponent(txt);
-      var w=window.open(wurl,'_blank','noopener'); if(!w) location.href=wurl;
+      /* 'noopener' en window.open siempre devuelve null y provocaba que la pestaña del sitio también navegara a WhatsApp */
+      var w=window.open(wurl,'_blank'); if(w){try{w.opener=null;}catch(x){}}else{location.href=wurl;}
       box.innerHTML='<b>'+(en?'Your message is ready':'Tu mensaje está listo')+'</b><p>'
         +(en?'WhatsApp opened with your request. Tap send so it reaches me.':'Se abrió WhatsApp con tu solicitud. Toca enviar para que me llegue.')+'</p>';
     }else{
@@ -77,7 +87,7 @@
       var a=document.createElement('a');a.href=mailto;a.style.display='none';document.body.appendChild(a);a.click();a.remove();
       box.innerHTML='<b>'+(en?'Your email is ready':'Tu correo está listo')+'</b><p>'
         +(en?'If your email app did not open, write to ':'Si tu aplicación de correo no se abrió, escribe a ')
-        +'<a href="'+mailto+'">'+MAIL+'</a>.</p>';
+        +'<a href="'+esc(mailto)+'">'+MAIL+'</a>.</p>';
     }
     show();
   });
