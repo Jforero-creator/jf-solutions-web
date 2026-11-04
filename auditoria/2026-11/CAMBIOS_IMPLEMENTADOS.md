@@ -45,3 +45,14 @@ Se comprobó automáticamente que **no se eliminó ningún texto visible ni ning
 | `index.html`, `assets/servicios.js`, 8 páginas de servicio | Bloque "Verificación de seguridad" en el formulario, envío a `/api/contact/` con el token y sin clave, reinicio del widget tras cada envío, mensajes ES/EN si falta la verificación, y la marca de error se quita al corregir el campo. | — |
 | `vercel.json` | CSP: Turnstile en `script-src`/`frame-src`; Web3Forms fuera de `connect-src`. `no-store` en `/api/*`. | — |
 | `privacidad/`, `en/privacy/` | Turnstile como proveedor; justificación de los 24 meses; eliminación anticipada a petición; respuesta en 30 días o el plazo legal menor. Sigue en BORRADOR. | Condición 2 del propietario. |
+
+## Actualización del 4 de noviembre (2): sustitución por hCaptcha
+
+La prueba real en iPhone mostró que Web3Forms responde **403** a los envíos que hace la función de Vercel (el plan gratuito no admite envíos desde servidor). El propietario eligió hCaptcha gratuito de Web3Forms. Por eso **se retiraron** `api/contact.js` y `assets/turnstile.js`, y los formularios vuelven a enviar directamente a Web3Forms desde el navegador, como en producción. Se añadió:
+
+| Archivo | Cambio |
+|---|---|
+| `assets/captcha.js` (nuevo) | Widget hCaptcha (render explícito, idioma ES/EN, clave de sitio gratuita publicada por Web3Forms). Expone el token y se reinicia tras cada envío. |
+| `index.html`, `assets/servicios.js`, 8 páginas de servicio | Bloque "Verificación de seguridad"; el envío incluye `h-captcha-response`; mensajes ES/EN si falta; la marca de error se quita al corregir el campo. La clave de Web3Forms vuelve a estar en el cliente (es pública por diseño). |
+| `vercel.json` | CSP: `hcaptcha.com` y `*.hcaptcha.com` en script, style, frame y connect; Web3Forms en `connect-src`; sin reglas de Turnstile ni `/api`. |
+| `privacidad/`, `en/privacy/` | hCaptcha sustituye a Cloudflare Turnstile como proveedor. Sigue en BORRADOR. |

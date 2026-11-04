@@ -4,7 +4,7 @@ from playwright.sync_api import sync_playwright
 BASE=sys.argv[1]; OUT=sys.argv[2]
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=')
 FAKE={'name':'Prueba Auditoria','email':'prueba@example.com','msg':'Mensaje de prueba automatizada. No responder.'}
-TS_STUB="""window.turnstile={render:function(el,o){var f=document.createElement('iframe');f.src='https://challenges.cloudflare.com/cdn-cgi/challenge-platform/fake';f.title='Cloudflare';f.style.cssText='width:300px;height:65px;border:0';el.appendChild(f);if(!window.__tsNoToken)setTimeout(function(){o.callback('PASS-TOKEN')},50);return 'w1';},reset:function(){window.__tsResets=(window.__tsResets||0)+1;}};setTimeout(function(){window.jfTsReady&&window.jfTsReady()},0);"""
+TS_STUB="""window.hcaptcha={render:function(el,o){var f=document.createElement('iframe');f.src='https://newassets.hcaptcha.com/fake-hc';f.title='hCaptcha';f.style.cssText='width:300px;height:65px;border:0';el.appendChild(f);if(!window.__capNoToken)setTimeout(function(){o.callback('HC-PASS-TOKEN')},50);return 'w1';},reset:function(){window.__capResets=(window.__capResets||0)+1;}};setTimeout(function(){window.jfCapReady&&window.jfCapReady()},0);"""
 R=[]
 def rec(id,desc,ok,ev=''):
     _rec(id,desc,ok,ev)
@@ -17,18 +17,12 @@ def ctx(b,w3f='ok',device=None,pw=None):
     def route(r):
         u=r.request.url
         if u.startswith(BASE):
-            if '/api/contact' in u:
-                try: st['w3f'].append(json.loads(r.request.post_data or '{}'))
-                except Exception: st['w3f'].append({})
-                if w3f=='slow': time.sleep(1.5)
-                if w3f=='offline': return r.abort('internetdisconnected')
-                return r.continue_(headers={**r.request.headers,'x-test-w3f':('ok' if w3f=='slow' else w3f)})
             if '/_vercel/insights/' in u: return r.fulfill(status=200,content_type='application/javascript',body='')
             return r.continue_()
         if 'googletagmanager.com/gtag/js' in u:
             st['gtm']+=1; return r.fulfill(status=200,content_type='application/javascript',body='document.cookie="_ga=GA1.1.test; path=/";')
-        if 'challenges.cloudflare.com/turnstile/v0/api.js' in u: return r.fulfill(status=200,content_type='application/javascript',body=TS_STUB)
-        if 'challenges.cloudflare.com' in u: return r.fulfill(status=200,content_type='text/html',body='<p>ts</p>')
+        if 'js.hcaptcha.com/1/api.js' in u: return r.fulfill(status=200,content_type='application/javascript',body=TS_STUB)
+        if 'hcaptcha.com' in u: return r.fulfill(status=200,content_type='text/html',body='<p>ts</p>')
         if 'google-analytics.com' in u: st['collect']+=1; return r.fulfill(status=204,body='')
         if 'fonts.googleapis.com' in u: return r.fulfill(status=200,content_type='text/css',body='')
         if 'images.unsplash.com' in u: return r.fulfill(status=200,content_type='image/png',body=PNG)
@@ -36,7 +30,7 @@ def ctx(b,w3f='ok',device=None,pw=None):
             st['w3f'].append(json.loads(r.request.post_data or '{}'))
             if w3f=='ok': return r.fulfill(status=200,content_type='application/json',body='{"success":true,"message":"Email sent"}')
             if w3f=='err': return r.fulfill(status=400,content_type='application/json',body='{"success":false,"message":"Invalid access key"}')
-            if w3f=='down': return r.abort('internetdisconnected')
+            if w3f in ('down','offline'): return r.abort('internetdisconnected')
             if w3f=='slow': time.sleep(1.5); return r.fulfill(status=200,content_type='application/json',body='{"success":true}')
         if u.startswith('https://wa.me/'): st['popups'].append(u); return r.fulfill(status=200,content_type='text/html',body='<title>wa</title>')
         return r.abort()
@@ -90,14 +84,14 @@ with sync_playwright() as pw:
         rec(f'C04-mail{path}','Correo con formato inválido se rechaza',len(st['w3f'])==0 and 'f-correo' in p.evaluate("[...document.querySelectorAll('[aria-invalid=true]')].map(e=>e.id)"),p.locator('#f-err').inner_text())
         p.fill('#f-correo',FAKE['email']); p.click('#send-web'); p.wait_for_selector('.form-ok',timeout=5000)
         okt=p.inner_text('.form-ok'); pl=st['w3f'][0] if st['w3f'] else {}
-        rec(f'C04-ok{path}','Envío correcto vía /api/contact (Turnstile verificado, Web3Forms simulado): éxito, formulario reiniciado, botcheck=false, token enviado y sin clave en el navegador',len(st['w3f'])==1 and ('enviada' in okt or 'sent' in okt) and pl.get('botcheck') is False and pl.get('turnstile_token')=='PASS-TOKEN' and 'access_key' not in pl and p.input_value('#f-nombre')=='',f"okt='{okt[:60]}' botcheck={pl.get('botcheck')} token={pl.get('turnstile_token')} access_key_en_navegador={'access_key' in pl}")
+        rec(f'C04-ok{path}','Envío correcto a Web3Forms (simulado) con token hCaptcha: éxito, formulario reiniciado, botcheck=false, h-captcha-response y clave presentes',len(st['w3f'])==1 and ('enviada' in okt or 'sent' in okt) and pl.get('botcheck') is False and pl.get('h-captcha-response')=='HC-PASS-TOKEN' and pl.get('access_key','').startswith('8d3fd0e5') and p.input_value('#f-nombre')=='',f"okt='{okt[:60]}' botcheck={pl.get('botcheck')} hcaptcha={pl.get('h-captcha-response')}")
         c.close()
-    c,st=ctx(b); c.add_init_script('window.__tsNoToken=true'); p=c.new_page(); p.goto(BASE+'/#contacto'); p.wait_for_timeout(300); fill(p); p.click('#send-web'); p.wait_for_timeout(300)
-    rec('C01-ts','Sin completar Turnstile: no se envía y se pide la verificación (ES)',len(st['w3f'])==0 and 'verificación de seguridad' in p.inner_text('#f-err'),p.inner_text('#f-err'))
+    c,st=ctx(b); c.add_init_script('window.__capNoToken=true'); p=c.new_page(); p.goto(BASE+'/#contacto'); p.wait_for_timeout(300); fill(p); p.click('#send-web'); p.wait_for_timeout(300)
+    rec('C01-cap','Sin completar hCaptcha: no se envía y se pide la verificación (ES)',len(st['w3f'])==0 and 'verificación de seguridad' in p.inner_text('#f-err'),p.inner_text('#f-err'))
     c.close()
     c,st=ctx(b); p=c.new_page(); p.goto(BASE+'/#contacto'); p.wait_for_timeout(300)
-    vis=p.locator('#ts-box iframe').count(); fill(p); p.click('#send-web'); p.wait_for_selector('.form-ok'); rs=p.evaluate('window.__tsResets||0')
-    rec('C01-ts2','Widget Turnstile se muestra en el formulario y se reinicia tras cada envío (token de un solo uso)',vis==1 and rs>=1,f'iframes={vis} resets={rs}')
+    vis=p.locator('#cap-box iframe').count(); fill(p); p.click('#send-web'); p.wait_for_selector('.form-ok'); rs=p.evaluate('window.__capResets||0')
+    rec('C01-cap2','Widget hCaptcha se muestra en el formulario y se reinicia tras cada envío (token de un solo uso)',vis==1 and rs>=1,f'iframes={vis} resets={rs}')
     c.close()
     # XSS en el correo mostrado
     c,st=ctx(b); p=c.new_page(); p.goto(BASE+'/#contacto'); fill(p); p.fill('#f-correo','a@b.co<img/src=x/onerror=window.__x=1>'); p.click('#send-web'); p.wait_for_timeout(1200)
@@ -106,7 +100,7 @@ with sync_playwright() as pw:
     for mode,word in [('err','No se pudo'),('down','No se pudo'),('offline','No se pudo')]:
         c,st=ctx(b,w3f=mode); p=c.new_page(); p.goto(BASE+'/#contacto'); fill(p); p.click('#send-web'); p.wait_for_selector('.form-ok',timeout=20000)
         t=p.inner_text('.form-ok')
-        rec(f'C04-{mode}',f'Fallo de envío ({ {"err":"Web3Forms responde error","down":"Web3Forms inalcanzable desde el servidor","offline":"navegador sin conexión"}[mode] }): mensaje claro y datos conservados; botón reactivado',word in t and p.input_value('#f-nombre')==FAKE['name'] and not p.is_disabled('#send-web'),t[:110])
+        rec(f'C04-{mode}',f'Fallo de envío ({ {"err":"Web3Forms responde error","down":"Web3Forms inalcanzable","offline":"navegador sin conexión"}[mode] }): mensaje claro y datos conservados; botón reactivado',word in t and p.input_value('#f-nombre')==FAKE['name'] and not p.is_disabled('#send-web'),t[:110])
         c.close()
     c,st=ctx(b,w3f='slow'); p=c.new_page(); p.goto(BASE+'/#contacto'); fill(p)
     p.evaluate("()=>{const b=document.getElementById('send-web');b.click();b.click();b.click();}"); p.wait_for_selector('.form-ok',timeout=10000)

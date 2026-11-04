@@ -11,16 +11,15 @@ Responsable propuesto: **JF** = José Luis Forero (propietario), **Dev** = quien
 - **Impacto:** un tercero puede copiar la clave y enviar spam al buzón. No hay fuga de datos.
 - **Severidad:** Baja.
 - **Causa raíz:** el plan gratuito de Web3Forms no incluye restricción de dominio y no se configuró un CAPTCHA.
-- **Acción correctiva (4-nov, opción elegida por el propietario):** Cloudflare Turnstile, gratuito y verificado en el servidor.
-  - `assets/turnstile.js` muestra el widget.
-  - `api/contact.js`, una Vercel Function sin dependencias, comprueba el origen, el honeypot, los campos y el token contra `challenges.cloudflare.com/turnstile/v0/siteverify`, y solo entonces reenvía a Web3Forms con la clave intacta.
-  - Se descartó Turnstile verificado por Web3Forms porque es función Pro.
-  - En Production la función falla de forma cerrada si falta `TURNSTILE_SECRET_KEY`.
-  - Las vistas previas usan las claves de prueba oficiales de Cloudflare.
+- **Acción correctiva (4-nov):** **hCaptcha del plan gratuito de Web3Forms**, que el propietario eligió tras la prueba en iPhone.
+  - `assets/captcha.js` muestra el widget con la clave de sitio gratuita publicada por Web3Forms y envía el token `h-captcha-response` junto con el formulario.
+  - Web3Forms lo verifica en su servidor una vez activado en su panel.
+  - Se conserva el honeypot `botcheck`.
+  - **Intento previo descartado:** Turnstile + función propia. La prueba real en iPhone devolvió `web3forms_error 403` (registro de Vercel, 03:28:15 UTC), porque Web3Forms no acepta envíos desde servidor en el plan gratuito. Se retiraron `api/contact.js` y `assets/turnstile.js`.
 - **Acción preventiva:** el propietario decide entre (a) mantener solo el honeypot y vigilar el volumen de spam, (b) activar hCaptcha (requiere añadir su dominio a la CSP y un widget en los 9 formularios) o (c) contratar Pro y restringir a `www.jfsolutionsq.com`.
 - **Responsable:** JF (decisión y cuenta), Dev (implementación).
-- **Criterio de aceptación:** API-1…11 y C01-ts/ts2 en verde (cumplido); un envío real desde la vista previa llega al buzón; la clave de sitio y la clave secreta de producción están configuradas.
-- **Estado:** Implementado en rama. **Pendiente del propietario:** cuenta gratuita de Cloudflare, `SITE_KEY_PROD` en `assets/turnstile.js` y `TURNSTILE_SECRET_KEY` en Vercel (solo Production). Recomendado después: rotar la clave de Web3Forms y guardarla en `WEB3FORMS_ACCESS_KEY`, porque la clave actual ya fue pública.
+- **Criterio de aceptación:** C01-cap/cap2 y C04 en verde (cumplido, 35/35); hCaptcha activado en el panel de Web3Forms; un envío real desde la vista previa llega al buzón; un envío sin token es rechazado por Web3Forms.
+- **Estado:** Implementado en rama. **Pendiente del propietario:** activar hCaptcha en app.web3forms.com y repetir la prueba real.
 
 ### CAPA-02: No existía política de privacidad
 - **Evidencia:** no había ninguna página ni enlace de privacidad en `main`, aunque el formulario recoge nombre, correo, teléfono y mensaje y GA4 está activo.

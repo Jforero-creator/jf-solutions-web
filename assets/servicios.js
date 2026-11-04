@@ -11,7 +11,7 @@
 
   var form=document.getElementById('req-form'); if(!form) return;
   var en=lang==='en';
-  var WA='12012506729', MAIL='jforero@jfsolutions80.com'; /* el envío web pasa por /api/contact/ (Turnstile + Web3Forms en el servidor) */
+  var WA='12012506729', MAIL='jforero@jfsolutions80.com', W3F_KEY='8d3fd0e5-b687-434f-816b-74fb0331bb81';
   var service=form.getAttribute('data-service'), page=location.origin+location.pathname;
   /* al corregir un campo se quita su marca de error */
   document.getElementById('req-form').addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')){e.target.removeAttribute('aria-invalid');e.target.removeAttribute('aria-describedby');}});
@@ -51,28 +51,28 @@
     if(via==='web'){
       var btn=document.getElementById('send-web'), label=btn.textContent;
       if(btn.disabled) return;
-      var ts=window.JFTS&&window.JFTS.token();
-      if(!ts){err.hidden=false;err.textContent=window.JFTS&&window.JFTS.failed()?(en?'The security check could not load. Please use the WhatsApp or email buttons.':'No se pudo cargar la verificación de seguridad. Usa los botones de WhatsApp o correo.'):(en?'Complete the security check (the Cloudflare box) and try again.':'Completa la verificación de seguridad (la casilla de Cloudflare) e inténtalo de nuevo.');return;}
+      var cap=window.JFCAP&&window.JFCAP.token();
+      if(!cap){err.hidden=false;err.textContent=window.JFCAP&&window.JFCAP.failed()?(en?'The security check could not load. Please use the WhatsApp or email buttons.':'No se pudo cargar la verificación de seguridad. Usa los botones de WhatsApp o correo.'):(en?'Complete the security check (the “I am human” box) and try again.':'Completa la verificación de seguridad (la casilla «Soy humano») e inténtalo de nuevo.');return;}
       btn.disabled=true; btn.textContent=en?'Sending…':'Enviando…';
-      var payload={turnstile_token:ts,
+      var payload={access_key:W3F_KEY,'h-captcha-response':cap,subject:'New Service Request – JF Solutions',from_name:'JF Solutions – Sitio web',
         botcheck:document.getElementById('f-bot').checked,
         name:v('f-nombre'),email:v('f-correo'),phone:v('f-tel'),company:v('f-empresa'),
         division:'Industrial Solutions',service:service,reply_language:idioma,page:page,message:v('f-msg')};
       var ctl=window.AbortController?new AbortController():null, tmo=setTimeout(function(){if(ctl)ctl.abort();},15000);
-      fetch('/api/contact/',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
+      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
         .then(function(r){return r.json().catch(function(){return {success:false};});})
         .then(function(res){
-          if(!(res&&res.success)) throw new Error(res&&res.code||'fail');
+          if(!(res&&res.success)) throw new Error('fail');
           box.innerHTML='<b>'+(en?'Request sent':'Solicitud enviada')+'</b><p>'
             +(en?'Thank you. I received your request and will reply within one to two business days at ':'Gracias. Recibí tu solicitud y te responderé en uno a dos días hábiles a ')+esc(payload.email)+'.</p>';
           form.reset();
         })
-        .catch(function(x){
+        .catch(function(){
           box.style.borderColor='var(--hold)';
           box.innerHTML='<b style="color:var(--hold)">'+(en?'Could not send':'No se pudo enviar')+'</b><p>'
-            +(x&&x.message==='captcha'?(en?'Complete the security check (the Cloudflare box) and try again.':'Completa la verificación de seguridad (la casilla de Cloudflare) e inténtalo de nuevo.'):(en?'Check your connection and try again, or use the WhatsApp or email buttons.':'Revisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo.'))+'</p>';
+            +(en?'Check your connection and try again, or use the WhatsApp or email buttons.':'Revisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo.')+'</p>';
         })
-        .then(function(){clearTimeout(tmo);if(window.JFTS)window.JFTS.reset();btn.disabled=false;btn.textContent=label;show();});
+        .then(function(){clearTimeout(tmo);if(window.JFCAP)window.JFCAP.reset();btn.disabled=false;btn.textContent=label;show();});
       return;
     }
     var txt=(en?'Proposal request – JF Solutions':'Solicitud de propuesta – JF Solutions')+'\n'+lines.join('\n');
