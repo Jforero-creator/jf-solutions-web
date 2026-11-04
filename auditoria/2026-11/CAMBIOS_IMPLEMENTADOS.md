@@ -35,3 +35,13 @@ Se comprobó automáticamente que **no se eliminó ningún texto visible ni ning
 - HSTS, que Vercel ya envía.
 - DNS, dominios, configuración del proyecto en Vercel y cuentas externas.
 - La CSS y el JS incrustados del inicio. No se extrajeron a archivos porque eso no aporta una mejora medible hoy: la CSS ya es crítica para el primer pintado, y extraerla añadiría una petición bloqueante. Ver RIESGOS R-04.
+
+## Actualización del 4 de noviembre: Turnstile y política
+
+| Archivo | Cambio | Justificación |
+|---|---|---|
+| `api/contact.js` (nuevo) | Vercel Function (Node, **sin dependencias**). Comprueba el método, el origen, el honeypot y los campos, verifica Turnstile con Cloudflare y reenvía a Web3Forms con el mismo asunto y remitente de antes. Las claves se leen de variables de entorno, con valores de respaldo seguros. | Opción B del propietario: la verificación de Turnstile en Web3Forms es de pago. Esta es la alternativa gratuita que verifica de verdad. |
+| `assets/turnstile.js` (nuevo) | Widget explícito de Turnstile. Usa la clave de prueba de Cloudflare fuera de jfsolutionsq.com y `SITE_KEY_PROD` (pendiente) en producción. | Mostrar la verificación. |
+| `index.html`, `assets/servicios.js`, 8 páginas de servicio | Bloque "Verificación de seguridad" en el formulario, envío a `/api/contact/` con el token y sin clave, reinicio del widget tras cada envío, mensajes ES/EN si falta la verificación, y la marca de error se quita al corregir el campo. | — |
+| `vercel.json` | CSP: Turnstile en `script-src`/`frame-src`; Web3Forms fuera de `connect-src`. `no-store` en `/api/*`. | — |
+| `privacidad/`, `en/privacy/` | Turnstile como proveedor; justificación de los 24 meses; eliminación anticipada a petición; respuesta en 30 días o el plazo legal menor. Sigue en BORRADOR. | Condición 2 del propietario. |

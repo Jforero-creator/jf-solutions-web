@@ -11,11 +11,16 @@ Responsable propuesto: **JF** = José Luis Forero (propietario), **Dev** = quien
 - **Impacto:** un tercero puede copiar la clave y enviar spam al buzón. No hay fuga de datos.
 - **Severidad:** Baja.
 - **Causa raíz:** el plan gratuito de Web3Forms no incluye restricción de dominio y no se configuró un CAPTCHA.
-- **Acción correctiva:** ninguna en el código. La clave se conserva sin cambios, según lo instruido. Se documentó el flujo en PRUEBAS §3.
+- **Acción correctiva (4-nov, opción elegida por el propietario):** Cloudflare Turnstile, gratuito y verificado en el servidor.
+  - `assets/turnstile.js` muestra el widget.
+  - `api/contact.js`, una Vercel Function sin dependencias, comprueba el origen, el honeypot, los campos y el token contra `challenges.cloudflare.com/turnstile/v0/siteverify`, y solo entonces reenvía a Web3Forms con la clave intacta.
+  - Se descartó Turnstile verificado por Web3Forms porque es función Pro.
+  - En Production la función falla de forma cerrada si falta `TURNSTILE_SECRET_KEY`.
+  - Las vistas previas usan las claves de prueba oficiales de Cloudflare.
 - **Acción preventiva:** el propietario decide entre (a) mantener solo el honeypot y vigilar el volumen de spam, (b) activar hCaptcha (requiere añadir su dominio a la CSP y un widget en los 9 formularios) o (c) contratar Pro y restringir a `www.jfsolutionsq.com`.
 - **Responsable:** JF (decisión y cuenta), Dev (implementación).
-- **Criterio de aceptación:** opción elegida y documentada; si es (b), las pruebas C04 siguen pasando con el CAPTCHA.
-- **Estado:** Pendiente del propietario.
+- **Criterio de aceptación:** API-1…11 y C01-ts/ts2 en verde (cumplido); un envío real desde la vista previa llega al buzón; la clave de sitio y la clave secreta de producción están configuradas.
+- **Estado:** Implementado en rama. **Pendiente del propietario:** cuenta gratuita de Cloudflare, `SITE_KEY_PROD` en `assets/turnstile.js` y `TURNSTILE_SECRET_KEY` en Vercel (solo Production). Recomendado después: rotar la clave de Web3Forms y guardarla en `WEB3FORMS_ACCESS_KEY`, porque la clave actual ya fue pública.
 
 ### CAPA-02: No existía política de privacidad
 - **Evidencia:** no había ninguna página ni enlace de privacidad en `main`, aunque el formulario recoge nombre, correo, teléfono y mensaje y GA4 está activo.
