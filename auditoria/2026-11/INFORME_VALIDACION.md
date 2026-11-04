@@ -8,10 +8,10 @@
 
 | # | Condición | Resultado | Evidencia |
 |---|---|---|---|
-| 1 | Pruebas en iPhone y Android | **Parcial.** El propietario probó en un iPhone real el 3-nov a las 22:28 y apareció el problema P-1. La versión corregida está probada en emulación (iPhone 13, Pixel 7). **Falta repetir en iPhone y Android reales.** | Captura del propietario; `evidencias/capturas/`; C04-iPhone 13 / Pixel 7 |
+| 1 | Pruebas en iPhone y Android | **iPhone real: envío correcto** (3-nov, 23:05, versión con hCaptcha). **Faltan:** Android real, y WhatsApp y video en dispositivo real (sí probados en emulación). | Captura del propietario; `evidencias/capturas/`; C04-iPhone 13 / Pixel 7 |
 | 2 | Política: 24 meses justificados con eliminación anticipada; respuesta en 30 días | **Hecho.** Sigue en BORRADOR. | `/privacidad/`, `/en/privacy/` |
 | 3 | Antispam gratuito con honeypot | **Hecho con hCaptcha gratuito de Web3Forms**, elegido por el propietario tras P-1. Turnstile no es viable gratis con Web3Forms. | Navegador 35/35, axe 0 |
-| 4 | Envío real de prueba | **Primer intento: falló** (P-1). **Pendiente de repetir** tras activar hCaptcha en Web3Forms. | Registro de Vercel |
+| 4 | Envío real de prueba | **Cumplido.** El segundo intento llegó al buzón (§2 bis). | Gmail: "New Service Request – JF Solutions" de `notify@web3forms.com`, 04:05:49 UTC |
 | 5 | PR abierto, sin fusionar ni desplegar | **Cumplido** | PR #6 `open`, `merged: false` |
 
 ## 2. Problemas detectados y correcciones
@@ -24,6 +24,16 @@
 | P-4 | Tras corregir un campo, seguía marcado en rojo. | La marca se quita al escribir. | Revisión visual y 35/35 |
 | P-5 | Falso positivo de contraste en `manos.html` (axe midió durante una animación). | Se mide tras la animación: 0 violaciones en 44 escenarios. | `evidencias/axe-after.json` |
 | P-6 | Lo bueno de P-1: cuando el envío falló, el sitio mostró un mensaje claro y ofreció WhatsApp y correo. No se perdió el contacto. | Ninguna (comportamiento correcto). | Tu captura |
+
+## 2 bis. Evidencia del envío real (iPhone, 3-nov 23:05 hora de Nueva York)
+
+| Comprobación | Resultado |
+|---|---|
+| Pantalla del iPhone | "Solicitud enviada" con el mensaje de confirmación (captura del propietario) |
+| Llegada al buzón | 1 correo de `notify@web3forms.com` ("JF Solutions – Sitio web"), asunto **"New Service Request – JF Solutions"**, recibido a las 04:05:49 UTC, entregado a la cuenta de Gmail configurada en Web3Forms y visible en el buzón de Workspace. Un minuto de diferencia con la captura. |
+| Campos recibidos | name, email, phone, company, division (Industrial Solutions), service (Por definir), reply_language (Español), message. **Ni el token de hCaptcha ni el honeypot aparecen en el correo.** |
+| Datos usados | El propietario usó datos propios (nombre, teléfono y una dirección de iCloud enmascarada) en lugar de los ficticios propuestos. **No se copian a este repositorio.** |
+| hCaptcha obligatorio | **No verificado desde aquí.** Requiere confirmar en el panel de Web3Forms que hCaptcha está activado (R-02). |
 
 ## 3. Qué hay que comprobar en la nueva prueba real (iPhone y Android)
 
