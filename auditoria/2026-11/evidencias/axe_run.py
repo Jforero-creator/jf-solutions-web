@@ -11,7 +11,7 @@ with sync_playwright() as p:
           for pg in pages:
             c=b.new_context(viewport=vp[1]); page=c.new_page()
             page.route('**/*',lambda r: r.abort() if not r.request.url.startswith(base) else r.continue_())
-            page.goto(base+pg,wait_until='load')
+            page.goto(base+pg,wait_until='load'); page.wait_for_timeout(800)
             if lang=='en':
                 page.evaluate("""()=>{var b=document.querySelector('.lang button[data-set=en]'); if(b) b.click(); var m=document.querySelector('[data-lang=en]'); if(m&&m.tagName==='BUTTON') m.click();}""")
             page.add_script_tag(content=axe)

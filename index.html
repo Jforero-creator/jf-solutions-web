@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <!-- Google Analytics 4: se carga solo con consentimiento (ver /assets/consent.js y /privacidad/) -->
 <script src="/assets/consent.js" data-ga="G-VCKX3PTT1D" defer></script>
+<script src="/assets/turnstile.js" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera</title>
 <meta name="description" content="Calidad e inocuidad alimentaria verificadas en el piso de planta (método ORA + PDCA + RACI). Además: Small Business, Branding &amp; Digital y Career. Español e inglés, Nueva Jersey. Evaluación inicial gratis.">
@@ -1028,6 +1029,7 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
         </div>
       </div>
       <input type="checkbox" name="botcheck" id="f-bot" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <div class="fld ts-fld"><span class="lbl"><span lang="es">Verificación de seguridad</span><span lang="en">Security check</span></span><div id="ts-box"></div></div>
       <p class="form-err" id="f-err" role="alert" hidden></p>
       <div class="actions">
         <button class="btn btn-main" type="submit" data-via="web" id="send-web"><span lang="es">Enviar solicitud</span><span lang="en">Send request</span></button>
@@ -1103,6 +1105,7 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
 (function(){
   var WA='12012506729', MAIL='jforero@jfsolutions80.com';
   function t(es,en){return '<span lang="es">'+es+'</span><span lang="en">'+en+'</span>';}
+  function t0(es,en){return document.documentElement.getAttribute('data-lang')==='en'?en:es;}
   function L(){return document.documentElement.getAttribute('data-lang')==='en'?'en':'es';}
 
   var DIV={
@@ -1230,7 +1233,7 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
   opts();
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',opts);});
 
-  var via='web', W3F_KEY='8d3fd0e5-b687-434f-816b-74fb0331bb81';
+  var via='web'; /* el envío web pasa por /api/contact/ (Turnstile + Web3Forms en el servidor) */
   document.querySelectorAll('#req-form [data-via]').forEach(function(b){b.addEventListener('click',function(){via=b.getAttribute('data-via');});});
   document.getElementById('req-form').addEventListener('submit',function(e){
     e.preventDefault();
@@ -1261,28 +1264,30 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
     if(via==='web'){
       var btn=document.getElementById('send-web'), label=btn.innerHTML;
       if(btn.disabled) return;
+      var ts=window.JFTS&&window.JFTS.token();
+      if(!ts){err.hidden=false;err.textContent=window.JFTS&&window.JFTS.failed()?t0('No se pudo cargar la verificación de seguridad. Usa los botones de WhatsApp o correo.','The security check could not load. Please use the WhatsApp or email buttons.'):t0('Completa la verificación de seguridad (la casilla de Cloudflare) e inténtalo de nuevo.','Complete the security check (the Cloudflare box) and try again.');return;}
       btn.disabled=true; btn.innerHTML=t('Enviando…','Sending…');
-      var payload={access_key:W3F_KEY,subject:'New Service Request – JF Solutions',from_name:'JF Solutions – Sitio web',
+      var payload={turnstile_token:ts,
         botcheck:document.getElementById('f-bot').checked,
         name:v('f-nombre'),email:v('f-correo'),phone:v('f-tel'),company:v('f-empresa'),
         division:d.es,service:s?(en?s.en:s.es):(en?'To be defined':'Por definir'),
         reply_language:idioma,message:v('f-msg')};
       var ctl=window.AbortController?new AbortController():null, tmo=setTimeout(function(){if(ctl)ctl.abort();},15000);
-      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
+      fetch('/api/contact/',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:ctl?ctl.signal:undefined})
         .then(function(r){return r.json().catch(function(){return {success:false};});})
         .then(function(res){
-          if(!(res&&res.success)) throw new Error('fail');
+          if(!(res&&res.success)) throw new Error(res&&res.code||'fail');
           box.innerHTML='<b>'+t('Solicitud enviada','Request sent')+'</b><p>'
             +t('Gracias. Recibí tu solicitud y te responderé en uno a dos días hábiles a ','Thank you. I received your request and will reply within one to two business days at ')+'<span class="ok-mail"></span>.</p>';
           box.querySelector('.ok-mail').textContent=payload.email;
           document.getElementById('req-form').reset(); svcOpts('');
         })
-        .catch(function(){
+        .catch(function(x){
           box.style.borderColor='var(--hold)';
           box.innerHTML='<b style="color:var(--hold)">'+t('No se pudo enviar','Could not send')+'</b><p>'
-            +t('Revisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo.','Check your connection and try again, or use the WhatsApp or email buttons.')+'</p>';
+            +(x&&x.message==='captcha'?t('Completa la verificación de seguridad (la casilla de Cloudflare) e inténtalo de nuevo.','Complete the security check (the Cloudflare box) and try again.'):t('Revisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo.','Check your connection and try again, or use the WhatsApp or email buttons.'))+'</p>';
         })
-        .then(function(){clearTimeout(tmo);btn.disabled=false;btn.innerHTML=label;show();});
+        .then(function(){clearTimeout(tmo);if(window.JFTS)window.JFTS.reset();btn.disabled=false;btn.innerHTML=label;show();});
       return;
     }
     if(via==='wa'){

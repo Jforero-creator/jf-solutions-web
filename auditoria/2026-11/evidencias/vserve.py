@@ -23,5 +23,15 @@ class H(http.server.SimpleHTTPRequestHandler):
                 b=open(nf,'rb').read(); s.send_response(404); s.send_header('Content-Type','text/html; charset=utf-8'); s.send_header('Content-Length',str(len(b))); s.end_headers()
                 import io; return io.BytesIO(b)
         return super().send_head()
+    def do_POST(s):
+        if s.path.startswith('/api/'):
+            import urllib.request
+            n=int(s.headers.get('Content-Length','0')); body=s.rfile.read(n)
+            hd={k:v for k,v in s.headers.items() if k.lower() in ('content-type','origin','x-test-w3f','x-forwarded-for')}
+            r=urllib.request.Request('http://127.0.0.1:8803'+s.path,data=body,method='POST',headers=hd)
+            try: x=urllib.request.urlopen(r); code=x.status; out=x.read()
+            except urllib.error.HTTPError as e: code=e.code; out=e.read()
+            s.send_response(code); s.send_header('Content-Type','application/json'); s.send_header('Content-Length',str(len(out))); s.end_headers(); s.wfile.write(out)
+        else: s.send_error(405)
 socketserver.TCPServer.allow_reuse_address=True
 http.server.ThreadingHTTPServer(('127.0.0.1',port),H).serve_forever()

@@ -61,9 +61,9 @@
  },
  {
   "id": "C04-ok/",
-  "test": "Envío correcto (Web3Forms simulado 200): mensaje de éxito, formulario reiniciado, botcheck=false, clave intacta",
+  "test": "Envío correcto vía /api/contact (Turnstile verificado, Web3Forms simulado): éxito, formulario reiniciado, botcheck=false, token enviado y sin clave en el navegador",
   "result": "PASA",
-  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te responderé en uno a dos días hábiles ' botcheck=False"
+  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te respond' botcheck=False token=PASS-TOKEN access_key_en_navegador=False"
  },
  {
   "id": "C04-val/servicios/mejora-procesos-trazabilidad/",
@@ -79,9 +79,9 @@
  },
  {
   "id": "C04-ok/servicios/mejora-procesos-trazabilidad/",
-  "test": "Envío correcto (Web3Forms simulado 200): mensaje de éxito, formulario reiniciado, botcheck=false, clave intacta",
+  "test": "Envío correcto vía /api/contact (Turnstile verificado, Web3Forms simulado): éxito, formulario reiniciado, botcheck=false, token enviado y sin clave en el navegador",
   "result": "PASA",
-  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te responderé en uno a dos días hábiles ' botcheck=False"
+  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te respond' botcheck=False token=PASS-TOKEN access_key_en_navegador=False"
  },
  {
   "id": "C04-val/en/services/",
@@ -97,9 +97,21 @@
  },
  {
   "id": "C04-ok/en/services/",
-  "test": "Envío correcto (Web3Forms simulado 200): mensaje de éxito, formulario reiniciado, botcheck=false, clave intacta",
+  "test": "Envío correcto vía /api/contact (Turnstile verificado, Web3Forms simulado): éxito, formulario reiniciado, botcheck=false, token enviado y sin clave en el navegador",
   "result": "PASA",
-  "evidence": "okt='Request sent\n\nThank you. I received your request and will reply within one to two business' botcheck=False"
+  "evidence": "okt='Request sent\n\nThank you. I received your request and will re' botcheck=False token=PASS-TOKEN access_key_en_navegador=False"
+ },
+ {
+  "id": "C01-ts",
+  "test": "Sin completar Turnstile: no se envía y se pide la verificación (ES)",
+  "result": "PASA",
+  "evidence": "Completa la verificación de seguridad (la casilla de Cloudflare) e inténtalo de nuevo."
+ },
+ {
+  "id": "C01-ts2",
+  "test": "Widget Turnstile se muestra en el formulario y se reinicia tras cada envío (token de un solo uso)",
+  "result": "PASA",
+  "evidence": "iframes=1 resets=1"
  },
  {
   "id": "C04-xss",
@@ -109,13 +121,19 @@
  },
  {
   "id": "C04-err",
-  "test": "Fallo de envío (respuesta de error 400): mensaje claro y datos conservados; botón reactivado",
+  "test": "Fallo de envío (Web3Forms responde error): mensaje claro y datos conservados; botón reactivado",
   "result": "PASA",
   "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
  },
  {
   "id": "C04-down",
-  "test": "Fallo de envío (sin conexión): mensaje claro y datos conservados; botón reactivado",
+  "test": "Fallo de envío (Web3Forms inalcanzable desde el servidor): mensaje claro y datos conservados; botón reactivado",
+  "result": "PASA",
+  "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
+ },
+ {
+  "id": "C04-offline",
+  "test": "Fallo de envío (navegador sin conexión): mensaje claro y datos conservados; botón reactivado",
   "result": "PASA",
   "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
  },
