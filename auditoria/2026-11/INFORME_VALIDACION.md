@@ -33,7 +33,7 @@
 | Llegada al buzón | 1 correo de `notify@web3forms.com` ("JF Solutions – Sitio web"), asunto **"New Service Request – JF Solutions"**, recibido a las 04:05:49 UTC, entregado a la cuenta de Gmail configurada en Web3Forms y visible en el buzón de Workspace. Un minuto de diferencia con la captura. |
 | Campos recibidos | name, email, phone, company, division (Industrial Solutions), service (Por definir), reply_language (Español), message. **Ni el token de hCaptcha ni el honeypot aparecen en el correo.** |
 | Datos usados | El propietario usó datos propios (nombre, teléfono y una dirección de iCloud enmascarada) en lugar de los ficticios propuestos. **No se copian a este repositorio.** |
-| hCaptcha obligatorio | **No verificado desde aquí.** Requiere confirmar en el panel de Web3Forms que hCaptcha está activado (R-02). |
+| hCaptcha obligatorio | **Activado** por el propietario en app.web3forms.com ("Captcha Protection: hCaptcha", captura del 3-nov 23:14). Ver el riesgo R-16 sobre producción. |
 
 ## 3. Qué hay que comprobar en la nueva prueba real (iPhone y Android)
 
