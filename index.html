@@ -1230,6 +1230,8 @@ details.svc[open] .svc-ico{background:var(--gold);color:var(--on-gold);border-co
   }
   function fillForm(k,i){ if(!DIV[k]) return; fDiv.value=k; svcOpts(i==null?'':i); }
   fDiv.addEventListener('change',function(){svcOpts('');});
+  /* al corregir un campo se quita su marca de error */
+  document.getElementById('req-form').addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')){e.target.removeAttribute('aria-invalid');e.target.removeAttribute('aria-describedby');}});
   opts();
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',opts);});
 

@@ -13,6 +13,8 @@
   var en=lang==='en';
   var WA='12012506729', MAIL='jforero@jfsolutions80.com'; /* el envío web pasa por /api/contact/ (Turnstile + Web3Forms en el servidor) */
   var service=form.getAttribute('data-service'), page=location.origin+location.pathname;
+  /* al corregir un campo se quita su marca de error */
+  document.getElementById('req-form').addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')){e.target.removeAttribute('aria-invalid');e.target.removeAttribute('aria-describedby');}});
   var via='web';
   form.querySelectorAll('[data-via]').forEach(function(b){b.addEventListener('click',function(){via=b.getAttribute('data-via');});});
   function v(id){return document.getElementById(id).value.trim();}
