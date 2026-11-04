@@ -126,3 +126,6 @@
   .req-form .row{grid-template-columns:1fr}
   .brand small{display:none}
 }
+
+/* Auditoría 2026-11: campo con error visible (WCAG 3.3.1) */
+.fld [aria-invalid="true"]{border-color:var(--hold)}

@@ -118,14 +118,14 @@
       <p class="form-note">Tu solicitud llega directamente a mi correo. Si prefieres, envíala por WhatsApp o desde tu app de correo.</p>
       <p class="form-note"><strong>Servicio:</strong> Mejora de procesos y trazabilidad</p>
       <div class="row">
-        <div class="fld"><label for="f-nombre">Nombre completo <span class="star">*</span></label><input id="f-nombre" autocomplete="name"></div>
-        <div class="fld"><label for="f-empresa">Empresa o planta</label><input id="f-empresa" autocomplete="organization"></div>
+        <div class="fld"><label for="f-nombre">Nombre completo <span class="star">*</span></label><input id="f-nombre" autocomplete="name" required aria-required="true" maxlength="120"></div>
+        <div class="fld"><label for="f-empresa">Empresa o planta</label><input id="f-empresa" autocomplete="organization" maxlength="120"></div>
       </div>
       <div class="row">
-        <div class="fld"><label for="f-correo">Correo <span class="star">*</span></label><input id="f-correo" type="email" autocomplete="email"></div>
-        <div class="fld"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="(201) 555-0123"></div>
+        <div class="fld"><label for="f-correo">Correo <span class="star">*</span></label><input id="f-correo" type="email" autocomplete="email" required aria-required="true" maxlength="160"></div>
+        <div class="fld"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="(201) 555-0123" maxlength="40"></div>
       </div>
-      <div class="fld"><label for="f-msg">Cuéntame tu caso <span class="star">*</span></label><textarea id="f-msg"></textarea></div>
+      <div class="fld"><label for="f-msg">Cuéntame tu caso <span class="star">*</span></label><textarea id="f-msg" required aria-required="true" maxlength="5000"></textarea></div>
       <div class="fld"><span class="lbl" id="lbl-idioma">Idioma de respuesta</span>
         <div class="chips-in" role="radiogroup" aria-labelledby="lbl-idioma">
           <label><input type="radio" name="f-idioma" value="Español" checked>Español</label>
@@ -140,6 +140,7 @@
         <button class="btn btn-ghost" type="submit" data-via="mail">Enviar por correo</button>
       </div>
       <p class="form-note"><span class="star">*</span> Campos obligatorios.</p>
+      <p class="form-note">Usaré tus datos solo para responder tu solicitud. Detalles en la <a href="/privacidad/">política de privacidad</a>.</p>
     </form>
     </div>
     <div class="contact-grid">
@@ -155,7 +156,7 @@
   <div class="wrap">
     <span>© <span id="year">2026</span> JF Solutions</span>
     <span>Industria · Negocios · Marca · Carrera — Nueva Jersey</span>
-    <span class="foot-links"><a href="/servicios/">Servicios</a><a href="https://www.instagram.com/jfsolutionsq" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg" target="_blank" rel="noopener">YouTube</a><a href="https://www.fiverr.com/s/oddQWXV" target="_blank" rel="noopener">Fiverr</a><a href="https://ora.jfsolutionsq.com" target="_blank" rel="noopener">ORA</a><a href="/manos.html">Reto GMP</a></span>
+    <span class="foot-links"><a href="/servicios/">Servicios</a><a href="https://www.instagram.com/jfsolutionsq" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg" target="_blank" rel="noopener">YouTube</a><a href="https://www.fiverr.com/s/oddQWXV" target="_blank" rel="noopener">Fiverr</a><a href="https://ora.jfsolutionsq.com" target="_blank" rel="noopener">ORA</a><a href="/manos.html">Reto GMP</a><a href="/privacidad/">Privacidad</a></span>
     <span>Fotos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
   </div>
 </footer>

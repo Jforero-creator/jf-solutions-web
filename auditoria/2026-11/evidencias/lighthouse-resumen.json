@@ -1,0 +1,154 @@
+{
+ "before-mobile": [
+  {
+   "perf": 0.89,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2733.4372894795692,
+   "largest-contentful-paint": 3081.8745789591385,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 3204.101099791828,
+   "total-byte-weight": 914545
+  },
+  {
+   "perf": 0.89,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2733.3849,
+   "largest-contentful-paint": 3081.7698,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 3168.4824140000223,
+   "total-byte-weight": 394162
+  },
+  {
+   "perf": 0.89,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2737.5097277950676,
+   "largest-contentful-paint": 3090.0194555901353,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 3161.876209117975,
+   "total-byte-weight": 390257
+  }
+ ],
+ "before-desktop": [
+  {
+   "perf": 1,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 651.8384823715351,
+   "largest-contentful-paint": 677.2577235573026,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 651.8384823715351,
+   "total-byte-weight": 656307
+  },
+  {
+   "perf": 1,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 632.6933584158581,
+   "largest-contentful-paint": 666.6933584158581,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 649.7554330544394,
+   "total-byte-weight": 394163
+  },
+  {
+   "perf": 1,
+   "a11y": 0.97,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 631.2811114550669,
+   "largest-contentful-paint": 666.2811114550669,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 631.2811114550669,
+   "total-byte-weight": 390258
+  }
+ ],
+ "after-mobile": [
+  {
+   "perf": 0.95,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2137.83835,
+   "largest-contentful-paint": 2565.6767,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 2892.5624099999877,
+   "total-byte-weight": 393911
+  },
+  {
+   "perf": 0.95,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2130.63585,
+   "largest-contentful-paint": 2551.2717000000002,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 2873.709019999964,
+   "total-byte-weight": 1012407
+  },
+  {
+   "perf": 0.94,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 2143.2833,
+   "largest-contentful-paint": 2576.5666,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 2954.81621000003,
+   "total-byte-weight": 295613
+  }
+ ],
+ "after-desktop": [
+  {
+   "perf": 1,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 550.3054262509606,
+   "largest-contentful-paint": 555.458139376441,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 617.902565073375,
+   "total-byte-weight": 292536
+  },
+  {
+   "perf": 1,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 557.288909948097,
+   "largest-contentful-paint": 565.9333649221454,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 618.1496739744905,
+   "total-byte-weight": 292536
+  },
+  {
+   "perf": 1,
+   "a11y": 1,
+   "bp": 0.96,
+   "seo": 1,
+   "first-contentful-paint": 550.4316914923247,
+   "largest-contentful-paint": 555.6475372384871,
+   "cumulative-layout-shift": 0,
+   "total-blocking-time": 0,
+   "speed-index": 625.6351684837334,
+   "total-byte-weight": 295614
+  }
+ ]
+}
