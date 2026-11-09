@@ -1,0 +1,8 @@
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
+en listo: { mp3: 720761, webm: 395696 } { integrated: -16.74, truePeak: -1.49 }
+es listo: { mp3: 720773, webm: 385473 } { integrated: -16.55, truePeak: -1.47 }
+timing.json escrito. Ejecuta: node dev/experiencia/build.mjs
+escrito experiencia/index.html (41069 B)
+escrito en/experience/index.html (39976 B)
+escrito media/experiencia/captions-es.vtt (1690 B)
+escrito media/experiencia/captions-en.vtt (1602 B)

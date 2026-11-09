@@ -1,0 +1,26 @@
+Transcripción local (Whisper small, sherpa-onnx int8) de cada toma original, 9-nov-2026.
+Criterio de elección: transcripción fiel al guion; entre tomas fieles, la más pausada que cabe en su ventana.
+Elegidas: en s1=2 s2=0 s3=0 s4=1 s5=1 · es s1=0 s2=1 s3=1 s4=0 s5=0
+
+en-s1-0 6.87 | One missing record. One delayed season. One preventable disruption.   ← descartada («decision» suena como «season»)
+en-s1-1 6.18 | one missing record, one delayed decision, one preventable disruption.
+en-s1-2 6.32 | one missing record, one delayed decision, one preventable disruption.   ← elegida (toma nueva)
+en-s1-3 5.94 | one missing record, one delayed decision, one preventable disruption.
+en-s2-0 12.59 | when quality, production, maintenance and warehouse operate with disconnected information, risks become harder to detect and decisions take longer.   ← elegida
+en-s2-1 11.84 | (idéntica)
+en-s3-0 18.53 | JF Solutions helps organizations connect evidence, investigate root causes, strengthen traceability, and build practical improvement plans. From receiving to final disposition, every decision should have a clear foundation.   ← elegida
+en-s3-1 18.39 | (idéntica)
+en-s4-0 17.37 | quality control, food safety, process improvement, traceability readiness. We combine operation experience, structured methods ...   ← descartada («operation» en lugar de «operational»)
+en-s4-1 19.18 | quality control, food safety, process improvement, traceability, readiness. We combine operational experience, structured methods, and digital innovation to help teams move from reactive work towards better control.   ← elegida
+en-s5-0 11.01 | Better operations begin with better visibility. Explore, JF solutions and discover ...   ← descartada (pausa extraña tras «Explore»)
+en-s5-1 9.66 | Better operations begin with better visibility. Explore JF solutions and discover where your next improvement can start.   ← elegida
+es-s1-0 6.32 | un registro faltante, una decisión tardía, una interrupción que pudo prevenirse.   ← elegida
+es-s1-1 6.27 | (idéntica)
+es-s2-0 10.08 | Cuando calidad, producción, mantenimiento y almacén trabajan con información desconectada, los riesgos son más difíciles de detectar y las decisiones tardan más.
+es-s2-1 10.59 | (idéntica)   ← elegida
+es-s3-0 15.05 | JF Solutions ayuda a conectar evidencia, investigar causas raíz, fortalecer la trazabilidad y construir planes prácticos de mejora. Desde la recepción hasta la disposición final, cada decisión debe tener un fundamento claro.
+es-s3-1 15.6 | (idéntica)   ← elegida
+es-s4-0 16.63 | Control de calidad, inocuidad alimentaria, mejora de procesos, preparación para trazabilidad. Combinamos experiencia operacional, métodos estructurados e innovación digital para ayudar a los equipos a pasar de la reacción a un mejor control.   ← elegida
+es-s4-1 16.39 | ... preparación para trazabilidad o combinamos ...   ← descartada (sílaba extra «o»)
+es-s5-0 8.64 | Mejores operaciones comienzan con mayor visibilidad. Explora JF Solutions y descubre dónde puede comenzar tu próxima mejora.   ← elegida
+es-s5-1 7.99 | ... Explora JTF Solutions ...   ← descartada
