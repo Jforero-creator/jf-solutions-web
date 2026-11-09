@@ -163,8 +163,12 @@
 
   function tick(ts) {
     if (!S.playing) return;
-    if (S.sound && audio.getAttribute('src') && !audio.paused && audio.readyState > 2) S.t = audio.currentTime;
-    else S.t += Math.min(0.25, (ts - S.last) / 1000);
+    var dt = Math.min(0.25, (ts - S.last) / 1000);
+    if (S.sound && audio.getAttribute('src') && !audio.paused && audio.readyState > 2) {
+      // La voz manda el reloj solo si está en el mismo punto; si el navegador no pudo saltar, se corrige la voz
+      var at = audio.currentTime;
+      if (Math.abs(at - S.t) < 1) S.t = at; else { try { audio.currentTime = S.t; } catch (e) {} S.t += dt; }
+    } else S.t += dt;
     S.last = ts;
     if (S.t >= DUR) { S.t = DUR; render(); finish(); return; }
     render();
@@ -266,6 +270,17 @@
     if (S.opener && S.opener.focus) S.opener.focus();
   }
   openers.forEach(function (b) { b.addEventListener('click', open); });
+  // Prepara las escenas del reproductor en un momento libre para que abrirlo responda al instante
+  (window.requestIdleCallback || function (f) { return setTimeout(f, 2500); })(function () { build(); }, { timeout: 4000 });
+  // El foco no sale del reproductor mientras está abierto (Tab y Mayús+Tab circulan)
+  dlg.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = [].filter.call(dlg.querySelectorAll('button, [href], input, select'), function (el) { return !el.disabled && el.offsetParent !== null; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
   dlg.querySelector('[data-pl-close]').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('close', cleanup);
   d.addEventListener('visibilitychange', function () { if (d.hidden && S.playing) pause(); });

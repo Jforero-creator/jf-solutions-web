@@ -6,58 +6,54 @@
    "best-practices": 100,
    "seo": 100
   },
-  "LCP_ms": 2101,
-  "CLS": 0,
-  "TBT_ms": 20,
-  "FCP_ms": 1530,
-  "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
- },
- "en_experience-2": {
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 100,
-   "seo": 100
-  },
   "LCP_ms": 2110,
-  "CLS": 0.034,
+  "CLS": 0.033,
   "TBT_ms": 0,
   "FCP_ms": 1535,
   "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
+  "formFactor": "mobile"
+ },
+ "en_experience-2": {
+  "scores": {
+   "performance": 98,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2184,
+  "CLS": 0,
+  "TBT_ms": 27,
+  "FCP_ms": 1533,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile"
  },
  "en_experience-3": {
   "scores": {
-   "performance": 99,
+   "performance": 98,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
-  "LCP_ms": 2102,
+  "LCP_ms": 2200,
   "CLS": 0,
-  "TBT_ms": 28,
-  "FCP_ms": 1531,
+  "TBT_ms": 25,
+  "FCP_ms": 1534,
   "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
+  "formFactor": "mobile"
  },
  "experiencia-1": {
   "scores": {
-   "performance": 99,
+   "performance": 98,
    "accessibility": 100,
    "best-practices": 100,
    "seo": 100
   },
-  "LCP_ms": 2103,
+  "LCP_ms": 2279,
   "CLS": 0,
-  "TBT_ms": 49,
-  "FCP_ms": 1532,
+  "TBT_ms": 42,
+  "FCP_ms": 1534,
   "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
+  "formFactor": "mobile"
  },
  "experiencia-2": {
   "scores": {
@@ -66,13 +62,12 @@
    "best-practices": 100,
    "seo": 100
   },
-  "LCP_ms": 2101,
-  "CLS": 0.02,
+  "LCP_ms": 2102,
+  "CLS": 0.021,
   "TBT_ms": 0,
-  "FCP_ms": 1530,
+  "FCP_ms": 1531,
   "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
+  "formFactor": "mobile"
  },
  "experiencia-3": {
   "scores": {
@@ -81,12 +76,11 @@
    "best-practices": 100,
    "seo": 100
   },
-  "LCP_ms": 2105,
-  "CLS": 0,
-  "TBT_ms": 22,
-  "FCP_ms": 1532,
+  "LCP_ms": 2102,
+  "CLS": 0.021,
+  "TBT_ms": 0,
+  "FCP_ms": 1531,
   "lighthouse": "12.8.2",
-  "formFactor": "mobile",
-  "throttling": "simulate"
+  "formFactor": "mobile"
  }
 }

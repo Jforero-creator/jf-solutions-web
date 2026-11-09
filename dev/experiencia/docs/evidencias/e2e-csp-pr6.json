@@ -1,5 +1,5 @@
 {
-  "pass": 130,
+  "pass": 134,
   "fail": 0,
   "results": [
     {
@@ -45,7 +45,7 @@
     {
       "ok": true,
       "name": "es/escritorio: reproduce al abrir (visual + subtítulos)",
-      "info": "{\"t\":1.556100000000187,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":1.5097000000003733,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -80,7 +80,7 @@
     {
       "ok": true,
       "name": "es/escritorio: cambiar idioma en el reproductor conserva el minuto y la escena",
-      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":40,\"audioPaused\":true}"
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":40,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -150,7 +150,7 @@
     {
       "ok": true,
       "name": "es/móvil: reproduce al abrir (visual + subtítulos)",
-      "info": "{\"t\":1.5236000000000025,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":1.5114000000007466,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -185,7 +185,7 @@
     {
       "ok": true,
       "name": "es/móvil: cambiar idioma en el reproductor conserva el minuto y la escena",
-      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":40,\"audioPaused\":true}"
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":40,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -215,7 +215,7 @@
     {
       "ok": true,
       "name": "es: la presentación dura 90 s y termina sola",
-      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -275,7 +275,7 @@
     {
       "ok": true,
       "name": "es: el cambio de idioma lleva a la misma escena (#s3)",
-      "info": "http://127.0.0.1:8921/en/experience/#s3"
+      "info": "http://127.0.0.1:8866/en/experience/#s3"
     },
     {
       "ok": true,
@@ -330,7 +330,7 @@
     {
       "ok": true,
       "name": "en/escritorio: reproduce al abrir (visual + subtítulos)",
-      "info": "{\"t\":1.5254999999999084,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":1.5125000000011175,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -354,7 +354,7 @@
     },
     {
       "ok": true,
-      "name": "en/escritorio: subtítulo sincronizado con el VTT a 1.5 s",
+      "name": "en/escritorio: subtítulo sincronizado con el VTT a 1.4 s",
       "info": "One missing record."
     },
     {
@@ -365,7 +365,7 @@
     {
       "ok": true,
       "name": "en/escritorio: cambiar idioma en el reproductor conserva el minuto y la escena",
-      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":40,\"audioPaused\":true}"
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":40,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -435,7 +435,7 @@
     {
       "ok": true,
       "name": "en/móvil: reproduce al abrir (visual + subtítulos)",
-      "info": "{\"t\":1.5197000000000018,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":1.5154,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -459,7 +459,7 @@
     },
     {
       "ok": true,
-      "name": "en/móvil: subtítulo sincronizado con el VTT a 1.5 s",
+      "name": "en/móvil: subtítulo sincronizado con el VTT a 1.4 s",
       "info": "One missing record."
     },
     {
@@ -470,7 +470,7 @@
     {
       "ok": true,
       "name": "en/móvil: cambiar idioma en el reproductor conserva el minuto y la escena",
-      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":40,\"audioPaused\":true}"
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":40,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -500,7 +500,7 @@
     {
       "ok": true,
       "name": "en: la presentación dura 90 s y termina sola",
-      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":0,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -560,7 +560,7 @@
     {
       "ok": true,
       "name": "en: el cambio de idioma lleva a la misma escena (#s3)",
-      "info": "http://127.0.0.1:8921/experiencia/#s3"
+      "info": "http://127.0.0.1:8866/experiencia/#s3"
     },
     {
       "ok": true,
@@ -590,12 +590,12 @@
     {
       "ok": true,
       "name": "es: al activar el sonido la voz arranca en el mismo punto que la escena",
-      "info": "{\"t\":2.387933,\"a\":2.394957}"
+      "info": "{\"t\":33.439004,\"a\":33.453492}"
     },
     {
       "ok": true,
       "name": "es: la pista de narración dura 90 s",
-      "info": "90.008"
+      "info": "90"
     },
     {
       "ok": true,
@@ -609,8 +609,18 @@
     },
     {
       "ok": true,
+      "name": "es: activar la voz en pausa reanuda con sonido (MP3)",
+      "info": "{\"t\":13.898183,\"playing\":true,\"scene\":1,\"cue\":4,\"lang\":\"es\",\"cc\":true,\"sound\":true,\"caption\":\"trabajan con información desconectada,\",\"audioSrc\":\"/media/experiencia/narracion-es.mp3\",\"audioTime\":13.914097,\"audioPaused\":false}"
+    },
+    {
+      "ok": true,
+      "name": "es: el botón de voz tiene texto visible",
+      "info": ""
+    },
+    {
+      "ok": true,
       "name": "es: si la narración no carga, la presentación sigue en silencio",
-      "info": "{\"t\":1.5640999999999057,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0.047499999999906894,\"audioPaused\":true}"
+      "info": "{\"t\":1.5786999999996258,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0.06219999999962747,\"audioPaused\":true}"
     },
     {
       "ok": true,
@@ -630,12 +640,12 @@
     {
       "ok": true,
       "name": "en: al activar el sonido la voz arranca en el mismo punto que la escena",
-      "info": "{\"t\":2.390693,\"a\":2.406467}"
+      "info": "{\"t\":33.444928,\"a\":33.459934}"
     },
     {
       "ok": true,
       "name": "en: la pista de narración dura 90 s",
-      "info": "90.008"
+      "info": "90"
     },
     {
       "ok": true,
@@ -649,8 +659,18 @@
     },
     {
       "ok": true,
+      "name": "en: activar la voz en pausa reanuda con sonido (MP3)",
+      "info": "{\"t\":13.901059,\"playing\":true,\"scene\":1,\"cue\":3,\"lang\":\"en\",\"cc\":true,\"sound\":true,\"caption\":\"When quality, production, maintenance and warehouse\",\"audioSrc\":\"/media/experiencia/narracion-en.mp3\",\"audioTime\":13.914332,\"audioPaused\":false}"
+    },
+    {
+      "ok": true,
+      "name": "en: el botón de voz tiene texto visible",
+      "info": ""
+    },
+    {
+      "ok": true,
       "name": "en: si la narración no carga, la presentación sigue en silencio",
-      "info": "{\"t\":1.573400000000371,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0.05680000000037251,\"audioPaused\":true}"
+      "info": "{\"t\":1.5789999999999984,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0.0625,\"audioPaused\":true}"
     }
   ]
 }

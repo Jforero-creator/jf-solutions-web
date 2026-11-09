@@ -74,6 +74,7 @@ for (const l of ['en', 'es']) {
   ok((vtt.match(/-->/g) || []).length === cs.length, `${l}: VTT con ${cs.length} cues`);
 }
 
+const sm = read('sitemap.xml');
 // 3. Páginas: SEO, encabezados, contenido rastreable, afirmaciones
 const pages = { es: read('experiencia/index.html'), en: read('en/experience/index.html') };
 const url = { es: 'https://www.jfsolutionsq.com/experiencia/', en: 'https://www.jfsolutionsq.com/en/experience/' };
@@ -127,6 +128,30 @@ for (const l of ['es', 'en']) {
   ok(anchors.every((a) => h.includes(`id="${a}"`)), `${l}: anclas internas existen`);
   ok(h.includes('/servicios/#contacto') || h.includes('/en/services/#contacto'), `${l}: "Solicitar consulta" lleva al formulario existente`);
 }
+// SEO/GEO adicional
+for (const l of ['es', 'en']) {
+  const h = pages[l];
+  const title = unesc((h.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
+  ok(title.length >= 30 && title.length <= 60, `${l}: <title> de 30–60 caracteres`, `${title.length}: ${title}`);
+  ok((h.match(/<link rel="canonical"/g) || []).length === 1 && (h.match(/<h1\b/g) || []).length === 1, `${l}: un canonical y un H1`);
+  ok(h.includes('<meta property="og:title"') && h.includes('<meta property="og:description"') && h.includes('<meta property="og:image"') && h.includes(`og:locale" content="${l === 'es' ? 'es_ES' : 'en_US'}`), `${l}: metadatos Open Graph completos`);
+  const g = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+  const ids = new Set(g.map((n) => n['@id']).filter(Boolean));
+  const refs = JSON.stringify(g).match(/"@id":"[^"]+"/g).map((x) => x.slice(7, -1));
+  ok(refs.every((r) => ids.has(r)), `${l}: todas las referencias @id del JSON-LD existen`);
+  const svcs = g.filter((n) => n['@type'] === 'Service');
+  ok(svcs.length === 4 && svcs.every((n) => n.name && n.provider && n.areaServed && n.url && n.description), `${l}: 4 Service con nombre, proveedor, área, URL y descripción`);
+  const wp = g.find((n) => n['@type'] === 'WebPage');
+  ok(wp.inLanguage === l && wp.url === url[l], `${l}: WebPage con idioma y URL correctos`);
+  // Texto indexable sustancial y preguntas como encabezados (útil para buscadores y asistentes)
+  const words = text(h.replace(/<dialog[\s\S]*<\/dialog>/, '')).split(' ').length;
+  ok(words > 700, `${l}: contenido indexable sustancial en HTML`, `${words} palabras`);
+  ok((h.match(/<h3>[^<]*\?<\/h3>/g) || []).length === 3, `${l}: las 3 preguntas frecuentes son encabezados H3 con respuesta debajo`);
+  // hreflang del sitemap coincide con los de la página
+  const blk = sm.split('<url>').find((b) => b.includes(`<loc>${url[l]}</loc>`)) || '';
+  ok(blk.includes(`hreflang="es" href="${url.es}"`) && blk.includes(`hreflang="en" href="${url.en}"`), `${l}: hreflang del sitemap coincide con la página`);
+}
+ok(read('servicios/index.html').includes('href="/experiencia/"') && read('en/services/index.html').includes('href="/en/experience/"'), 'Enlaces internos desde las páginas de servicios hacia la experiencia');
 // FAQ EN exacta y ES presente
 SPEC.faqEn.forEach(([q, a]) => ok(text(pages.en).includes(q) && text(pages.en).includes(a), `en: FAQ visible "${q.slice(0, 40)}…"`));
 ok(C.es.faq.length === 3, 'es: tres preguntas frecuentes equivalentes');
@@ -134,7 +159,6 @@ ok(C.es.faq.length === 3, 'es: tres preguntas frecuentes equivalentes');
 ok(read('servicios/index.html').includes('id="contacto"') && read('en/services/index.html').includes('id="contacto"'), 'El formulario existente (#contacto) sigue en las páginas de servicios');
 
 // 4. Sitemap y robots
-const sm = read('sitemap.xml');
 ok(sm.includes('<loc>https://www.jfsolutionsq.com/experiencia/</loc>') && sm.includes('<loc>https://www.jfsolutionsq.com/en/experience/</loc>'), 'Sitemap incluye ambas URLs');
 ok((sm.match(/<url>/g) || []).length === (sm.match(/<\/url>/g) || []).length, 'Sitemap bien formado');
 ok(read('robots.txt').includes('Sitemap:'), 'robots.txt intacto con referencia al sitemap');

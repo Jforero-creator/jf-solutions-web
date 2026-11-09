@@ -1,5 +1,5 @@
 {
-  "pass": 218,
+  "pass": 238,
   "fail": 0,
   "results": [
     {
@@ -140,7 +140,7 @@
     {
       "ok": true,
       "name": "en: \"One missing record.\" dentro de su escena",
-      "info": "0.72-2.36"
+      "info": "0.72-2.13"
     },
     {
       "ok": true,
@@ -155,7 +155,7 @@
     {
       "ok": true,
       "name": "en: \"One delayed decision.\" dentro de su escena",
-      "info": "2.81-4.69"
+      "info": "2.57-4.25"
     },
     {
       "ok": true,
@@ -170,7 +170,7 @@
     {
       "ok": true,
       "name": "en: \"One preventable disruption.\" dentro de su escena",
-      "info": "5.08-7.55"
+      "info": "4.72-7.07"
     },
     {
       "ok": true,
@@ -320,7 +320,7 @@
     {
       "ok": true,
       "name": "en: \"Quality control. Food safety.\" dentro de su escena",
-      "info": "55.52-58.33"
+      "info": "55.7-58.35"
     },
     {
       "ok": true,
@@ -335,7 +335,7 @@
     {
       "ok": true,
       "name": "en: \"Process improvement. Traceability readiness.\" dentro de su escena",
-      "info": "58.46-61.44"
+      "info": "58.59-62.6"
     },
     {
       "ok": true,
@@ -350,7 +350,7 @@
     {
       "ok": true,
       "name": "en: \"We combine operational experience, structured methods\" dentro de su escena",
-      "info": "62.09-65.78"
+      "info": "63.25-66.95"
     },
     {
       "ok": true,
@@ -365,7 +365,7 @@
     {
       "ok": true,
       "name": "en: \"and digital innovation to help teams move\" dentro de su escena",
-      "info": "65.82-69.12"
+      "info": "67-70.91"
     },
     {
       "ok": true,
@@ -380,7 +380,7 @@
     {
       "ok": true,
       "name": "en: \"from reactive work toward better control.\" dentro de su escena",
-      "info": "69.16-72.94"
+      "info": "70.95-74.9"
     },
     {
       "ok": true,
@@ -395,7 +395,7 @@
     {
       "ok": true,
       "name": "en: \"Better operations begin with better visibility.\" dentro de su escena",
-      "info": "75.52-79.03"
+      "info": "75.52-78.7"
     },
     {
       "ok": true,
@@ -410,7 +410,7 @@
     {
       "ok": true,
       "name": "en: \"Explore JF Solutions and discover\" dentro de su escena",
-      "info": "79.65-82.67"
+      "info": "79.35-81.63"
     },
     {
       "ok": true,
@@ -425,7 +425,7 @@
     {
       "ok": true,
       "name": "en: \"where your next improvement can start.\" dentro de su escena",
-      "info": "82.71-86.6"
+      "info": "81.67-85.14"
     },
     {
       "ok": true,
@@ -1039,6 +1039,101 @@
     },
     {
       "ok": true,
+      "name": "es: <title> de 30–60 caracteres",
+      "info": "60: Consultoría en calidad e inocuidad en NJ y NY | JF Solutions"
+    },
+    {
+      "ok": true,
+      "name": "es: un canonical y un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: metadatos Open Graph completos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: todas las referencias @id del JSON-LD existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: 4 Service con nombre, proveedor, área, URL y descripción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: WebPage con idioma y URL correctos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: contenido indexable sustancial en HTML",
+      "info": "1279 palabras"
+    },
+    {
+      "ok": true,
+      "name": "es: las 3 preguntas frecuentes son encabezados H3 con respuesta debajo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: hreflang del sitemap coincide con la página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: <title> de 30–60 caracteres",
+      "info": "58: Quality & Food Safety Consulting in NJ & NY | JF Solutions"
+    },
+    {
+      "ok": true,
+      "name": "en: un canonical y un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: metadatos Open Graph completos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: todas las referencias @id del JSON-LD existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: 4 Service con nombre, proveedor, área, URL y descripción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: WebPage con idioma y URL correctos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: contenido indexable sustancial en HTML",
+      "info": "1143 palabras"
+    },
+    {
+      "ok": true,
+      "name": "en: las 3 preguntas frecuentes son encabezados H3 con respuesta debajo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: hreflang del sitemap coincide con la página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Enlaces internos desde las páginas de servicios hacia la experiencia",
+      "info": ""
+    },
+    {
+      "ok": true,
       "name": "en: FAQ visible \"Where can I find quality and food safety…\"",
       "info": ""
     },
@@ -1079,12 +1174,17 @@
     },
     {
       "ok": true,
-      "name": "Solo se añadieron archivos (excepto sitemap.xml)",
-      "info": "sitemap.xml"
+      "name": "Solo se añadieron archivos (excepto sitemap y un enlace en las 2 páginas de servicios)",
+      "info": "en/services/index.html,servicios/index.html,sitemap.xml"
     },
     {
       "ok": true,
-      "name": "Sin cambios en vercel.json, portada, formulario ni páginas existentes",
+      "name": "Páginas de servicios: solo se añade una línea con el enlace a la experiencia",
+      "info": "+      <p style=\"margin:18px 0 0\"><a href=\"/en/experience/\" style=\"color:var(--gold);font-weight:700\">Watch the 90-second story<span aria-hidden=\"true\"> →</span></a></p> | +      <p style=\"margin:18px 0 0\"><a href=\"/experiencia/\" style=\"color:var(--gold);font-weight:700\">Ver la historia de 90 segundos<span aria-hidden=\"true\"> →</span></a></p>"
+    },
+    {
+      "ok": true,
+      "name": "Sin cambios en vercel.json, portada, formulario, estilos ni Reto GMP",
       "info": ""
     },
     {

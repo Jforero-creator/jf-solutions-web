@@ -1,5 +1,7 @@
 # Experiencia cinematográfica de 90 s — Informe de construcción
 
+> **Ronda 2 (9-nov-2026, 13:20):** José aprobó con correcciones. Los cambios están en `CAMBIOS_RONDA2.md` y los resultados en `MATRIZ_PRUEBAS.md`.
+
 **Rama:** `feature/jf-cinematic-experience-v1` · **Especificación:** Documento Maestro v1.0 (9-nov-2026) · **Estado:** construida y probada en rama aislada. **Sin merge ni publicación.**
 
 > Construcción y pruebas terminadas en rama de desarrollo. Solicito aprobación explícita para cualquier merge o publicación.
@@ -39,8 +41,8 @@
 | Servicio | ElevenLabs (cuenta conectada de JF Solutions), modelo `eleven_multilingual_v2` |
 | Voces | **EN-US: Abbas** (`JNJLgw1sryJz75xYzsFL`) · **ES latino: Arturo** (`jUzQhbFtXaz1IwDyMfJr`), elegidas por José |
 | Tomas | 2 por escena e idioma (20 en total). Procedencia completa en `dev/experiencia/audio/takes.json` |
-| Créditos usados | **3.420** (≈ US$0,62 según el precio que mostró la API) |
-| Elección de toma | Automática: la más pausada que cabe en su ventana con margen. Se puede cambiar con `--pick en.s4=1` |
+| Créditos usados | **3.602** (3.420 iniciales + 182 para rehacer EN escena 1 tras la verificación; ≈ US$0,65) |
+| Elección de toma | **Por transcripción** (Whisper local): fiel al guion y, entre las fieles, la más pausada que cabe. Detalle en `docs/evidencias/transcripcion-tomas.txt` |
 | Archivos | `media/experiencia/narracion-{en,es}.webm` (Opus 40 kbps, ~390 KB) y `.mp3` (64 kbps, ~720 KB). 90,0 s cada uno |
 | Sonoridad | ~−16,6 LUFS, pico real −1,5 dBTP (EBU R128) |
 | Carga | `preload="none"`: el audio se descarga **solo** cuando el visitante activa el sonido. Sin llamadas a API por visita |
@@ -77,7 +79,7 @@
 **Limitaciones de las mediciones (desviaciones documentadas):**
 - El entorno de pruebas no alcanza `images.unsplash.com` ni Google Fonts. Las capturas muestran el **fondo navy de respaldo** en lugar de las fotos, y Lighthouse midió sin fotos ni fuentes. **El LCP real puede ser mayor** cuando la foto del héroe es el elemento más grande. Hay que medirlo en el Preview y, tras publicar, con datos de campo (Core Web Vitals p75). No se afirma cumplimiento.
 - Solo se automatizó Chromium. **Pendiente en dispositivos reales:** Safari iOS, Chrome Android, Firefox y Edge (escritorio).
-- La calidad de la voz no se evaluó de oído: José debe escuchar ambas versiones en el Preview.
+- La voz se verificó con audio real (transcripción, energía, sincronía): ver `MATRIZ_PRUEBAS.md`. Falta la escucha humana de tono y calidad.
 
 ## 6. Contenido y afirmaciones
 

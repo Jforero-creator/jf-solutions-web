@@ -25,6 +25,14 @@ createServer((req, res) => {
   }
   if (path.startsWith('/_vercel/')) { res.writeHead(200, { 'Content-Type': 'text/javascript' }); return res.end(''); }
   if (!existsSync(f)) { res.writeHead(404, { 'Content-Type': 'text/plain' }); return res.end('404'); }
-  res.writeHead(200, { 'Content-Type': types[extname(f)] || 'application/octet-stream' });
-  res.end(readFileSync(f));
+  const body = readFileSync(f), type = types[extname(f)] || 'application/octet-stream';
+  // Peticiones por rangos (como Vercel): necesarias para saltar dentro del audio
+  const m = /bytes=(\d*)-(\d*)/.exec(req.headers.range || '');
+  if (m) {
+    const start = m[1] ? +m[1] : body.length - +m[2], end = m[1] && m[2] ? +m[2] : body.length - 1;
+    res.writeHead(206, { 'Content-Type': type, 'Accept-Ranges': 'bytes', 'Content-Range': `bytes ${start}-${end}/${body.length}`, 'Content-Length': end - start + 1 });
+    return res.end(body.subarray(start, end + 1));
+  }
+  res.writeHead(200, { 'Content-Type': type, 'Accept-Ranges': 'bytes', 'Content-Length': body.length });
+  res.end(body);
 }).listen(port, '127.0.0.1', () => console.log(`http://127.0.0.1:${port}`));
