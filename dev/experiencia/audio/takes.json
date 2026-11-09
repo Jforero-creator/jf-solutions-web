@@ -1,21 +1,128 @@
 {
-  "_note": "Procedencia de la narración IA (ElevenLabs, modelo eleven_multilingual_v2). Generado el 2026-11-09 con aprobación de JF Solutions. Flow: 7rQFBC5GqjOjy5b2O4OE. 2 tomas por escena; 3.420 créditos en total.",
+  "_note": "Procedencia de la narración IA (ElevenLabs, modelo eleven_multilingual_v2). Generado el 2026-11-09 con aprobación de JF Solutions. Flow: 7rQFBC5GqjOjy5b2O4OE. 2 tomas por escena; 3.420 créditos en total. 9-nov (verificación): 2 tomas nuevas de EN s1 (182 créditos) porque la transcripción oía \"delayed season\".",
   "model": "eleven_multilingual_v2",
-  "voices": { "en": { "id": "JNJLgw1sryJz75xYzsFL", "name": "Abbas - Narration & Audiobooks, Warm" }, "es": { "id": "jUzQhbFtXaz1IwDyMfJr", "name": "Arturo Tutorias" } },
-  "takes": {
+  "voices": {
     "en": {
-      "s1": [["ouH2JJ92SOiXkaDCwGiI", 6.87], ["L9SRd1q4FhIGJGTCWrkD", 6.18]],
-      "s2": [["jbu3bEfCE1bMLefzcPyP", 12.59], ["DkL7P9DeC79E76lj88fO", 11.84]],
-      "s3": [["hwUKsFe2X7rVUy1cPQhd", 18.53], ["LyukV238GDGsZYirbVnA", 18.39]],
-      "s4": [["YNN2fOKz9p0cot2l9BFn", 17.37], ["FyQOUqsVtMgB4J5apQXF", 19.18]],
-      "s5": [["x3fSuyPuYSyheYqUeIz8", 11.01], ["fT5tjvhPRigZGgowSFKL", 9.66]]
+      "id": "JNJLgw1sryJz75xYzsFL",
+      "name": "Abbas - Narration & Audiobooks, Warm"
     },
     "es": {
-      "s1": [["6h04Sx6f9hkVbRCQElzN", 6.32], ["RD9xLORu9EI0JUhnm9pn", 6.27]],
-      "s2": [["6g9TOR09OniVSuFwv1Dg", 10.08], ["xEs4gfrJDQn6yuN7JbQa", 10.59]],
-      "s3": [["ryedkNgmUWB8IL6A9XTw", 15.05], ["PEHbhVeXQ1GQAm8wXzTN", 15.6]],
-      "s4": [["322c3AKZnGabk9GyjOr6", 16.63], ["fi5KD1Oc8UzUpfK2AL0T", 16.39]],
-      "s5": [["N3LaXhGat9ThafHpH0tb", 8.64], ["Pnpnfowi5kUYiT8xeqyw", 7.99]]
+      "id": "jUzQhbFtXaz1IwDyMfJr",
+      "name": "Arturo Tutorias"
+    }
+  },
+  "takes": {
+    "en": {
+      "s1": [
+        [
+          "ouH2JJ92SOiXkaDCwGiI",
+          6.87
+        ],
+        [
+          "L9SRd1q4FhIGJGTCWrkD",
+          6.18
+        ],
+        [
+          "67Nyx3ehlNpdyFBCVAYN",
+          6.32
+        ],
+        [
+          "DrOzn6ZbsjGNOSAKeVBf",
+          5.94
+        ]
+      ],
+      "s2": [
+        [
+          "jbu3bEfCE1bMLefzcPyP",
+          12.59
+        ],
+        [
+          "DkL7P9DeC79E76lj88fO",
+          11.84
+        ]
+      ],
+      "s3": [
+        [
+          "hwUKsFe2X7rVUy1cPQhd",
+          18.53
+        ],
+        [
+          "LyukV238GDGsZYirbVnA",
+          18.39
+        ]
+      ],
+      "s4": [
+        [
+          "YNN2fOKz9p0cot2l9BFn",
+          17.37
+        ],
+        [
+          "FyQOUqsVtMgB4J5apQXF",
+          19.18
+        ]
+      ],
+      "s5": [
+        [
+          "x3fSuyPuYSyheYqUeIz8",
+          11.01
+        ],
+        [
+          "fT5tjvhPRigZGgowSFKL",
+          9.66
+        ]
+      ]
+    },
+    "es": {
+      "s1": [
+        [
+          "6h04Sx6f9hkVbRCQElzN",
+          6.32
+        ],
+        [
+          "RD9xLORu9EI0JUhnm9pn",
+          6.27
+        ]
+      ],
+      "s2": [
+        [
+          "6g9TOR09OniVSuFwv1Dg",
+          10.08
+        ],
+        [
+          "xEs4gfrJDQn6yuN7JbQa",
+          10.59
+        ]
+      ],
+      "s3": [
+        [
+          "ryedkNgmUWB8IL6A9XTw",
+          15.05
+        ],
+        [
+          "PEHbhVeXQ1GQAm8wXzTN",
+          15.6
+        ]
+      ],
+      "s4": [
+        [
+          "322c3AKZnGabk9GyjOr6",
+          16.63
+        ],
+        [
+          "fi5KD1Oc8UzUpfK2AL0T",
+          16.39
+        ]
+      ],
+      "s5": [
+        [
+          "N3LaXhGat9ThafHpH0tb",
+          8.64
+        ],
+        [
+          "Pnpnfowi5kUYiT8xeqyw",
+          7.99
+        ]
+      ]
     }
   }
 }

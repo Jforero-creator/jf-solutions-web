@@ -1,0 +1,31 @@
+# TEMPORAL — copia las tomas de narración ya generadas (ElevenLabs) a esta rama para verificarlas con audio real.
+# Solo corre en la rama de desarrollo. No toca main ni producción. Se elimina tras la importación.
+name: Importar tomas (temporal)
+on:
+  push:
+    branches: [feature/jf-cinematic-experience-v1]
+    paths: ['dev/experiencia/audio/import-urls.txt']
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar tomas
+        run: |
+          mkdir -p dev/experiencia/audio/tomas
+          grep -v '^#' dev/experiencia/audio/import-urls.txt | while read -r name url; do
+            [ -z "$name" ] && continue
+            curl -fsSL --retry 3 -o "dev/experiencia/audio/tomas/$name.mp3" "$url"
+          done
+          ls -la dev/experiencia/audio/tomas
+      - name: Guardar en la rama de desarrollo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dev/experiencia/audio/tomas
+          git commit -m "TEMPORAL: tomas originales de narración para verificación con audio real"
+          git pull --rebase origin feature/jf-cinematic-experience-v1
+          git push origin HEAD:feature/jf-cinematic-experience-v1

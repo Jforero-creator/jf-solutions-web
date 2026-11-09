@@ -58,7 +58,7 @@ for (const lang of ['en', 'es']) {
   const placed = [];
   for (const s of C.scenes) {
     const win = s.end - s.start;
-    const cands = [0, 1].map((k) => join(src, `${lang}-${s.id}-${k}.mp3`)).filter(existsSync).map((f, k) => {
+    const cands = [0, 1, 2, 3].map((k) => join(src, `${lang}-${s.id}-${k}.mp3`)).filter(existsSync).map((f, k) => {
       const sp = speech(f);
       const a = sp.segs[0][0], b = sp.segs[sp.segs.length - 1][1];
       return { f, k, a, b, len: b - a, segs: sp.segs };
