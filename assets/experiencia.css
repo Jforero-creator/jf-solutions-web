@@ -117,75 +117,108 @@ html:not(.js) .xp-progress{display:none}
 .v-streams path:nth-child(2n){stroke:var(--ok)}
 .v-logo{position:absolute;left:50%;top:50%;width:21%;max-width:120px;height:auto;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:22%;border:2px solid var(--gold);box-shadow:0 0 0 10px rgba(224,180,90,.12),0 0 60px rgba(224,180,90,.45)}
 
-/* ===== Animaciones (solo con JS y sin reducción de movimiento) ===== */
+/* Elementos nuevos (estado final por defecto) */
+.v-wait{position:absolute;right:5%;top:20%;display:inline-flex;align-items:center;gap:9px;padding:7px 12px 7px 8px;border-radius:999px;background:rgba(6,14,29,.85);border:1px solid rgba(232,154,60,.7);color:#F5C68A}
+.v-wait b{font-size:12px;letter-spacing:.08em}
+.v-clock{width:20px;height:20px;border-radius:50%;border:2px solid var(--amber);position:relative}
+.v-clock::after{content:"";position:absolute;left:50%;top:50%;width:2px;height:7px;margin-left:-1px;margin-top:-7px;background:var(--amber);transform-origin:50% 100%;transform:rotate(130deg)}
+.v-url{position:absolute;left:50%;top:calc(50% + min(11vw,72px));transform:translateX(-50%);font-size:12px;letter-spacing:.12em;color:var(--gold2)}
+
+/* ===== Movimiento con propósito: "beats" sincronizados con la narración =====
+   El JS añade .beats a la escena (o capa del reproductor) y las clases acumulativas .b1, .b2…
+   en el instante de cada frase (tiempos reales de la voz). Sin JS o con movimiento reducido
+   no hay .beats: se ve el estado final, completo y estático. */
 @media (prefers-reduced-motion:no-preference){
   .js .xp-scan::after{animation:scan 9s linear infinite}
   @keyframes scan{from{transform:translateY(0)}to{transform:translateY(90vh)}}
 
-  .js .scene .scene-copy>*{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-  .js .scene:not(.is-in) .scene-copy>*{opacity:0;transform:translateY(18px)}
-  .js .scene.is-in .scene-copy>:nth-child(2){transition-delay:.08s}
-  .js .scene.is-in .scene-copy>:nth-child(3){transition-delay:.16s}
-  .js .scene.is-in .scene-copy>:nth-child(4){transition-delay:.24s}
-  .js .scene .visual{transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
-  .js .scene:not(.is-in) .visual{opacity:0;transform:scale(.96)}
+  /* Entrada de cada escena por scroll: texto primero (se lee de inmediato), visual después */
+  .js .scene .scene-copy>*{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+  .js .scene:not(.is-in) .scene-copy>*{opacity:0;transform:translateY(14px)}
+  .js .scene.is-in .scene-copy>:nth-child(2){transition-delay:.06s}
+  .js .scene.is-in .scene-copy>:nth-child(3){transition-delay:.12s}
+  .js .scene.is-in .scene-copy>:nth-child(4){transition-delay:.18s}
+  .js .scene .visual{transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+  .js .scene:not(.is-in) .visual{opacity:0;transform:translateY(18px) scale(.98)}
+  .js .beats .v-photo{animation:kb 16s ease-out both}
+  @keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
 
-  /* Estado inicial de los elementos animados mientras la escena no está activa */
-  .js .xp-a:not(.is-in) .v-art *{animation:none!important}
-  .js .xp-a.is-in .v-photo{animation:kb 14s ease-out both}
-  @keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+  /* Transiciones base de todo lo que entra por beat */
+  .js .beats .v-art *{transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.2,1),background-color .4s ease,border-color .4s ease,color .4s ease,box-shadow .5s ease}
 
-  /* E1: la línea corre, se detiene, aparece la desviación */
-  .js .xp-a .v-units{animation:belt 1.1s linear 0s 4}
+  /* E1 — la línea corre; falta un registro; la decisión espera; la línea se detiene */
+  .js .beats:not(.b3) .v-units{animation:belt 1.1s linear infinite}
   @keyframes belt{from{transform:translateX(0)}to{transform:translateX(-11%)}}
-  .js .xp-a .v-units i:nth-child(5){animation:flagin .5s ease 4.5s both}
-  @keyframes flagin{from{background:linear-gradient(180deg,rgba(245,241,230,.85),rgba(169,184,214,.55));border-color:rgba(255,255,255,.35);box-shadow:none}}
-  .js .xp-a .v-flag{animation:pop .45s cubic-bezier(.2,.8,.2,1) 4.8s both}
-  .js .xp-a .v-flag b{animation:pulse 2s ease-in-out 5.4s infinite}
-  @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(224,87,74,.25)}}
-  .js .xp-a .v-run{display:inline-flex!important;animation:out .3s ease 4.4s both}
-  .js .xp-a .v-stop{animation:fade .3s ease 4.4s both}
-  .js .xp-a .v-status{display:grid}
-  .js .xp-a .v-status span{grid-area:1/1}
-  .js .xp-a .v-records span{animation:fade .4s ease both;animation-delay:calc(var(--d,0) * 1s)}
-  .js .xp-a .v-records span:nth-child(1){--d:.6}.js .xp-a .v-records span:nth-child(2){--d:1.4}.js .xp-a .v-records span:nth-child(3){--d:2.2}.js .xp-a .v-records span:nth-child(4){--d:5.2}.js .xp-a .v-records span:nth-child(5){--d:6}
-  .js .xp-a.v-deviation .v-art,.js .xp-a .v-deviation .v-art{animation:alarm 1s ease 4.4s both}
-  @keyframes alarm{from{box-shadow:inset 0 0 0 rgba(224,87,74,0)}}
+  @keyframes beltm{from{transform:translateX(0)}to{transform:translateX(-16.5%)}}
+  .js .beats .v-status{display:grid}
+  .js .beats .v-status span{grid-area:1/1}
+  .js .beats:not(.b3) .v-run{display:inline-flex!important}
+  .js .beats:not(.b3) .v-stop{opacity:0}
+  .js .beats.b3 .v-run{display:none!important}
+  .js .beats:not(.b1) .v-records span:nth-child(n+4){opacity:0;transform:translateY(8px)}
+  @media (max-width:640px){.js .beats:not(.b1) .v-records span:nth-child(4){opacity:0}}
+  .js .beats:not(.b1) .v-records span.miss{opacity:0}
+  .js .beats.b1:not(.b2) .v-records span.miss{box-shadow:0 0 0 4px rgba(224,87,74,.25)}
+  .js .beats:not(.b2) .v-wait{opacity:0;transform:translateY(-8px) scale(.94)}
+  .js .beats.b2 .v-clock::after{animation:tick 3s linear forwards}
+  @keyframes tick{from{transform:rotate(0)}to{transform:rotate(130deg)}}
+  .js .beats:not(.b3) .v-units i:nth-child(5){background:linear-gradient(180deg,rgba(245,241,230,.85),rgba(169,184,214,.55));border-color:rgba(255,255,255,.35);box-shadow:none}
+  .js .beats:not(.b3) .v-flag{opacity:0;transform:translateX(-50%) translateY(8px)}
+  .js .beats:not(.b3) .v-art{box-shadow:inset 0 0 0 rgba(224,87,74,0)}
+  .js .beats .v-art{transition:box-shadow .8s ease}
 
-  /* E2: los nodos se separan y los documentos se dispersan */
-  .js .xp-a .v-node{animation:apart 1.1s cubic-bezier(.2,.8,.2,1) both}
-  .js .xp-a .v-node.vn1{--x:45%;--y:45%;animation-delay:.2s}
-  .js .xp-a .v-node.vn2{--x:-45%;--y:45%;animation-delay:.6s}
-  .js .xp-a .v-node.vn3{--x:45%;--y:-45%;animation-delay:1s}
-  .js .xp-a .v-node.vn4{--x:-45%;--y:-45%;animation-delay:1.4s}
-  @keyframes apart{from{opacity:0;transform:translate(var(--x),var(--y)) scale(.8)}}
-  .js .xp-a .v-node .doc{animation:scatter 1.4s ease 1.8s both}
-  @keyframes scatter{from{transform:translate(0,-6px) rotate(0)}}
-  .js .xp-a .v-links,.js .xp-a .v-gap{animation:fade 1s ease 2.6s both}
+  /* E2 — áreas aisladas, documentos dispersos, enlaces rotos */
+  .js .beats:not(.b1) .vn1,.js .beats:not(.b1) .vn2{opacity:0;transform:scale(.9)}
+  .js .beats:not(.b2) .vn3,.js .beats:not(.b2) .vn4{opacity:0;transform:scale(.9)}
+  .js .beats:not(.b2) .v-node .doc{transform:none}
+  .js .beats:not(.b3) .v-links{opacity:0}
+  .js .beats .v-links{transition:opacity .7s ease}
+  .js .beats:not(.b4) .v-gap{opacity:0;transform:translate(-50%,-50%) scale(.9)}
+  .js .beats.b4 .v-node{opacity:.82}
 
-  /* E3: la cadena de evidencia se conecta paso a paso */
-  .js .xp-a .v-flow li{animation:lit .5s ease both;animation-delay:calc(.4s + var(--i) * .7s)}
-  @keyframes lit{from{opacity:.25;transform:translateY(8px)}}
-  .js .xp-a .v-flow::after{animation:grow 5s cubic-bezier(.4,0,.2,1) .4s both}
-  @keyframes grow{from{transform:scaleX(0)}}
+  /* E3 — la cadena de evidencia se conecta frase a frase */
+  .js .beats .v-flow li{transition:opacity .5s ease,transform .5s ease}
+  .js .beats:not(.b1) .v-flow li:nth-child(-n+2),
+  .js .beats:not(.b2) .v-flow li:nth-child(n+3):nth-child(-n+4),
+  .js .beats:not(.b3) .v-flow li:nth-child(5),
+  .js .beats:not(.b4) .v-flow li:nth-child(6),
+  .js .beats:not(.b5) .v-flow li:nth-child(7){opacity:.22;transform:translateY(6px)}
+  .js .beats .v-flow::after{transition:transform .9s cubic-bezier(.4,0,.2,1)}
+  .js .beats:not(.b1) .v-flow::after{transform:scaleX(0)}
+  .js .beats.b1:not(.b2) .v-flow::after{transform:scaleX(.28)}
+  .js .beats.b2:not(.b3) .v-flow::after{transform:scaleX(.57)}
+  .js .beats.b3:not(.b4) .v-flow::after{transform:scaleX(.71)}
+  .js .beats.b4:not(.b5) .v-flow::after{transform:scaleX(.86)}
 
-  /* E4: tarjetas de servicio y pantalla de prototipo */
-  .js .xp-a .v-cards li{animation:pop .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.3s + var(--i) * .5s)}
-  .js .xp-a .v-proto{animation:slide .8s cubic-bezier(.2,.8,.2,1) 2.4s both}
-  @keyframes slide{from{opacity:0;transform:translateX(24px)}}
+  /* E4 — servicios concretos, prototipo y control */
+  .js .beats:not(.b1) .v-cards li:nth-child(-n+2),.js .beats:not(.b2) .v-cards li:nth-child(n+3){opacity:0;transform:translateY(10px) scale(.96)}
+  .js .beats:not(.b5) .v-cards li::before{background:rgba(169,184,214,.35)}
+  .js .beats:not(.b3) .v-proto{opacity:0;transform:translateX(20px)}
+  .js .beats:not(.b4) .v-proto i{transform:scaleX(.15);transform-origin:0 50%}
+  .js .beats:not(.b4) .v-proto b{opacity:.2}
+  .js .beats.b5 .v-cards li{border-color:rgba(63,191,138,.6)}
 
-  /* E5: los flujos convergen en la marca */
-  .js .xp-a .v-streams path{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.4s cubic-bezier(.4,0,.2,1) both}
-  .js .xp-a .v-streams path:nth-child(2){animation-delay:.3s}.js .xp-a .v-streams path:nth-child(3){animation-delay:.6s}.js .xp-a .v-streams path:nth-child(4){animation-delay:.9s}.js .xp-a .v-streams path:nth-child(5){animation-delay:1.2s}
-  @keyframes draw{from{stroke-dashoffset:1}}
-  .js .xp-a .v-logo{animation:logo 1s cubic-bezier(.2,.8,.2,1) 2.2s both}
-  @keyframes logo{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}}
+  /* E5 — los flujos convergen en la marca */
+  .js .beats .v-streams path{stroke-dasharray:1;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)}
+  .js .beats:not(.b1) .v-streams path{stroke-dashoffset:1}
+  .js .beats:not(.b2) .v-logo{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+  .js .beats:not(.b3) .v-url{opacity:0;transform:translateX(-50%) translateY(6px)}
 
-  @keyframes fade{from{opacity:0}}
-  @keyframes out{to{opacity:0}}
-  @keyframes pop{from{opacity:0;transform:translateX(var(--tx,0)) scale(.85)}}
-  .js .xp-a .v-flag{--tx:-50%}
+  /* Transiciones entre escenas del reproductor */
+  .pl-layer{transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),visibility 0s .7s}
+  .pl-layer:not(.is-on){transform:scale(1.025)}
+  .pl-layer.is-on{transition:opacity .7s ease .15s,transform 1.1s cubic-bezier(.2,.8,.2,1) .1s,visibility 0s}
+  .pl-wipe{transition:transform .8s cubic-bezier(.6,0,.2,1),opacity .4s ease .6s}
+  .pl-stage.is-cut .pl-wipe{transform:scaleX(1);opacity:1;transition:transform .55s cubic-bezier(.6,0,.2,1),opacity 0s}
+  .pl-card{transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
 }
+
+/* Elementos de transición del reproductor (también útiles sin movimiento: la tarjeta de escena) */
+.pl-wipe{position:absolute;left:0;right:0;top:50%;height:2px;z-index:3;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);opacity:0;pointer-events:none}
+.pl-card{position:absolute;left:14px;bottom:14px;z-index:3;margin:0;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:rgba(6,14,29,.86);border:1px solid var(--line);border-left:3px solid var(--gold);opacity:0;transform:translateY(8px);pointer-events:none;max-width:70%}
+.pl-card .mono{font-size:11px;color:var(--gold);letter-spacing:.14em}
+.pl-card b{font:800 clamp(16px,2vw,22px)/1.15 var(--display)}
+.pl-card.is-show{opacity:1;transform:none}
 
 /* ===== Servicios, método, prototipos, FAQ ===== */
 .xp-grid4{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -227,8 +260,8 @@ html:not(.js) .xp-progress{display:none}
 .pl-scene{color:var(--gold)}
 .pl-stagewrap{min-height:0;container-type:size;display:grid;place-items:center}
 .pl-stage{position:relative;width:min(100cqw - 32px,100cqh * 1.6,1200px);aspect-ratio:16/10}
-.pl-layer{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s .5s}
-.pl-layer.is-on{opacity:1;visibility:visible;transition:opacity .5s ease}
+.pl-layer{position:absolute;inset:0;opacity:0;visibility:hidden}
+.pl-layer.is-on{opacity:1;visibility:visible}
 .pl-layer .visual{position:absolute;inset:0;aspect-ratio:auto;height:100%}
 .pl-cap{margin:8px auto 0;min-height:2.8em;max-width:min(36em,calc(100% - 32px));text-align:center;font:600 clamp(18px,2.2vw,26px)/1.35 var(--body)}
 .pl-cap span{background:rgba(0,0,0,.78);padding:.1em .45em;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
@@ -271,35 +304,61 @@ html:not(.js) .xp-progress{display:none}
   .xp-timeline li:last-child{grid-column:1/-1}
 }
 @media (max-width:640px){
-  .scene{padding:52px 0}
-  .visual{aspect-ratio:4/3.4;border-radius:16px}
+  /* Menos elementos compitiendo con el mensaje y textos legibles (mín. 12 px en ilustraciones) */
+  .xp-timeline{display:none}
+  .xp-hero .lead{font-size:17px}
+  .xp-watch{min-height:52px;font-size:16px}
+  .scene{padding:48px 0}
+  .scene h3{font-size:30px}
+  .scene-script{font-size:20px}
+  .visual{aspect-ratio:4/3.6;border-radius:16px}
+  .v-chip{right:8px;top:8px;font-size:11px;padding:4px 8px}
   .xp-grid4,.xp-method{grid-template-columns:1fr}
-  .v-node{width:42%;padding:8px 9px 9px}
-  .v-node.vn1,.v-node.vn2{top:17%}
-  .v-chip{right:8px;top:8px;font-size:9px;padding:4px 7px}
-  .v-node span{font-size:12.5px}
+  .v-status{font-size:12px;top:5%}
+  .v-units i:nth-child(n+7){display:none}
+  .v-units i{width:11%;margin-right:5.5%}
+  .v-flag{left:50%}
+  .js .beats:not(.b3) .v-units{animation-name:beltm}
+  .v-flag b{font-size:11.5px;letter-spacing:.06em}
+  .v-records{gap:6px}
+  .v-records span{font-size:12px;padding:9px 2px}
+  .v-records span:nth-child(1),.v-records span:nth-child(5){display:none}
+  .v-wait{right:4%;top:auto;bottom:24%}
+  .v-wait b{font-size:12px}
+  .v-belt{top:30%;height:26%}
+  .v-node{width:43%;padding:9px 10px 10px}
+  .v-node.vn1,.v-node.vn2{top:15%}
+  .v-node span{font-size:13.5px}
   .v-node .doc{width:15px;height:20px}
-  .v-flow{gap:8px 6px;padding:10% 3% 0}
-  .v-flow li span{font-size:12px;padding:7px 9px}
-  .v-flow li span::before{width:16px;height:16px;font-size:9.5px}
-  .v-cards{left:4%;right:4%;width:auto;top:13%;bottom:40%;gap:7px}
-  .v-cards li{font-size:12.5px;padding:9px}
-  .v-proto{left:4%;right:4%;width:auto;top:64%;bottom:6%;padding:30px 10px 10px;flex-direction:row;align-items:center}
+  .v-gap{font-size:12px;white-space:normal;text-align:center;max-width:70%}
+  .v-flow{gap:10px 8px;padding:12% 4% 0}
+  .v-flow li:not(:last-child)::after{display:none}
+  .v-flow li span{font-size:13.5px;padding:8px 11px}
+  .v-flow li span::before{width:18px;height:18px;font-size:10.5px}
+  .v-cards{left:4%;right:4%;width:auto;top:14%;bottom:30%;gap:8px}
+  .v-cards li{font-size:14px;padding:10px}
+  .v-proto{left:4%;right:4%;width:auto;top:74%;bottom:5%;padding:0 10px 0 12px;flex-direction:row;align-items:center;gap:8px}
+  .v-ribbon{position:static;border-radius:6px;font-size:11px;padding:5px 8px;flex:none}
   .v-proto i{flex:1;width:auto!important}
-  .v-proto b{height:100%;margin:0}
-  .v-records span{font-size:9.5px;padding:8px 1px}
-  .v-flag b{font-size:9.5px}
-  .v-belt{top:34%}
-  .pl-stage{width:min(100cqw - 24px,100cqh * 1.18);aspect-ratio:4/3.4}
-  .pl-bar{grid-template-columns:1fr;grid-template-areas:"range" "chap" "ctrl" "ctas" "note" "ai";gap:7px}
-  .pl-btn{width:42px;height:42px}
-  .pl-sound{width:auto;padding:0 12px}
-  .pl-lang select{height:42px;padding:0 8px}
+  .v-proto b{display:none}
+  .v-url{font-size:12px}
+  /* Reproductor: controles de 48 px, subtítulos más grandes, título corto */
+  .pl-stage{width:min(100cqw - 24px,100cqh * 1.11);aspect-ratio:4/3.6}
+  .pl-bar{grid-template-columns:1fr;grid-template-areas:"range" "chap" "ctrl" "ctas" "note" "ai";gap:8px}
+  .pl-btn{width:48px;height:48px}
+  .pl-sound{width:auto;padding:0 14px}
+  .pl-lang select{height:48px;padding:0 10px;font-size:15px}
   .pl-time{display:none}
+  .pl-label,.pl-sep{display:none}
+  .pl-title{font-size:15px}
+  .pl-cap{font-size:20px;min-height:2.9em}
+  .pl-chapters button{min-height:28px;height:28px}
+  .pl-range{height:32px}
   .pl-ctas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .pl-ctas .btn{padding:10px 8px;font-size:14px;text-align:center}
-  .pl-title{font-size:13px}
+  .pl-ctas .btn{min-height:48px;padding:10px 8px;font-size:15px;text-align:center}
+  .pl-card{display:none} /* en móvil el título de la escena ya está arriba: menos elementos sobre la imagen */
+  .pl-sound-note,.pl-ai-note{font-size:12px}
   .xp-hero h1{font-size:clamp(32px,9vw,44px)}
 }
-@media (max-width:380px){.v-records span{font-size:8.5px}}
+@media (max-width:380px){.v-records span{font-size:11px}.v-flow li span{font-size:12.5px}.pl-btn{width:44px;height:44px}}
 @media (forced-colors:active){.pl-chapters button,.xp-progress span{forced-color-adjust:none}}

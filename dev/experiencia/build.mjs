@@ -209,6 +209,7 @@ function Visual(s, l) {
   let art = '';
   if (s.kind === 'deviation') {
     art = `<div class="v-status"><span class="v-run">${esc(lab.running)}</span><span class="v-stop">${esc(lab.stopped)}</span></div>
+      <div class="v-wait"><span class="v-clock"></span><b class="mono">${esc(lab.wait)}</b></div>
       <div class="v-belt"><div class="v-units">${'<i></i>'.repeat(9)}</div><span class="v-flag"><b class="mono">${esc(lab.tag)}</b></span></div>
       <div class="v-records">${[1, 2, 3, 4, 5].map((n) => `<span class="${n === 4 ? 'miss' : ''}">${esc(lab.slot)} ${n === 4 ? '—' : '✓'}</span>`).join('')}</div>`;
   } else if (s.kind === 'disconnect') {
@@ -222,7 +223,7 @@ function Visual(s, l) {
       <div class="v-proto"><span class="v-ribbon mono">${esc(lab.proto)}</span><i></i><i></i><i></i><b></b></div>`;
   } else if (s.kind === 'invitation') {
     art = `<svg class="v-streams" viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M0 20 C140 30 160 100 200 112"/><path pathLength="1" d="M0 205 C140 200 160 125 200 112"/><path pathLength="1" d="M400 20 C260 30 240 100 200 112"/><path pathLength="1" d="M400 205 C260 200 240 125 200 112"/><path pathLength="1" d="M200 0 L200 112"/></svg>
-      <img class="v-logo" src="/assets/logo.jpg" width="96" height="96" alt="" loading="lazy" decoding="async">`;
+      <img class="v-logo" src="/assets/logo.jpg" width="96" height="96" alt="" loading="lazy" decoding="async"><span class="v-url mono">${esc(lab.url)}</span>`;
   }
   return `<figure class="visual v-${s.kind}">
       <img class="v-photo" src="${photo(p.id, 800, 450)}" srcset="${srcset(p.id, [480, 800, 1200, 1600], 16 / 9)}" sizes="(min-width: 960px) 58vw, 100vw" width="800" height="450" alt="" loading="lazy" decoding="async">
@@ -236,7 +237,8 @@ function Visual(s, l) {
 function Scene(s, i, l) {
   const T = C[l], V = s[l];
   const cta = s.kind === 'invitation' ? `\n      ${CTAs(T)}` : '';
-  return `<section class="scene xp-a" id="${s.id}" data-scene="${i}" aria-labelledby="${s.id}-t">
+  const beats = cues(l).filter((c) => c.scene === s.id).map((c) => +(c.start - s.start).toFixed(2)).join(',');
+  return `<section class="scene xp-a" id="${s.id}" data-scene="${i}" data-beats="${beats}" aria-labelledby="${s.id}-t">
     <div class="wrap scene-grid">
       <div class="scene-copy">
         <p class="scene-meta mono"><span>${esc(T.sceneWord)} ${i + 1} ${esc(T.ofWord)} ${C.scenes.length}</span><span>${mmss(s.start)}–${mmss(s.end)}</span></p>
@@ -359,10 +361,10 @@ function PresentationPlayer(l) {
   };
   return `<dialog class="xp-player" id="xp-player" aria-labelledby="xp-player-t">
   <div class="pl-top">
-    <p class="pl-title" id="xp-player-t"><span data-pl="dialogLabel">${esc(P.dialogLabel)}</span> · <span class="pl-scene" data-pl-scene></span></p>
+    <p class="pl-title" id="xp-player-t"><span class="pl-label" data-pl="dialogLabel">${esc(P.dialogLabel)}</span><span class="pl-sep" aria-hidden="true"> · </span><span class="pl-scene" data-pl-scene></span></p>
     <button type="button" class="pl-btn pl-close" data-pl-close aria-label="${esc(P.close)}"><span aria-hidden="true">✕</span></button>
   </div>
-  <div class="pl-stagewrap"><div class="pl-stage" data-pl-stage></div></div>
+  <div class="pl-stagewrap"><div class="pl-stage" data-pl-stage><div class="pl-wipe" aria-hidden="true"></div><p class="pl-card" data-pl-card aria-hidden="true"><span class="mono" data-pl-card-n></span><b data-pl-card-t></b></p></div></div>
   <p class="pl-cap" data-pl-cap aria-hidden="true"></p>
   <div class="pl-end" data-pl-end hidden>
     <p class="pl-end-t" data-pl="end">${esc(P.end)}</p>

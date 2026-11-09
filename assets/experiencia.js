@@ -18,7 +18,16 @@
   /* ---------- ScrollStory ---------- */
   var scenes = [].slice.call(d.querySelectorAll('.scene[data-scene]'));
   var current = null;
-  function setIn(el) { el.classList.add('is-in'); }
+  var BEATS = ['b1', 'b2', 'b3', 'b4', 'b5'];
+  function setBeat(el, k) { BEATS.forEach(function (b, i) { el.classList.toggle(b, i < k); }); }
+  // Movimiento con propósito: cada escena avanza al ritmo de sus frases (tiempos reales de la narración)
+  function playBeats(el) {
+    if (reduce.matches || el.classList.contains('beats')) return;
+    var times = (el.getAttribute('data-beats') || '').split(',').filter(Boolean).map(Number);
+    el.classList.add('beats'); setBeat(el, 0);
+    times.forEach(function (t, i) { setTimeout(function () { setBeat(el, i + 1); }, 400 + t * 1000); });
+  }
+  function setIn(el) { el.classList.add('is-in'); playBeats(el); }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -98,7 +107,7 @@
       c.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); });
       var fc = c.querySelector('figcaption'); if (fc) fc.remove();
       c.querySelectorAll('img').forEach(function (im) { im.loading = 'eager'; });
-      layer.appendChild(c); stage.appendChild(layer);
+      layer.appendChild(c); stage.insertBefore(layer, stage.firstChild ? stage.querySelector('.pl-wipe') : null);
     });
     loadCaptions('es'); loadCaptions('en');
   }
@@ -106,15 +115,27 @@
   function sceneAt(t) { for (var i = D.scenes.length - 1; i >= 0; i--) if (t >= D.scenes[i].start) return i; return 0; }
   function cueAt(t) { var c = cueSets[S.lang]; for (var i = 0; i < c.length; i++) if (t >= c[i].start && t < c[i].end) return i; return -1; }
 
+  var cardEl = $('[data-pl-card]'), cardN = $('[data-pl-card-n]'), cardT = $('[data-pl-card-t]'), cardTimer = 0;
   function activate(i) {
-    [].forEach.call(stage.children, function (ly, j) {
+    stage.classList.remove('is-cut'); void stage.offsetWidth; stage.classList.add('is-cut');
+    setTimeout(function () { stage.classList.remove('is-cut'); }, 650);
+    [].forEach.call(stage.querySelectorAll('.pl-layer'), function (ly, j) {
       if (j === i) {
-        ly.classList.remove('is-in'); void ly.offsetWidth; // reinicia las animaciones de la escena
+        ly.classList.remove('beats'); setBeat(ly, 0); void ly.offsetWidth; // reinicia la escena
+        if (!reduce.matches) ly.classList.add('beats');
         ly.classList.add('is-on', 'is-in');
-      } else { ly.classList.remove('is-on', 'is-in'); }
+      } else { ly.classList.remove('is-on', 'is-in', 'beats'); }
     });
+    // Tarjeta de escena: número y título durante 2,4 s
+    cardN.textContent = ('0' + (i + 1)) + ' / 0' + D.scenes.length; cardT.textContent = D.scenes[i].title[S.lang];
+    cardEl.classList.add('is-show'); clearTimeout(cardTimer);
+    cardTimer = setTimeout(function () { cardEl.classList.remove('is-show'); }, 2400);
   }
-
+  function beatAt(t, i) {
+    var sc = D.scenes[i].id, k = 0;
+    cueSets[S.lang].forEach(function (c) { if ((c.scene === sc || (!c.scene && c.start >= D.scenes[i].start && c.start < D.scenes[i].end)) && t >= c.start) k++; });
+    return k;
+  }
   function render(force) {
     var i = sceneAt(S.t);
     if (i !== S.scene || force) {
@@ -123,6 +144,7 @@
       sceneEl.textContent = D.sceneWord[S.lang] + ' ' + (i + 1) + ' ' + D.ofWord[S.lang] + ' ' + D.scenes.length + ' — ' + D.scenes[i].title[S.lang];
       chapters.forEach(function (b, j) { if (j === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
     }
+    var ly = stage.querySelectorAll('.pl-layer')[i]; if (ly) setBeat(ly, beatAt(S.t, i));
     var k = cueAt(S.t);
     if (k !== S.cue || force) {
       S.cue = k; cap.textContent = '';

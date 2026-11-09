@@ -57,7 +57,8 @@
           "running": "Line running",
           "stopped": "Line stopped",
           "tag": "Deviation · record missing",
-          "slot": "Record"
+          "slot": "Record",
+          "wait": "Decision pending"
         }
       },
       "es": {
@@ -73,7 +74,8 @@
           "running": "Línea en marcha",
           "stopped": "Línea detenida",
           "tag": "Desviación · registro faltante",
-          "slot": "Registro"
+          "slot": "Registro",
+          "wait": "Decisión pendiente"
         }
       }
     },
@@ -237,7 +239,9 @@
           "where your next improvement can start."
         ],
         "visual": "Illustration: the information flows converge into the JF Solutions logo, next to two calls to action.",
-        "labels": {}
+        "labels": {
+          "url": "jfsolutionsq.com"
+        }
       },
       "es": {
         "title": "La invitación",
@@ -248,7 +252,9 @@
           "dónde puede comenzar tu próxima mejora."
         ],
         "visual": "Ilustración: los flujos de información convergen en el logotipo de JF Solutions, junto a dos llamadas a la acción.",
-        "labels": {}
+        "labels": {
+          "url": "jfsolutionsq.com"
+        }
       }
     }
   ],
