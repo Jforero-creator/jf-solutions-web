@@ -1,0 +1,357 @@
+{
+  "generated": "2026-11-09",
+  "duration": 90,
+  "loudness": "EBU R128 −16 LUFS, pico real −1,5 dBTP",
+  "langs": {
+    "en": {
+      "voice": "Abbas (ElevenLabs)",
+      "files": {
+        "mp3": "/media/experiencia/narracion-en.mp3",
+        "webm": "/media/experiencia/narracion-en.webm"
+      },
+      "bytes": {
+        "mp3": 720761,
+        "webm": 395696
+      },
+      "durations": {
+        "mp3": 90.04,
+        "webm": 90.01
+      },
+      "loudness": {
+        "integrated": -16.74,
+        "truePeak": -1.49
+      },
+      "scenes": {
+        "s1": {
+          "scene": "s1",
+          "offset": 0.8,
+          "take": 0,
+          "file": "en-s1-0.mp3",
+          "speechStart": 0.84,
+          "speechEnd": 7.238,
+          "segments": [
+            [
+              0.8,
+              2.007
+            ],
+            [
+              2.892,
+              4.345
+            ],
+            [
+              5.159,
+              6.285
+            ],
+            [
+              6.632,
+              7.198
+            ]
+          ]
+        },
+        "s2": {
+          "scene": "s2",
+          "offset": 10.6,
+          "take": 0,
+          "file": "en-s2-0.mp3",
+          "speechStart": 10.64,
+          "speechEnd": 22.844,
+          "segments": [
+            [
+              10.6,
+              11.573
+            ],
+            [
+              11.899,
+              14.541
+            ],
+            [
+              15.115,
+              18.04
+            ],
+            [
+              18.815,
+              19.798
+            ],
+            [
+              19.994,
+              22.804
+            ]
+          ]
+        },
+        "s3": {
+          "scene": "s3",
+          "offset": 30.6,
+          "take": 0,
+          "file": "en-s3-0.mp3",
+          "speechStart": 30.64,
+          "speechEnd": 48.739,
+          "segments": [
+            [
+              30.6,
+              31.918
+            ],
+            [
+              32.383,
+              34.6
+            ],
+            [
+              34.855,
+              36.526
+            ],
+            [
+              36.896,
+              37.491
+            ],
+            [
+              37.912,
+              38.68
+            ],
+            [
+              39.141,
+              40.364
+            ],
+            [
+              40.549,
+              41.522
+            ],
+            [
+              42.601,
+              43.493
+            ],
+            [
+              43.931,
+              45.212
+            ],
+            [
+              45.65,
+              46.53
+            ],
+            [
+              46.897,
+              48.699
+            ]
+          ]
+        },
+        "s4": {
+          "scene": "s4",
+          "offset": 55.6,
+          "take": 0,
+          "file": "en-s4-0.mp3",
+          "speechStart": 55.64,
+          "speechEnd": 72.633,
+          "segments": [
+            [
+              55.6,
+              56.537
+            ],
+            [
+              57.269,
+              57.98
+            ],
+            [
+              58.54,
+              59.489
+            ],
+            [
+              59.894,
+              61.087
+            ],
+            [
+              62.173,
+              64.241
+            ],
+            [
+              64.59,
+              65.636
+            ],
+            [
+              65.901,
+              67.299
+            ],
+            [
+              67.721,
+              70.363
+            ],
+            [
+              70.769,
+              71.23
+            ],
+            [
+              71.771,
+              72.593
+            ]
+          ]
+        },
+        "s5": {
+          "scene": "s5",
+          "offset": 75.6,
+          "take": 0,
+          "file": "en-s5-0.mp3",
+          "speechStart": 75.64,
+          "speechEnd": 86.291,
+          "segments": [
+            [
+              75.6,
+              76.966
+            ],
+            [
+              77.329,
+              78.678
+            ],
+            [
+              79.726,
+              80.297
+            ],
+            [
+              80.858,
+              82.515
+            ],
+            [
+              82.792,
+              83.441
+            ],
+            [
+              83.818,
+              86.251
+            ]
+          ]
+        }
+      }
+    },
+    "es": {
+      "voice": "Arturo (ElevenLabs)",
+      "files": {
+        "mp3": "/media/experiencia/narracion-es.mp3",
+        "webm": "/media/experiencia/narracion-es.webm"
+      },
+      "bytes": {
+        "mp3": 720773,
+        "webm": 385473
+      },
+      "durations": {
+        "mp3": 90.04,
+        "webm": 90.01
+      },
+      "loudness": {
+        "integrated": -16.55,
+        "truePeak": -1.47
+      },
+      "scenes": {
+        "s1": {
+          "scene": "s1",
+          "offset": 0.8,
+          "take": 0,
+          "file": "es-s1-0.mp3",
+          "speechStart": 0.84,
+          "speechEnd": 7.188,
+          "segments": [
+            [
+              0.8,
+              2.085
+            ],
+            [
+              2.902,
+              4.065
+            ],
+            [
+              4.931,
+              7.148
+            ]
+          ]
+        },
+        "s2": {
+          "scene": "s2",
+          "offset": 10.6,
+          "take": 1,
+          "file": "es-s2-1.mp3",
+          "speechStart": 10.64,
+          "speechEnd": 20.972,
+          "segments": [
+            [
+              10.6,
+              16.386
+            ],
+            [
+              16.598,
+              20.932
+            ]
+          ]
+        },
+        "s3": {
+          "scene": "s3",
+          "offset": 30.6,
+          "take": 1,
+          "file": "es-s3-1.mp3",
+          "speechStart": 30.64,
+          "speechEnd": 46.287,
+          "segments": [
+            [
+              30.6,
+              39.863
+            ],
+            [
+              40.838,
+              43.22
+            ],
+            [
+              43.433,
+              46.247
+            ]
+          ]
+        },
+        "s4": {
+          "scene": "s4",
+          "offset": 55.6,
+          "take": 0,
+          "file": "es-s4-0.mp3",
+          "speechStart": 55.64,
+          "speechEnd": 72.306,
+          "segments": [
+            [
+              55.6,
+              56.73
+            ],
+            [
+              56.973,
+              58.398
+            ],
+            [
+              58.819,
+              62.048
+            ],
+            [
+              63.018,
+              68.938
+            ],
+            [
+              69.413,
+              72.266
+            ]
+          ]
+        },
+        "s5": {
+          "scene": "s5",
+          "offset": 75.6,
+          "take": 0,
+          "file": "es-s5-0.mp3",
+          "speechStart": 75.64,
+          "speechEnd": 84.313,
+          "segments": [
+            [
+              75.6,
+              78.354
+            ],
+            [
+              79.253,
+              83.989
+            ],
+            [
+              84.184,
+              84.273
+            ]
+          ]
+        }
+      }
+    }
+  }
+}
