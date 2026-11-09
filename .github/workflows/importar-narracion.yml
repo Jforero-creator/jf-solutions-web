@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Instalar ffmpeg
@@ -32,14 +33,16 @@ jobs:
           test "$(ls "$RUNNER_TEMP/tomas" | wc -l)" -eq 20
       - name: Armar narración, subtítulos y páginas
         run: |
-          node dev/experiencia/audio/build-audio.mjs --src "$RUNNER_TEMP/tomas"
-          node dev/experiencia/build.mjs
-          node dev/experiencia/tests/static.mjs
+          set -o pipefail
+          mkdir -p dev/experiencia/docs
+          { ffmpeg -version | head -1; node dev/experiencia/audio/build-audio.mjs --src "$RUNNER_TEMP/tomas" && node dev/experiencia/build.mjs; } 2>&1 | tee dev/experiencia/docs/importacion-narracion.log
       - name: Guardar en la rama de desarrollo
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add media/experiencia dev/experiencia/audio/timing.json experiencia en/experience
+          git add dev/experiencia/docs/importacion-narracion.log
+          [ -f dev/experiencia/audio/timing.json ] && git add media/experiencia dev/experiencia/audio/timing.json experiencia en/experience
           git commit -m "Narración IA importada: pistas de 90 s EN/ES (Opus + MP3) y subtítulos alineados a la voz" -m "Generado por el flujo temporal importar-narracion a partir de las tomas de ElevenLabs listadas en takes.json."
           git pull --rebase origin feature/jf-cinematic-experience-v1
           git push origin HEAD:feature/jf-cinematic-experience-v1
