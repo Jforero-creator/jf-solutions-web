@@ -10,7 +10,7 @@ mkdirSync(out, { recursive: true });
 const browser = await chromium.launch();
 const runs = [
   { name: 'escritorio', ctx: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 } },
-  { name: 'movil', ctx: { ...devices['iPhone 13'] } }
+  { name: 'movil', ctx: { ...devices['iPhone 13'], deviceScaleFactor: 2 } }
 ];
 for (const r of runs) {
   for (const [lang, path] of [['es', '/experiencia/'], ['en', '/en/experience/']]) {
@@ -20,7 +20,7 @@ for (const r of runs) {
     await page.goto(base + path, { waitUntil: 'load' });
     await page.screenshot({ path: `${out}/${r.name}-${lang}-hero.png` });
     // Recorre la historia para activar escenas (sin forzar el desplazamiento del usuario)
-    for (const id of ['s1', 's3', 's4']) {
+    for (const id of ['s1', 's2', 's3', 's4', 's5']) {
       await page.locator('#' + id).scrollIntoViewIfNeeded();
       await page.evaluate((id) => document.getElementById(id).scrollIntoView({ block: 'center' }), id);
       await page.waitForTimeout(6500);

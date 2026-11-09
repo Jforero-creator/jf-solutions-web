@@ -1,0 +1,92 @@
+{
+ "en_experience-1": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2101,
+  "CLS": 0,
+  "TBT_ms": 20,
+  "FCP_ms": 1530,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ },
+ "en_experience-2": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2110,
+  "CLS": 0.034,
+  "TBT_ms": 0,
+  "FCP_ms": 1535,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ },
+ "en_experience-3": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2102,
+  "CLS": 0,
+  "TBT_ms": 28,
+  "FCP_ms": 1531,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ },
+ "experiencia-1": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2103,
+  "CLS": 0,
+  "TBT_ms": 49,
+  "FCP_ms": 1532,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ },
+ "experiencia-2": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2101,
+  "CLS": 0.02,
+  "TBT_ms": 0,
+  "FCP_ms": 1530,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ },
+ "experiencia-3": {
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "LCP_ms": 2105,
+  "CLS": 0,
+  "TBT_ms": 22,
+  "FCP_ms": 1532,
+  "lighthouse": "12.8.2",
+  "formFactor": "mobile",
+  "throttling": "simulate"
+ }
+}

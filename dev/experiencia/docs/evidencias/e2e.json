@@ -1,0 +1,646 @@
+{
+  "pass": 128,
+  "fail": 0,
+  "results": [
+    {
+      "ok": true,
+      "name": "es/escritorio: un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: botón \"Ver presentación de 90 segundos\" visible con JS",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: el desplazamiento no está bloqueado (sin scroll-jacking)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: las 5 escenas se activan al entrar en pantalla",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: sin desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — es/escritorio página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: el reproductor abre",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: el foco pasa al botón de reproducción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: reproduce al abrir (visual + subtítulos)",
+      "info": "{\"t\":1.5558000000000003,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: sin sonido hasta que el usuario lo activa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: dos CTA visibles dentro del reproductor",
+      "info": "2"
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: controles de al menos 24×24 px (WCAG 2.5.8)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — es/escritorio reproductor abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: subtítulo sincronizado con el VTT a 1.6 s",
+      "info": "Un registro faltante."
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: el botón CC oculta los subtítulos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: cambiar idioma en el reproductor conserva el minuto y la escena",
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":40,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: los botones de escena saltan a su escena",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: Esc cierra el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: el foco vuelve al botón que lo abrió",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: al cerrar se detiene",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/escritorio: sin errores de consola",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: botón \"Ver presentación de 90 segundos\" visible con JS",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: el desplazamiento no está bloqueado (sin scroll-jacking)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: las 5 escenas se activan al entrar en pantalla",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: sin desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — es/móvil página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: el reproductor abre",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: el foco pasa al botón de reproducción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: reproduce al abrir (visual + subtítulos)",
+      "info": "{\"t\":1.5122999999999078,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: sin sonido hasta que el usuario lo activa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: dos CTA visibles dentro del reproductor",
+      "info": "2"
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: controles de al menos 24×24 px (WCAG 2.5.8)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — es/móvil reproductor abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: subtítulo sincronizado con el VTT a 1.6 s",
+      "info": "Un registro faltante."
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: el botón CC oculta los subtítulos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: cambiar idioma en el reproductor conserva el minuto y la escena",
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":9,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"and build practical improvement plans.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":40,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: los botones de escena saltan a su escena",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: Esc cierra el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: el foco vuelve al botón que lo abrió",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: al cerrar se detiene",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es/móvil: sin errores de consola",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: la presentación dura 90 s y termina sola",
+      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es: las cinco escenas aparecen en orden",
+      "info": "0,1,2,3,4"
+    },
+    {
+      "ok": true,
+      "name": "es: al final se muestra el cierre con los CTA",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: con prefers-reduced-motion no hay animaciones",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "es: con movimiento reducido las escenas se ven completas y estáticas",
+      "info": "1"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — es movimiento reducido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin JS se leen H1 y las cinco escenas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin JS se leen servicios y FAQ",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin JS los CTA son enlaces visibles",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin JS no se muestra un botón que no funcionaría",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin JS las ilustraciones se ven en su estado final",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: a 320 px (zoom 400 %) no hay desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "es: el cambio de idioma lleva a la misma escena (#s3)",
+      "info": "http://127.0.0.1:8887/en/experience/#s3"
+    },
+    {
+      "ok": true,
+      "name": "es: la preferencia de idioma queda guardada (jf-lang)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: botón \"Watch 90-second story\" visible con JS",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: el desplazamiento no está bloqueado (sin scroll-jacking)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: las 5 escenas se activan al entrar en pantalla",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: sin desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — en/escritorio página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: el reproductor abre",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: el foco pasa al botón de reproducción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: reproduce al abrir (visual + subtítulos)",
+      "info": "{\"t\":1.529800000000188,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: sin sonido hasta que el usuario lo activa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: dos CTA visibles dentro del reproductor",
+      "info": "2"
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: controles de al menos 24×24 px (WCAG 2.5.8)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — en/escritorio reproductor abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: subtítulo sincronizado con el VTT a 1.5 s",
+      "info": "One missing record."
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: el botón CC oculta los subtítulos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: cambiar idioma en el reproductor conserva el minuto y la escena",
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":40,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: los botones de escena saltan a su escena",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: Esc cierra el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: el foco vuelve al botón que lo abrió",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: al cerrar se detiene",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/escritorio: sin errores de consola",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: un H1",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: botón \"Watch 90-second story\" visible con JS",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: el desplazamiento no está bloqueado (sin scroll-jacking)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: las 5 escenas se activan al entrar en pantalla",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: sin desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — en/móvil página",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: el reproductor abre",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: el foco pasa al botón de reproducción",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: reproduce al abrir (visual + subtítulos)",
+      "info": "{\"t\":1.5381000000000942,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: sin sonido hasta que el usuario lo activa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: dos CTA visibles dentro del reproductor",
+      "info": "2"
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: controles de al menos 24×24 px (WCAG 2.5.8)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — en/móvil reproductor abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: subtítulo sincronizado con el VTT a 1.5 s",
+      "info": "One missing record."
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: el botón CC oculta los subtítulos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: cambiar idioma en el reproductor conserva el minuto y la escena",
+      "info": "{\"t\":40,\"playing\":false,\"scene\":2,\"cue\":10,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Desde la recepción hasta la disposición final,\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":40,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: los botones de escena saltan a su escena",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: Esc cierra el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: el foco vuelve al botón que lo abrió",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: al cerrar se detiene",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en/móvil: sin errores de consola",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: la presentación dura 90 s y termina sola",
+      "info": "{\"t\":90,\"playing\":false,\"scene\":4,\"cue\":-1,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en: las cinco escenas aparecen en orden",
+      "info": "0,1,2,3,4"
+    },
+    {
+      "ok": true,
+      "name": "en: al final se muestra el cierre con los CTA",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: con prefers-reduced-motion no hay animaciones",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "en: con movimiento reducido las escenas se ven completas y estáticas",
+      "info": "1"
+    },
+    {
+      "ok": true,
+      "name": "axe WCAG 2.2 AA sin violaciones — en movimiento reducido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin JS se leen H1 y las cinco escenas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin JS se leen servicios y FAQ",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin JS los CTA son enlaces visibles",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin JS no se muestra un botón que no funcionaría",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin JS las ilustraciones se ven en su estado final",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: a 320 px (zoom 400 %) no hay desplazamiento horizontal",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "en: el cambio de idioma lleva a la misma escena (#s3)",
+      "info": "http://127.0.0.1:8887/experiencia/#s3"
+    },
+    {
+      "ok": true,
+      "name": "en: la preferencia de idioma queda guardada (jf-lang)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: con narración el botón de sonido está disponible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: se muestra el aviso de narración generada con IA",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: el audio no suena hasta activarlo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: al activar el sonido la voz arranca en el mismo punto que la escena",
+      "info": "{\"t\":2.400934,\"a\":2.41373}"
+    },
+    {
+      "ok": true,
+      "name": "es: la pista de narración dura 90 s",
+      "info": "90.008"
+    },
+    {
+      "ok": true,
+      "name": "es: silenciar detiene la voz; la presentación sigue",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: la presentación continúa sin sonido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: si la narración no carga, la presentación sigue en silencio",
+      "info": "{\"t\":1.5597999999999983,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"es\",\"cc\":true,\"sound\":false,\"caption\":\"Un registro faltante.\",\"audioSrc\":\"/media/experiencia/narracion-es.webm\",\"audioTime\":0.05980000000000001,\"audioPaused\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en: con narración el botón de sonido está disponible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: se muestra el aviso de narración generada con IA",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el audio no suena hasta activarlo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: al activar el sonido la voz arranca en el mismo punto que la escena",
+      "info": "{\"t\":2.387689,\"a\":2.400597}"
+    },
+    {
+      "ok": true,
+      "name": "en: la pista de narración dura 90 s",
+      "info": "90.008"
+    },
+    {
+      "ok": true,
+      "name": "en: silenciar detiene la voz; la presentación sigue",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: la presentación continúa sin sonido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: si la narración no carga, la presentación sigue en silencio",
+      "info": "{\"t\":1.5767999999998126,\"playing\":true,\"scene\":0,\"cue\":0,\"lang\":\"en\",\"cc\":true,\"sound\":false,\"caption\":\"One missing record.\",\"audioSrc\":\"/media/experiencia/narracion-en.webm\",\"audioTime\":0.06019999999981375,\"audioPaused\":true}"
+    }
+  ]
+}

@@ -1,0 +1,1096 @@
+{
+  "pass": 218,
+  "fail": 0,
+  "results": [
+    {
+      "ok": true,
+      "name": "Duración total 90 s",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 1: ventana 0,10",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 1 EN: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 1 EN: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 1 ES: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 1 ES: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 2: ventana 10,30",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 2 EN: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 2 EN: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 2 ES: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 2 ES: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 3: ventana 30,55",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 3 EN: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 3 EN: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 3 ES: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 3 ES: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 4: ventana 55,75",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 4 EN: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 4 EN: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 4 ES: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 4 ES: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 5: ventana 75,90",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 5 EN: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 5 EN: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 5 ES: texto exacto del guion",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Escena 5 ES: los subtítulos reconstruyen el guion completo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Cinco escenas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One missing record.\" dentro de su escena",
+      "info": "0.72-2.36"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"One missing record.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One missing record.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One delayed decision.\" dentro de su escena",
+      "info": "2.81-4.69"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"One delayed decision.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One delayed decision.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One preventable disruption.\" dentro de su escena",
+      "info": "5.08-7.55"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"One preventable disruption.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"One preventable disruption.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"When quality, production, maintenance and warehouse\" dentro de su escena",
+      "info": "10.52-14.89"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"When quality, production, maintenance and warehouse\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"When quality, production, maintenance and warehouse\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"operate with disconnected information,\" dentro de su escena",
+      "info": "15.04-18.39"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"operate with disconnected information,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"operate with disconnected information,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"risks become harder to detect\" dentro de su escena",
+      "info": "18.72-20.48"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"risks become harder to detect\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"risks become harder to detect\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and decisions take longer.\" dentro de su escena",
+      "info": "20.52-23.15"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"and decisions take longer.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and decisions take longer.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"JF Solutions helps organizations connect evidence,\" dentro de su escena",
+      "info": "30.52-34.73"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"JF Solutions helps organizations connect evidence,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"JF Solutions helps organizations connect evidence,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"investigate root causes, strengthen traceability\" dentro de su escena",
+      "info": "34.77-39.02"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"investigate root causes, strengthen traceability\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"investigate root causes, strengthen traceability\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and build practical improvement plans.\" dentro de su escena",
+      "info": "39.06-41.87"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"and build practical improvement plans.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and build practical improvement plans.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"From receiving to final disposition,\" dentro de su escena",
+      "info": "42.52-45.53"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"From receiving to final disposition,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"From receiving to final disposition,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"every decision should have a clear foundation.\" dentro de su escena",
+      "info": "45.57-49.05"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"every decision should have a clear foundation.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"every decision should have a clear foundation.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Quality control. Food safety.\" dentro de su escena",
+      "info": "55.52-58.33"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"Quality control. Food safety.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Quality control. Food safety.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Process improvement. Traceability readiness.\" dentro de su escena",
+      "info": "58.46-61.44"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"Process improvement. Traceability readiness.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Process improvement. Traceability readiness.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"We combine operational experience, structured methods\" dentro de su escena",
+      "info": "62.09-65.78"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"We combine operational experience, structured methods\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"We combine operational experience, structured methods\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and digital innovation to help teams move\" dentro de su escena",
+      "info": "65.82-69.12"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"and digital innovation to help teams move\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"and digital innovation to help teams move\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"from reactive work toward better control.\" dentro de su escena",
+      "info": "69.16-72.94"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"from reactive work toward better control.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"from reactive work toward better control.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Better operations begin with better visibility.\" dentro de su escena",
+      "info": "75.52-79.03"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"Better operations begin with better visibility.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Better operations begin with better visibility.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Explore JF Solutions and discover\" dentro de su escena",
+      "info": "79.65-82.67"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"Explore JF Solutions and discover\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Explore JF Solutions and discover\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"where your next improvement can start.\" dentro de su escena",
+      "info": "82.71-86.6"
+    },
+    {
+      "ok": true,
+      "name": "en: sin solapes antes de \"where your next improvement can start.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"where your next improvement can start.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: velocidad de lectura ≤ 17 caracteres/s",
+      "info": "máx 16.5"
+    },
+    {
+      "ok": true,
+      "name": "en: el último subtítulo termina antes de 01:30",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: archivo VTT válido (cabecera)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: VTT con 20 cues",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Un registro faltante.\" dentro de su escena",
+      "info": "0.72-2.44"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Un registro faltante.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Un registro faltante.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Una decisión tardía.\" dentro de su escena",
+      "info": "2.82-4.42"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Una decisión tardía.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Una decisión tardía.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Una interrupción que pudo prevenirse.\" dentro de su escena",
+      "info": "4.85-7.5"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Una interrupción que pudo prevenirse.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Una interrupción que pudo prevenirse.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Cuando calidad, producción, mantenimiento y almacén\" dentro de su escena",
+      "info": "10.52-13.82"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Cuando calidad, producción, mantenimiento y almacén\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Cuando calidad, producción, mantenimiento y almacén\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"trabajan con información desconectada,\" dentro de su escena",
+      "info": "13.86-16.48"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"trabajan con información desconectada,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"trabajan con información desconectada,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"los riesgos son más difíciles de detectar\" dentro de su escena",
+      "info": "16.52-18.98"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"los riesgos son más difíciles de detectar\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"los riesgos son más difíciles de detectar\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"y las decisiones tardan más.\" dentro de su escena",
+      "info": "19.02-21.28"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"y las decisiones tardan más.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"y las decisiones tardan más.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"JF Solutions ayuda a conectar evidencia,\" dentro de su escena",
+      "info": "30.52-33.32"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"JF Solutions ayuda a conectar evidencia,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"JF Solutions ayuda a conectar evidencia,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"investigar causas raíz, fortalecer la trazabilidad\" dentro de su escena",
+      "info": "33.36-36.88"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"investigar causas raíz, fortalecer la trazabilidad\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"investigar causas raíz, fortalecer la trazabilidad\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"y construir planes prácticos de mejora.\" dentro de su escena",
+      "info": "36.92-39.65"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"y construir planes prácticos de mejora.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"y construir planes prácticos de mejora.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Desde la recepción hasta la disposición final,\" dentro de su escena",
+      "info": "39.69-43.31"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Desde la recepción hasta la disposición final,\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Desde la recepción hasta la disposición final,\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"cada decisión debe tener un fundamento claro.\" dentro de su escena",
+      "info": "43.35-46.6"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"cada decisión debe tener un fundamento claro.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"cada decisión debe tener un fundamento claro.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Control de calidad. Inocuidad alimentaria.\" dentro de su escena",
+      "info": "55.52-58.7"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Control de calidad. Inocuidad alimentaria.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Control de calidad. Inocuidad alimentaria.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Mejora de procesos. Preparación para trazabilidad.\" dentro de su escena",
+      "info": "58.74-61.95"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Mejora de procesos. Preparación para trazabilidad.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Mejora de procesos. Preparación para trazabilidad.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Combinamos experiencia operacional, métodos estructurados\" dentro de su escena",
+      "info": "61.99-65.96"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Combinamos experiencia operacional, métodos estructurados\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Combinamos experiencia operacional, métodos estructurados\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"e innovación digital para ayudar a los equipos\" dentro de su escena",
+      "info": "66-69.29"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"e innovación digital para ayudar a los equipos\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"e innovación digital para ayudar a los equipos\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"a pasar de la reacción a un mejor control.\" dentro de su escena",
+      "info": "69.33-72.62"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"a pasar de la reacción a un mejor control.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"a pasar de la reacción a un mejor control.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Mejores operaciones comienzan con mayor visibilidad.\" dentro de su escena",
+      "info": "75.52-79.18"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Mejores operaciones comienzan con mayor visibilidad.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Mejores operaciones comienzan con mayor visibilidad.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Explora JF Solutions y descubre\" dentro de su escena",
+      "info": "79.22-81.38"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"Explora JF Solutions y descubre\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Explora JF Solutions y descubre\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"dónde puede comenzar tu próxima mejora.\" dentro de su escena",
+      "info": "81.42-84.62"
+    },
+    {
+      "ok": true,
+      "name": "es: sin solapes antes de \"dónde puede comenzar tu próxima mejora.\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"dónde puede comenzar tu próxima mejora.\" cabe en dos líneas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: velocidad de lectura ≤ 17 caracteres/s",
+      "info": "máx 16.7"
+    },
+    {
+      "ok": true,
+      "name": "es: el último subtítulo termina antes de 01:30",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: archivo VTT válido (cabecera)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: VTT con 20 cues",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: un solo H1 con el texto del Documento Maestro",
+      "info": "Consultoría en calidad e inocuidad alimentaria en NJ y NY"
+    },
+    {
+      "ok": true,
+      "name": "es: meta description exacta",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: atributo lang",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: canonical autorreferente",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: alternates hreflang recíprocos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: guion de la escena 1 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: guion de la escena 2 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: guion de la escena 3 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: guion de la escena 4 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: guion de la escena 5 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: jerarquía de encabezados sin saltos",
+      "info": "1233333233332333323333233322333332"
+    },
+    {
+      "ok": true,
+      "name": "es: JSON-LD válido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: Organization, WebSite, WebPage y Service presentes",
+      "info": "Organization,WebSite,WebPage,BreadcrumbList,Service,Service,Service,Service"
+    },
+    {
+      "ok": true,
+      "name": "es: JSON-LD sin dirección, reseñas, precios ni tipos no verificables",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: sin certificaciones, clientes, testimonios, garantías ni porcentajes inventados",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: FSMA 204 solo como preparación, con aviso de aplicabilidad",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: prototipos ORA, ORA Lab, JF SOP y trazabilidad etiquetados",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: las 5 ilustraciones marcadas como ilustrativas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: CTA en héroe, escena final, cierre y reproductor",
+      "info": "4/5"
+    },
+    {
+      "ok": true,
+      "name": "es: sin autoplay",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: imágenes con alt, width y height (CLS)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: solo scripts propios (CSP script-src 'self')",
+      "info": "/assets/experiencia.js,/_vercel/insights/script.js"
+    },
+    {
+      "ok": true,
+      "name": "es: dominios externos permitidos",
+      "info": "www.jfsolutionsq.com,fonts.googleapis.com,fonts.gstatic.com,images.unsplash.com,www.instagram.com,www.youtube.com,ora.jfsolutionsq.com,unsplash.com"
+    },
+    {
+      "ok": true,
+      "name": "es: enlaces internos existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: anclas internas existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: \"Solicitar consulta\" lleva al formulario existente",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: un solo H1 con el texto del Documento Maestro",
+      "info": "Quality & Food Safety Consulting in NJ & NY"
+    },
+    {
+      "ok": true,
+      "name": "en: meta description exacta",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: atributo lang",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: canonical autorreferente",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: alternates hreflang recíprocos",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: guion de la escena 1 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: guion de la escena 2 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: guion de la escena 3 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: guion de la escena 4 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: guion de la escena 5 visible en el HTML",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: jerarquía de encabezados sin saltos",
+      "info": "1233333233332333323333233322333332"
+    },
+    {
+      "ok": true,
+      "name": "en: JSON-LD válido",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: Organization, WebSite, WebPage y Service presentes",
+      "info": "Organization,WebSite,WebPage,BreadcrumbList,Service,Service,Service,Service"
+    },
+    {
+      "ok": true,
+      "name": "en: JSON-LD sin dirección, reseñas, precios ni tipos no verificables",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: sin certificaciones, clientes, testimonios, garantías ni porcentajes inventados",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: FSMA 204 solo como preparación, con aviso de aplicabilidad",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: prototipos ORA, ORA Lab, JF SOP y trazabilidad etiquetados",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: las 5 ilustraciones marcadas como ilustrativas",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: CTA en héroe, escena final, cierre y reproductor",
+      "info": "4/5"
+    },
+    {
+      "ok": true,
+      "name": "en: sin autoplay",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: imágenes con alt, width y height (CLS)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: solo scripts propios (CSP script-src 'self')",
+      "info": "/assets/experiencia.js,/_vercel/insights/script.js"
+    },
+    {
+      "ok": true,
+      "name": "en: dominios externos permitidos",
+      "info": "www.jfsolutionsq.com,fonts.googleapis.com,fonts.gstatic.com,images.unsplash.com,www.instagram.com,www.youtube.com,ora.jfsolutionsq.com,unsplash.com"
+    },
+    {
+      "ok": true,
+      "name": "en: enlaces internos existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: anclas internas existen",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: \"Solicitar consulta\" lleva al formulario existente",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: FAQ visible \"Where can I find quality and food safety…\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: FAQ visible \"How can a manufacturer prepare for FSMA …\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: FAQ visible \"Can JF Solutions help investigate recurr…\"",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: tres preguntas frecuentes equivalentes",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "El formulario existente (#contacto) sigue en las páginas de servicios",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Sitemap incluye ambas URLs",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Sitemap bien formado",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "robots.txt intacto con referencia al sitemap",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Solo se añadieron archivos (excepto sitemap.xml)",
+      "info": "sitemap.xml"
+    },
+    {
+      "ok": true,
+      "name": "Sin cambios en vercel.json, portada, formulario ni páginas existentes",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Sin secretos en los archivos de la experiencia",
+      "info": ""
+    }
+  ]
+}
