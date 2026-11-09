@@ -1,4 +1,4 @@
-# TEMPORAL (verificación): enlaces firmados de ElevenLabs que vencen hoy. Se borra tras la importación.
+# TEMPORAL (verificación, reintento): enlaces firmados de ElevenLabs que vencen hoy. Se borra tras la importación.
 en-s1-0 https://elevenlabsusercontent.com/database/workspace/5697accb93e94385af62111a2bfd5f8e/content_generation/YM5qKZ58xa4FCfCtOByA/ouH2JJ92SOiXkaDCwGiI/content.mp3?Expires=1794258000&KeyName=assets-cdn-key-1&Signature=D9fVKyJsnXnzA4ark7svYrPSb4o=
 en-s1-1 https://elevenlabsusercontent.com/database/workspace/5697accb93e94385af62111a2bfd5f8e/content_generation/sT4s7Pu4jSxXcWbqa00S/L9SRd1q4FhIGJGTCWrkD/content.mp3?Expires=1794258000&KeyName=assets-cdn-key-1&Signature=x7qM38_-usTyzMtfWxXDCoa6XIg=
 en-s1-2 https://elevenlabsusercontent.com/database/workspace/5697accb93e94385af62111a2bfd5f8e/content_generation/isXRccLla1zI1CrQsIVw/67Nyx3ehlNpdyFBCVAYN/content.mp3?Expires=1794258000&KeyName=assets-cdn-key-1&Signature=qpoHT6Ph4ODviypBihvk9J0_Bjo=
