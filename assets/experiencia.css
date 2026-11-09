@@ -385,3 +385,8 @@ html:not(.js) .xp-progress{display:none}
 }
 @media (max-width:380px){.v-records span{font-size:11px}.v-flow li span{font-size:12.5px}.pl-btn{width:44px;height:44px}}
 @media (forced-colors:active){.pl-chapters button,.xp-progress span{forced-color-adjust:none}}
+
+/* Botón «Voz» destacado al llegar desde la portada */
+@media (prefers-reduced-motion:no-preference){.pl-sound.pl-hint{animation:plhint 1.2s ease-in-out 5}}
+@keyframes plhint{50%{box-shadow:0 0 0 6px rgba(224,180,90,.35);background:#1A3164}}
+.pl-sound.pl-hint{border-color:var(--gold2)}

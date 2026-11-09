@@ -1,0 +1,246 @@
+{
+  "pass": 48,
+  "fail": 0,
+  "results": [
+    {
+      "ok": true,
+      "name": "escritorio/es: el botón de 90 s es visible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: está en la primera pantalla, sin desplazarse",
+      "info": "y=706–824 de 900"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: área táctil ≥ 44 px",
+      "info": "118"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: texto aprobado",
+      "info": "DESVIACIÓN 90 S · VOZ OPCIONAL Mira en 90 segundos en qué podemos ayudarte Ver presentación →"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: solo se muestra el botón del idioma activo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: vista previa animada (sin sonido: no hay audio ni video)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: sin saltos de diseño (CLS ≤ 0,1)",
+      "info": "0.003"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: lleva a la experiencia en su idioma y limpia ?ver=1",
+      "info": "/experiencia/"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: la presentación se abre sola, sin sonido",
+      "info": "{\"open\":true,\"playing\":true,\"sound\":false}"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: el botón «Voz» se destaca para invitar a escuchar",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/es: se puede cerrar y queda la página completa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: el botón de 90 s es visible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: está en la primera pantalla, sin desplazarse",
+      "info": "y=706–824 de 900"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: área táctil ≥ 44 px",
+      "info": "118"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: texto aprobado",
+      "info": "DEVIATION 90 S · OPTIONAL VOICE See in 90 seconds how we can help you Watch the presentation →"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: solo se muestra el botón del idioma activo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: vista previa animada (sin sonido: no hay audio ni video)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: sin saltos de diseño (CLS ≤ 0,1)",
+      "info": "0.006"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: lleva a la experiencia en su idioma y limpia ?ver=1",
+      "info": "/en/experience/"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: la presentación se abre sola, sin sonido",
+      "info": "{\"open\":true,\"playing\":true,\"sound\":false}"
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: el botón «Voz» se destaca para invitar a escuchar",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "escritorio/en: se puede cerrar y queda la página completa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: el botón de 90 s es visible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: está en la primera pantalla, sin desplazarse",
+      "info": "y=416–516 de 664"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: área táctil ≥ 44 px",
+      "info": "100"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: texto aprobado",
+      "info": "DESVIACIÓN 90 S · VOZ OPCIONAL Mira en 90 segundos en qué podemos ayudarte Ver presentación →"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: solo se muestra el botón del idioma activo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: vista previa animada (sin sonido: no hay audio ni video)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: sin saltos de diseño (CLS ≤ 0,1)",
+      "info": "0.000"
+    },
+    {
+      "ok": true,
+      "name": "es: axe WCAG 2.2 AA sin violaciones en el héroe con el botón",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: lleva a la experiencia en su idioma y limpia ?ver=1",
+      "info": "/experiencia/"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: la presentación se abre sola, sin sonido",
+      "info": "{\"open\":true,\"playing\":true,\"sound\":false}"
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: el botón «Voz» se destaca para invitar a escuchar",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/es: se puede cerrar y queda la página completa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: el botón de 90 s es visible",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: está en la primera pantalla, sin desplazarse",
+      "info": "y=416–516 de 664"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: área táctil ≥ 44 px",
+      "info": "100"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: texto aprobado",
+      "info": "DEVIATION 90 S · OPTIONAL VOICE See in 90 seconds how we can help you Watch the presentation →"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: solo se muestra el botón del idioma activo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: vista previa animada (sin sonido: no hay audio ni video)",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: sin saltos de diseño (CLS ≤ 0,1)",
+      "info": "0.000"
+    },
+    {
+      "ok": true,
+      "name": "en: axe WCAG 2.2 AA sin violaciones en el héroe con el botón",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: lleva a la experiencia en su idioma y limpia ?ver=1",
+      "info": "/en/experience/"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: la presentación se abre sola, sin sonido",
+      "info": "{\"open\":true,\"playing\":true,\"sound\":false}"
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: el botón «Voz» se destaca para invitar a escuchar",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "móvil/en: se puede cerrar y queda la página completa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "Con movimiento reducido la vista previa queda estática",
+      "info": "0"
+    },
+    {
+      "ok": true,
+      "name": "Sin JS los enlaces existen en HTML (ES y EN)",
+      "info": ""
+    }
+  ]
+}

@@ -282,6 +282,17 @@
     else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
   });
   dlg.querySelector('[data-pl-close]').addEventListener('click', function () { dlg.close(); });
+  // Llegada desde el botón de la portada (?ver=1): abre la presentación sin sonido y destaca el botón «Voz»
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get('ver') === '1') {
+      history.replaceState(null, '', location.pathname + location.hash);
+      setTimeout(function () {
+        open({ currentTarget: openers[0] });
+        btnSound.classList.add('pl-hint'); setTimeout(function () { btnSound.classList.remove('pl-hint'); }, 6000);
+      }, 250);
+    }
+  } catch (e) { /* sin URLSearchParams: queda la página normal */ }
   dlg.addEventListener('close', cleanup);
   d.addEventListener('visibilitychange', function () { if (d.hidden && S.playing) pause(); });
 
