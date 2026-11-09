@@ -1,0 +1,255 @@
+{
+  "_note": "Fuente única de textos de la experiencia de 90 s (EN/ES). Editar aquí y ejecutar: node dev/experiencia/build.mjs. Los guiones de las escenas son texto exacto del Documento Maestro v1.0 (9-nov-2026); no reescribir sin aprobación.",
+  "duration": 90,
+  "site": "https://www.jfsolutionsq.com",
+  "routes": { "es": "/experiencia/", "en": "/en/experience/" },
+  "photos": {
+    "hero": { "id": "photo-1530037335614-e68828dcf258", "es": "Botellas de vidrio avanzando en una línea de llenado", "en": "Glass bottles moving along a filling line" },
+    "s1": { "id": "photo-1530037335614-e68828dcf258", "es": "Botellas de vidrio en una línea de llenado", "en": "Glass bottles on a filling line" },
+    "s2": { "id": "photo-1651525670099-f828fb5478a5", "es": "Línea de producción con maquinaria industrial", "en": "Production line with industrial machinery" },
+    "s3": { "id": "photo-1684259498900-afdea87b1a97", "es": "Analista revisando muestras en un laboratorio de alimentos", "en": "Analyst reviewing samples in a food laboratory" },
+    "s4": { "id": "photo-1551884171-004163219904", "es": "Profesional de calidad con bata blanca y guantes en una planta de alimentos", "en": "Quality professional in a white coat and gloves at a food plant" },
+    "s5": { "id": "photo-1663841365335-8acab127bf68", "es": "Equipo trabajando en una planta de producción", "en": "Team working in a production plant" }
+  },
+  "scenes": [
+    {
+      "id": "s1", "start": 0, "end": 10, "kind": "deviation",
+      "en": {
+        "title": "The cost of a deviation",
+        "script": "One missing record. One delayed decision. One preventable disruption.",
+        "chunks": ["One missing record.", "One delayed decision.", "One preventable disruption."],
+        "visual": "Illustration: a filling line is running, an alert appears, the line freezes and one unit is highlighted as a deviation with a missing record.",
+        "labels": { "running": "Line running", "stopped": "Line stopped", "tag": "Deviation · record missing", "slot": "Record" }
+      },
+      "es": {
+        "title": "El costo de una desviación",
+        "script": "Un registro faltante. Una decisión tardía. Una interrupción que pudo prevenirse.",
+        "chunks": ["Un registro faltante.", "Una decisión tardía.", "Una interrupción que pudo prevenirse."],
+        "visual": "Ilustración: una línea de llenado en marcha, aparece una alerta, la línea se detiene y una unidad queda resaltada como desviación con un registro faltante.",
+        "labels": { "running": "Línea en marcha", "stopped": "Línea detenida", "tag": "Desviación · registro faltante", "slot": "Registro" }
+      }
+    },
+    {
+      "id": "s2", "start": 10, "end": 30, "kind": "disconnect",
+      "en": {
+        "title": "The disconnect",
+        "script": "When quality, production, maintenance and warehouse operate with disconnected information, risks become harder to detect and decisions take longer.",
+        "chunks": ["When quality, production, maintenance and warehouse", "operate with disconnected information,", "risks become harder to detect", "and decisions take longer."],
+        "visual": "Illustration: four isolated nodes — Quality Control, Production, Maintenance and Warehouse — with scattered documents and no connection between them.",
+        "labels": { "nodes": ["Quality Control", "Production", "Maintenance", "Warehouse"], "gap": "No shared information" }
+      },
+      "es": {
+        "title": "La desconexión",
+        "script": "Cuando calidad, producción, mantenimiento y almacén trabajan con información desconectada, los riesgos son más difíciles de detectar y las decisiones tardan más.",
+        "chunks": ["Cuando calidad, producción, mantenimiento y almacén", "trabajan con información desconectada,", "los riesgos son más difíciles de detectar", "y las decisiones tardan más."],
+        "visual": "Ilustración: cuatro nodos aislados — Control de Calidad, Producción, Mantenimiento y Almacén — con documentos dispersos y sin conexión entre ellos.",
+        "labels": { "nodes": ["Control de Calidad", "Producción", "Mantenimiento", "Almacén"], "gap": "Sin información compartida" }
+      }
+    },
+    {
+      "id": "s3", "start": 30, "end": 55, "kind": "flow",
+      "en": {
+        "title": "From data to improvement",
+        "script": "JF Solutions helps organizations connect evidence, investigate root causes, strengthen traceability and build practical improvement plans. From receiving to final disposition, every decision should have a clear foundation.",
+        "chunks": ["JF Solutions helps organizations connect evidence,", "investigate root causes, strengthen traceability", "and build practical improvement plans.", "From receiving to final disposition,", "every decision should have a clear foundation."],
+        "visual": "Illustration: the steps Receiving, Inspection, QC Hold, Investigation, CAPA, Verification and Disposition connect into one continuous flow.",
+        "labels": { "steps": ["Receiving", "Inspection", "QC Hold", "Investigation", "CAPA", "Verification", "Disposition"] }
+      },
+      "es": {
+        "title": "Del dato a la mejora",
+        "script": "JF Solutions ayuda a conectar evidencia, investigar causas raíz, fortalecer la trazabilidad y construir planes prácticos de mejora. Desde la recepción hasta la disposición final, cada decisión debe tener un fundamento claro.",
+        "chunks": ["JF Solutions ayuda a conectar evidencia,", "investigar causas raíz, fortalecer la trazabilidad", "y construir planes prácticos de mejora.", "Desde la recepción hasta la disposición final,", "cada decisión debe tener un fundamento claro."],
+        "visual": "Ilustración: los pasos Recepción, Inspección, QC Hold, Investigación, CAPA, Verificación y Disposición se conectan en un solo flujo continuo.",
+        "labels": { "steps": ["Recepción", "Inspección", "QC Hold", "Investigación", "CAPA", "Verificación", "Disposición"] }
+      }
+    },
+    {
+      "id": "s4", "start": 55, "end": 75, "kind": "solutions",
+      "en": {
+        "title": "Concrete solutions",
+        "script": "Quality control. Food safety. Process improvement. Traceability readiness. We combine operational experience, structured methods and digital innovation to help teams move from reactive work toward better control.",
+        "chunks": ["Quality control. Food safety.", "Process improvement. Traceability readiness.", "We combine operational experience, structured methods", "and digital innovation to help teams move", "from reactive work toward better control."],
+        "visual": "Illustration: service cards for quality control, food safety, process improvement and traceability readiness, next to a prototype screen labeled PROTOTYPE · DEMO.",
+        "labels": { "cards": ["Quality control", "Food safety", "Process improvement", "Traceability readiness"], "proto": "Prototype · Demo" }
+      },
+      "es": {
+        "title": "Soluciones concretas",
+        "script": "Control de calidad. Inocuidad alimentaria. Mejora de procesos. Preparación para trazabilidad. Combinamos experiencia operacional, métodos estructurados e innovación digital para ayudar a los equipos a pasar de la reacción a un mejor control.",
+        "chunks": ["Control de calidad. Inocuidad alimentaria.", "Mejora de procesos. Preparación para trazabilidad.", "Combinamos experiencia operacional, métodos estructurados", "e innovación digital para ayudar a los equipos", "a pasar de la reacción a un mejor control."],
+        "visual": "Ilustración: tarjetas de servicio de control de calidad, inocuidad alimentaria, mejora de procesos y preparación para trazabilidad, junto a una pantalla de prototipo marcada PROTOTIPO · DEMO.",
+        "labels": { "cards": ["Control de calidad", "Inocuidad alimentaria", "Mejora de procesos", "Preparación para trazabilidad"], "proto": "Prototipo · Demo" }
+      }
+    },
+    {
+      "id": "s5", "start": 75, "end": 90, "kind": "invitation",
+      "en": {
+        "title": "The invitation",
+        "script": "Better operations begin with better visibility. Explore JF Solutions and discover where your next improvement can start.",
+        "chunks": ["Better operations begin with better visibility.", "Explore JF Solutions and discover", "where your next improvement can start."],
+        "visual": "Illustration: the information flows converge into the JF Solutions logo, next to two calls to action.",
+        "labels": {}
+      },
+      "es": {
+        "title": "La invitación",
+        "script": "Mejores operaciones comienzan con mayor visibilidad. Explora JF Solutions y descubre dónde puede comenzar tu próxima mejora.",
+        "chunks": ["Mejores operaciones comienzan con mayor visibilidad.", "Explora JF Solutions y descubre", "dónde puede comenzar tu próxima mejora."],
+        "visual": "Ilustración: los flujos de información convergen en el logotipo de JF Solutions, junto a dos llamadas a la acción.",
+        "labels": {}
+      }
+    }
+  ],
+  "en": {
+    "htmlLang": "en",
+    "ogLocale": "en_US", "ogLocaleAlt": "es_ES",
+    "title": "Quality & Food Safety Consulting in NJ & NY | JF Solutions",
+    "description": "JF Solutions supports food manufacturers and industrial operations in New Jersey and New York with quality control, food safety, traceability readiness, CAPA and process improvement.",
+    "h1": "Quality & Food Safety Consulting in NJ & NY",
+    "concept": "From disruption to control",
+    "skip": "Skip to content",
+    "brandSmall": "Quality · Business · Brand · Career",
+    "navLabel": "Main",
+    "nav": [["Services", "/en/services/"], ["Method", "#metodo"], ["FAQ", "#faq"]],
+    "ctaExplore": "Explore Our Solutions",
+    "ctaExploreHref": "/en/services/",
+    "ctaConsult": "Request a Consultation",
+    "ctaConsultHref": "/en/services/#contacto",
+    "watch": "Watch 90-second story",
+    "watchNote": "Plays with captions. No sound starts on its own.",
+    "storyKicker": "The story",
+    "storyIntro": "Scroll at your own pace, or open the 90-second presentation. Both tell the same story.",
+    "sceneWord": "Scene",
+    "ofWord": "of",
+    "illustrative": "Illustrative",
+    "servicesKicker": "Services",
+    "servicesTitle": "Where your next improvement can start",
+    "services": [
+      { "name": "Quality control", "text": "On-the-floor assessment, risk-ranked action plan and verified follow-through for food and beverage plants.", "href": "/en/services/food-safety-quality-consulting-new-jersey/", "link": "Quality & food safety consulting" },
+      { "name": "Food safety", "text": "Hands-on support with GMPs, HACCP or food safety plans, SOPs and corrective actions (CAPA).", "href": "/en/services/gmp-haccp-procedures-corrective-actions/", "link": "GMP, HACCP, SOP & CAPA support" },
+      { "name": "Process improvement", "text": "Hold management, KPIs and PDCA projects with clear owners.", "href": "/en/services/process-improvement-traceability/", "link": "Process improvement & traceability" },
+      { "name": "Traceability readiness", "text": "Process mapping, mock recalls and traceability gap identification, so lot records connect from receiving to disposition.", "href": "/en/services/process-improvement-traceability/", "link": "Traceability support" }
+    ],
+    "methodKicker": "Method",
+    "methodTitle": "One method, from the floor to the evidence",
+    "method": [
+      ["On-the-floor assessment", "We start where the work happens: receiving, lines, storage and records."],
+      ["Risk-based priorities", "Findings are ranked by risk so effort goes where it matters first."],
+      ["Implementation with owners", "Each action has a clear owner and a date."],
+      ["Verification with evidence", "Effectiveness is checked with records, not assumptions."]
+    ],
+    "protoKicker": "Prototypes",
+    "protoTitle": "Digital tools in development",
+    "protoNote": "These are prototypes and demonstrations. They are not commercial products yet and are shown to explain the approach.",
+    "protoBadge": "Prototype / demonstration",
+    "protos": [
+      ["ORA", "Digital assessment platform: records plant data, collects a strategic questionnaire and helps rank findings by risk into an action plan with PDCA and RACI."],
+      ["ORA Lab", "Experimental space of the ORA family for testing new assessment ideas."],
+      ["JF SOP", "Guided tool that turns 5W2H answers and process steps into draft SOPs, work instructions, one-point lessons and a process map."],
+      ["Traceability", "Demonstration of how receiving, holds, investigation and disposition records can be connected for a single lot."]
+    ],
+    "faqKicker": "FAQ",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      ["Where can I find quality and food safety consulting in New Jersey and New York?", "JF Solutions provides practical consulting support for quality control, food safety, industrial traceability and process improvement for manufacturers and industrial operations serving New Jersey and New York."],
+      ["How can a manufacturer prepare for FSMA 204?", "JF Solutions can support a readiness assessment, process mapping, traceability gap identification and corrective action planning. Applicability and compliance requirements must be assessed for each operation."],
+      ["Can JF Solutions help investigate recurring nonconformities?", "JF Solutions applies structured root cause analysis, corrective action planning and effectiveness verification to help organizations address recurring process and quality issues."]
+    ],
+    "areaKicker": "Coverage",
+    "areaTitle": "New Jersey & New York",
+    "areaText": "Support for food manufacturers and industrial operations in New Jersey and New York, in English and Spanish.",
+    "transcriptTitle": "Read the full transcript",
+    "transcriptVisual": "Visual",
+    "finalTitle": "Tell us about your operation",
+    "finalText": "A first conversation helps define where to start. We reply in English or Spanish.",
+    "footerTag": "Industry · Business · Branding · Careers — New Jersey",
+    "footerLinks": [["Services", "/en/services/"], ["Instagram", "https://www.instagram.com/jfsolutionsq"], ["YouTube", "https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg"], ["ORA", "https://ora.jfsolutionsq.com"], ["GMP challenge", "/manos.html"]],
+    "photos": "Photos",
+    "breadcrumbHome": "Home",
+    "breadcrumbSelf": "90-second story",
+    "player": {
+      "dialogLabel": "90-second presentation",
+      "play": "Play", "pause": "Pause", "restart": "Restart",
+      "soundOn": "Turn sound on", "soundOff": "Turn sound off", "soundNA": "Narration in production",
+      "ccOn": "Show captions", "ccOff": "Hide captions",
+      "language": "Language", "close": "Close presentation",
+      "progress": "Progress", "chapters": "Scenes",
+      "end": "End of the presentation", "again": "Watch again"
+    }
+  },
+  "es": {
+    "htmlLang": "es",
+    "ogLocale": "es_ES", "ogLocaleAlt": "en_US",
+    "title": "Consultoría en calidad e inocuidad alimentaria en NJ y NY | JF Solutions",
+    "description": "JF Solutions apoya a fabricantes de alimentos y operaciones industriales en New Jersey y New York con control de calidad, inocuidad, preparación para trazabilidad, CAPA y mejora de procesos.",
+    "h1": "Consultoría en calidad e inocuidad alimentaria en NJ y NY",
+    "concept": "Del problema al control",
+    "skip": "Saltar al contenido",
+    "brandSmall": "Calidad · Negocios · Marca · Carrera",
+    "navLabel": "Principal",
+    "nav": [["Servicios", "/servicios/"], ["Método", "#metodo"], ["Preguntas", "#faq"]],
+    "ctaExplore": "Explorar soluciones",
+    "ctaExploreHref": "/servicios/",
+    "ctaConsult": "Solicitar consulta",
+    "ctaConsultHref": "/servicios/#contacto",
+    "watch": "Ver presentación de 90 segundos",
+    "watchNote": "Se reproduce con subtítulos. Ningún sonido empieza por sí solo.",
+    "storyKicker": "La historia",
+    "storyIntro": "Desplázate a tu ritmo o abre la presentación de 90 segundos. Las dos cuentan la misma historia.",
+    "sceneWord": "Escena",
+    "ofWord": "de",
+    "illustrative": "Ilustrativo",
+    "servicesKicker": "Servicios",
+    "servicesTitle": "Dónde puede comenzar tu próxima mejora",
+    "services": [
+      { "name": "Control de calidad", "text": "Diagnóstico en piso, plan priorizado por riesgo y verificación con evidencia para plantas de alimentos y bebidas.", "href": "/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/", "link": "Consultoría de calidad e inocuidad" },
+      { "name": "Inocuidad alimentaria", "text": "Apoyo práctico en GMP, planes HACCP o de inocuidad, procedimientos (SOPs) y acciones correctivas (CAPA).", "href": "/servicios/gmp-haccp-procedimientos-acciones-correctivas/", "link": "Apoyo en GMP, HACCP, SOPs y CAPA" },
+      { "name": "Mejora de procesos", "text": "Manejo de retenciones, indicadores y proyectos PDCA con responsables claros.", "href": "/servicios/mejora-procesos-trazabilidad/", "link": "Mejora de procesos y trazabilidad" },
+      { "name": "Preparación para trazabilidad", "text": "Mapeo de procesos, simulacros de recall e identificación de brechas de trazabilidad, para que los registros de cada lote se conecten desde la recepción hasta la disposición.", "href": "/servicios/mejora-procesos-trazabilidad/", "link": "Apoyo en trazabilidad" }
+    ],
+    "methodKicker": "Método",
+    "methodTitle": "Un método, del piso de planta a la evidencia",
+    "method": [
+      ["Diagnóstico en piso", "Empezamos donde ocurre el trabajo: recepción, líneas, almacenamiento y registros."],
+      ["Prioridades por riesgo", "Los hallazgos se ordenan por riesgo para atender primero lo que más importa."],
+      ["Implementación con responsables", "Cada acción tiene un responsable claro y una fecha."],
+      ["Verificación con evidencia", "La eficacia se comprueba con registros, no con suposiciones."]
+    ],
+    "protoKicker": "Prototipos",
+    "protoTitle": "Herramientas digitales en desarrollo",
+    "protoNote": "Son prototipos y demostraciones. Todavía no son productos comerciales y se muestran para explicar el enfoque.",
+    "protoBadge": "Prototipo / demostración",
+    "protos": [
+      ["ORA", "Plataforma digital de diagnóstico: registra datos de planta, recoge un cuestionario estratégico y ayuda a ordenar los hallazgos por riesgo en un plan de acción con PDCA y RACI."],
+      ["ORA Lab", "Espacio experimental de la familia ORA para probar nuevas ideas de diagnóstico."],
+      ["JF SOP", "Herramienta guiada que convierte respuestas 5W2H y pasos del proceso en borradores de SOP, instrucciones de trabajo, lecciones de un punto y un mapa de proceso."],
+      ["Trazabilidad", "Demostración de cómo pueden conectarse los registros de recepción, retención, investigación y disposición de un mismo lote."]
+    ],
+    "faqKicker": "Preguntas frecuentes",
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      ["¿Dónde encontrar consultoría en calidad e inocuidad alimentaria en New Jersey y New York?", "JF Solutions ofrece apoyo práctico de consultoría en control de calidad, inocuidad alimentaria, trazabilidad industrial y mejora de procesos para fabricantes y operaciones industriales que atienden New Jersey y New York."],
+      ["¿Cómo puede un fabricante prepararse para FSMA 204?", "JF Solutions puede apoyar una evaluación de preparación, el mapeo de procesos, la identificación de brechas de trazabilidad y la planificación de acciones correctivas. La aplicabilidad y los requisitos de cumplimiento deben evaluarse para cada operación."],
+      ["¿JF Solutions puede ayudar a investigar no conformidades recurrentes?", "JF Solutions aplica análisis estructurado de causa raíz, planificación de acciones correctivas y verificación de eficacia para ayudar a las organizaciones a resolver problemas recurrentes de proceso y de calidad."]
+    ],
+    "areaKicker": "Cobertura",
+    "areaTitle": "New Jersey y New York",
+    "areaText": "Apoyo para fabricantes de alimentos y operaciones industriales en New Jersey y New York, en español e inglés.",
+    "transcriptTitle": "Leer la transcripción completa",
+    "transcriptVisual": "Imagen",
+    "finalTitle": "Cuéntanos sobre tu operación",
+    "finalText": "Una primera conversación ayuda a definir por dónde empezar. Respondemos en español o en inglés.",
+    "footerTag": "Industria · Negocios · Marca · Carrera — Nueva Jersey",
+    "footerLinks": [["Servicios", "/servicios/"], ["Instagram", "https://www.instagram.com/jfsolutionsq"], ["YouTube", "https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg"], ["ORA", "https://ora.jfsolutionsq.com"], ["Reto GMP", "/manos.html"]],
+    "photos": "Fotos",
+    "breadcrumbHome": "Inicio",
+    "breadcrumbSelf": "Historia de 90 segundos",
+    "player": {
+      "dialogLabel": "Presentación de 90 segundos",
+      "play": "Reproducir", "pause": "Pausar", "restart": "Reiniciar",
+      "soundOn": "Activar sonido", "soundOff": "Silenciar", "soundNA": "Narración en producción",
+      "ccOn": "Mostrar subtítulos", "ccOff": "Ocultar subtítulos",
+      "language": "Idioma", "close": "Cerrar presentación",
+      "progress": "Progreso", "chapters": "Escenas",
+      "end": "Fin de la presentación", "again": "Ver de nuevo"
+    }
+  }
+}
