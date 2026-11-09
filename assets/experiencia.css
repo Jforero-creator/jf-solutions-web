@@ -234,7 +234,7 @@ html:not(.js) .xp-progress{display:none}
 .pl-cap[hidden]{display:block;visibility:hidden}
 .pl-end{position:absolute;left:0;right:0;top:46%;text-align:center;pointer-events:none}
 .pl-end-t{display:inline-block;margin:0;font:800 22px var(--display);background:rgba(6,14,29,.85);border:1px solid var(--gold);border-radius:12px;padding:10px 18px}
-.pl-bar{padding:8px max(16px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr auto;grid-template-areas:"range range" "chap chap" "ctrl ctas" "note note";gap:8px 16px;max-width:1240px;width:100%;margin:0 auto;align-items:center}
+.pl-bar{padding:8px max(16px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr auto;grid-template-areas:"range range" "chap chap" "ctrl ctas" "note ai";gap:8px 16px;max-width:1240px;width:100%;margin:0 auto;align-items:center}
 .pl-range{grid-area:range}.pl-chapters{grid-area:chap}.pl-controls{grid-area:ctrl}.pl-ctas{grid-area:ctas}.pl-sound-note{grid-area:note}
 .pl-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .pl-btn{width:44px;height:44px;display:inline-grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--n7);color:var(--ivory);font:700 15px/1 var(--mono);cursor:pointer;flex:none}
@@ -252,7 +252,8 @@ html:not(.js) .xp-progress{display:none}
 .pl-chapters li{display:flex;min-width:0}
 .pl-chapters button{flex:1;width:100%;min-height:24px;height:24px;border:0;border-radius:4px;background:linear-gradient(90deg,var(--gold) var(--p,0%),rgba(37,64,122,.9) var(--p,0%));cursor:pointer;padding:0}
 .pl-chapters button[aria-current="step"]{outline:1px solid var(--gold2)}
-.pl-sound-note{margin:0;font-size:11px;color:var(--mist)}
+.pl-sound-note,.pl-ai-note{margin:0;font-size:11px;color:var(--mist)}
+.pl-ai-note{grid-area:ai}
 .pl-ctas{display:flex;flex-wrap:wrap;gap:10px}
 .pl-ctas .btn{padding:12px 18px;font-size:15px}
 
@@ -285,7 +286,7 @@ html:not(.js) .xp-progress{display:none}
   .v-flag b{font-size:9.5px}
   .v-belt{top:34%}
   .pl-stage{width:min(100cqw - 24px,100cqh * 1.18);aspect-ratio:4/3.4}
-  .pl-bar{grid-template-columns:1fr;grid-template-areas:"range" "chap" "ctrl" "ctas" "note";gap:7px}
+  .pl-bar{grid-template-columns:1fr;grid-template-areas:"range" "chap" "ctrl" "ctas" "note" "ai";gap:7px}
   .pl-btn{width:42px;height:42px}
   .pl-lang select{height:42px;padding:0 8px}
   .pl-time{display:none}

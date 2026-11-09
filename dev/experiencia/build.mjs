@@ -23,12 +23,45 @@ const photo = (id, w, h) => `https://images.unsplash.com/${id}?auto=format&amp;f
 const srcset = (id, ws, ratio) => ws.map((w) => `${photo(id, w, Math.round(w / ratio))} ${w}w`).join(', ');
 
 // ---------- tiempos de subtítulos (cronometrados por idioma) ----------
-// Cada escena tiene su ventana fija del guion gráfico. Dentro de ella, cada frase recibe
-// tiempo proporcional a su longitud en ese idioma, con entrada, pausas y salida.
+// Con narración (audio/timing.json): cada frase se alinea con los tramos reales de voz de su escena,
+// cortando en las pausas detectadas más cercanas a su proporción de texto.
+// Sin narración: cada frase recibe tiempo proporcional a su longitud dentro de la ventana de la escena.
+const timingPath = join(here, 'audio', 'timing.json');
+const TIMING = existsSync(timingPath) ? JSON.parse(readFileSync(timingPath, 'utf8')) : null;
+function alignToSpeech(chunks, segs, sceneEnd, nextStart) {
+  const a = segs[0][0], b = segs[segs.length - 1][1];
+  const gaps = segs.slice(1).map((sg, i) => ({ t0: segs[i][1], t1: sg[0], mid: (segs[i][1] + sg[0]) / 2 }));
+  const total = chunks.reduce((x, c) => x + c.length, 0);
+  let acc = 0; const cuts = [];
+  let from = 0;
+  for (let i = 0; i < chunks.length - 1; i++) {
+    acc += chunks[i].length;
+    const target = a + ((b - a) * acc) / total;
+    // pausa más cercana al objetivo, en orden y dejando pausas para las frases que faltan
+    let best = -1, bd = Infinity;
+    for (let g = from; g <= gaps.length - (chunks.length - 1 - i); g++) { const dd = Math.abs(gaps[g].mid - target); if (dd < bd) { bd = dd; best = g; } }
+    if (best > -1 && bd < 1.6) { cuts.push(gaps[best]); from = best + 1; } else cuts.push({ t0: target, t1: target, mid: target });
+  }
+  const out = [];
+  chunks.forEach((text, i) => {
+    const start = i === 0 ? a : cuts[i - 1].t1;
+    let end = i === chunks.length - 1 ? b : cuts[i].t0;
+    const next = i === chunks.length - 1 ? Math.min(sceneEnd, nextStart) : cuts[i].t1;
+    end = Math.min(next - 0.05, end + 0.35); // el subtítulo se mantiene un instante tras la voz
+    out.push({ start: +Math.max(0, start - 0.08).toFixed(2), end: +end.toFixed(2), text });
+  });
+  return out;
+}
 export function cues(lang) {
   const out = [];
-  for (const s of C.scenes) {
+  C.scenes.forEach((s, si) => {
     const chunks = s[lang].chunks;
+    const tm = TIMING && TIMING.langs[lang] && TIMING.langs[lang].scenes[s.id];
+    if (tm) {
+      const next = C.scenes[si + 1] ? C.scenes[si + 1].start : C.duration;
+      alignToSpeech(chunks, tm.segments, s.end, next).forEach((c) => out.push({ scene: s.id, ...c }));
+      return;
+    }
     const lead = s.start === 0 ? 0.8 : 0.6, tail = 0.9, gap = 0.3;
     const avail = s.end - s.start - lead - tail - gap * (chunks.length - 1);
     const total = chunks.reduce((a, c) => a + c.length, 0);
@@ -38,7 +71,7 @@ export function cues(lang) {
       out.push({ scene: s.id, start: +t.toFixed(2), end: +(t + d).toFixed(2), text });
       t += d + (i < chunks.length - 1 ? gap : 0);
     });
-  }
+  });
   return out;
 }
 const vttTime = (t) => {
@@ -301,8 +334,9 @@ function PresentationPlayer(l) {
     duration: C.duration,
     lang: l,
     captions: { es: '/media/experiencia/captions-es.vtt', en: '/media/experiencia/captions-en.vtt' },
-    // Narración opcional (opt-in). Vacío = aún no hay audio aprobado; el botón de sonido queda desactivado.
-    audio: { es: '', en: '' },
+    // Narración opcional (opt-in), pregrabada y servida desde el sitio. Sin timing.json no hay audio y el botón queda desactivado.
+    audio: Object.fromEntries(LANGS.map((x) => [x, TIMING && TIMING.langs[x] ? TIMING.langs[x].files : null])),
+    aiNote: { es: C.es.player.aiNote, en: C.en.player.aiNote },
     scenes: C.scenes.map((s) => ({ id: s.id, start: s.start, end: s.end, title: { es: s.es.title, en: s.en.title } })),
     cues: { es: cues('es'), en: cues('en') },
     ui: { es: C.es.player, en: C.en.player },
@@ -335,6 +369,7 @@ function PresentationPlayer(l) {
       ${C.scenes.map((s, i) => `<li style="flex:${s.end - s.start} 1 0"><button type="button" data-pl-chapter="${i}"><span class="sr-only">${esc(s[l].title)}</span></button></li>`).join('')}
     </ol>
     <p class="pl-sound-note mono" data-pl-sound-note hidden>${esc(P.soundNA)}</p>
+    <p class="pl-ai-note mono" data-pl-ai-note${TIMING ? '' : ' hidden'}>${esc(P.aiNote)}</p>
     <div class="pl-ctas">
       <a class="btn btn-main" data-pl-cta="0" href="${T.ctaExploreHref}">${esc(T.ctaExplore)}</a>
       <a class="btn btn-ghost" data-pl-cta="1" href="${T.ctaConsultHref}">${esc(T.ctaConsult)}</a>
