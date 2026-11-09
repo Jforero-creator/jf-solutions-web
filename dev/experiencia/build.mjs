@@ -367,7 +367,9 @@ function PresentationPlayer(l) {
   <div class="pl-stagewrap"><div class="pl-stage" data-pl-stage><div class="pl-wipe" aria-hidden="true"></div><p class="pl-card" data-pl-card aria-hidden="true"><span class="mono" data-pl-card-n></span><b data-pl-card-t></b></p></div></div>
   <p class="pl-cap" data-pl-cap aria-hidden="true"></p>
   <div class="pl-end" data-pl-end hidden>
-    <p class="pl-end-t" data-pl="end">${esc(P.end)}</p>
+    <img src="/assets/logo.jpg" width="64" height="64" alt="" loading="lazy" decoding="async">
+    <p class="pl-end-t" data-pl="tagline">${esc(P.tagline)}</p>
+    <p class="pl-end-s mono">JF Solutions<span class="sr-only" data-pl="end"> — ${esc(P.end)}</span></p>
   </div>
   <div class="pl-bar">
     <div class="pl-controls">

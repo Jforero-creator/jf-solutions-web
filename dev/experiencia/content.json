@@ -431,7 +431,8 @@
       "again": "Watch again",
       "aiNote": "AI-generated narration",
       "voice": "Voice",
-      "voiceOn": "Voice on"
+      "voiceOn": "Voice on",
+      "tagline": "From disruption to control"
     }
   },
   "es": {
@@ -607,7 +608,8 @@
       "again": "Ver de nuevo",
       "aiNote": "Narración generada con IA",
       "voice": "Voz",
-      "voiceOn": "Voz activada"
+      "voiceOn": "Voz activada",
+      "tagline": "Del problema al control"
     }
   }
 }
