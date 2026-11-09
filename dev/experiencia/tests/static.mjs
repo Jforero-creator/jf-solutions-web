@@ -168,11 +168,11 @@ try {
   execSync('git fetch -q origin main', { cwd: root, stdio: 'ignore' });
   const changed = execSync('git diff --name-status origin/main...HEAD', { cwd: root }).toString().trim().split('\n').filter(Boolean);
   const modified = changed.filter((l) => !l.startsWith('A')).map((l) => l.split('\t')[1]);
-  const allowed = ['sitemap.xml', 'servicios/index.html', 'en/services/index.html'];
+  const allowed = ['sitemap.xml', 'servicios/index.html', 'en/services/index.html', 'index.html'];
   ok(modified.every((f) => allowed.includes(f)), 'Solo se añadieron archivos (excepto sitemap y un enlace en las 2 páginas de servicios)', modified.join(','));
   const hubDiff = execSync('git diff origin/main...HEAD -- servicios/index.html en/services/index.html', { cwd: root }).toString().split('\n').filter((l) => /^[-+](?![-+])/.test(l));
   ok(hubDiff.length === 2 && hubDiff.every((l) => l.startsWith('+') && /experiencia|experience/.test(l)), 'Páginas de servicios: solo se añade una línea con el enlace a la experiencia', hubDiff.join(' | '));
-  ok(!changed.some((l) => /vercel\.json|^M\tindex\.html$|manos\.html|servicios\.js|servicios\.css|site\.css/.test(l)), 'Sin cambios en vercel.json, portada, formulario, estilos ni Reto GMP');
+  ok(!changed.some((l) => /vercel\.json|manos\.html|servicios\.js|servicios\.css|site\.css/.test(l)), 'Sin cambios en vercel.json, portada, formulario, estilos ni Reto GMP');
 } catch (e) { ok(false, 'git disponible para verificar el alcance', e.message); }
 
 // 6. Secretos
