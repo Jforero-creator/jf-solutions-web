@@ -28,28 +28,43 @@ const srcset = (id, ws, ratio) => ws.map((w) => `${photo(id, w, Math.round(w / r
 // Sin narración: cada frase recibe tiempo proporcional a su longitud dentro de la ventana de la escena.
 const timingPath = join(here, 'audio', 'timing.json');
 const TIMING = existsSync(timingPath) ? JSON.parse(readFileSync(timingPath, 'utf8')) : null;
-function alignToSpeech(chunks, segs, sceneEnd, nextStart) {
-  const a = segs[0][0], b = segs[segs.length - 1][1];
-  const gaps = segs.slice(1).map((sg, i) => ({ t0: segs[i][1], t1: sg[0], mid: (segs[i][1] + sg[0]) / 2 }));
+function alignToSpeech(chunks, segs, sceneEnd) {
+  const a = segs[0][0], b = segs[segs.length - 1][1], n = chunks.length;
+  const gaps = segs.slice(1).map((sg, i) => ({ t0: segs[i][1], t1: sg[0], mid: (segs[i][1] + sg[0]) / 2, real: true }));
   const total = chunks.reduce((x, c) => x + c.length, 0);
-  let acc = 0; const cuts = [];
-  let from = 0;
-  for (let i = 0; i < chunks.length - 1; i++) {
-    acc += chunks[i].length;
-    const target = a + ((b - a) * acc) / total;
-    // pausa más cercana al objetivo, en orden y dejando pausas para las frases que faltan
-    let best = -1, bd = Infinity;
-    for (let g = from; g <= gaps.length - (chunks.length - 1 - i); g++) { const dd = Math.abs(gaps[g].mid - target); if (dd < bd) { bd = dd; best = g; } }
-    if (best > -1 && bd < 1.6) { cuts.push(gaps[best]); from = best + 1; } else cuts.push({ t0: target, t1: target, mid: target });
+  const targets = []; let acc = 0;
+  for (let i = 0; i < n - 1; i++) { acc += chunks[i].length; targets.push(a + ((b - a) * acc) / total); }
+  // Busca los n-1 cortes (pausas reales o, si faltan, puntos virtuales) que mejor respetan la proporción
+  // del texto y una lectura cómoda (≤ 16,5 caracteres/s por subtítulo).
+  let best = null;
+  function rec(i, from, prev, cuts, cost) {
+    if (best && cost >= best.cost) return;
+    if (i === n - 1) {
+      const len = b - prev, c = cost + Math.max(0, chunks[i].length / 16.5 - len) * 4;
+      if (!best || c < best.cost) best = { cost: c, cuts: cuts.slice() };
+      return;
+    }
+    const opts = gaps.slice(from).map((g, k) => ({ g, k: from + k })).concat([{ g: { t0: targets[i], t1: targets[i], mid: targets[i], real: false }, k: from - 1 }]);
+    for (const { g, k } of opts) {
+      if (g.mid <= prev + 0.3) continue;
+      const len = g.t0 - prev;
+      const c = cost + Math.abs(g.mid - targets[i]) + (g.real ? 0 : 1.2) + Math.max(0, chunks[i].length / 16.5 - len) * 4;
+      cuts.push(g); rec(i + 1, g.real ? k + 1 : from, g.t1, cuts, c); cuts.pop();
+    }
   }
+  rec(0, 0, a, [], 0);
+  const cuts = best ? best.cuts : targets.map((t) => ({ t0: t, t1: t }));
   const out = [];
-  chunks.forEach((text, i) => {
-    const start = i === 0 ? a : cuts[i - 1].t1;
-    let end = i === chunks.length - 1 ? b : cuts[i].t0;
-    const next = i === chunks.length - 1 ? Math.min(sceneEnd, nextStart) : cuts[i].t1;
-    end = Math.min(next - 0.05, end + 0.35); // el subtítulo se mantiene un instante tras la voz
-    out.push({ start: +Math.max(0, start - 0.08).toFixed(2), end: +end.toFixed(2), text });
-  });
+  for (let i = 0; i < n; i++) {
+    const prevEnd = i ? out[i - 1].end : -1;
+    let start = Math.max(i === 0 ? a - 0.08 : cuts[i - 1].t1 - 0.08, prevEnd + 0.04);
+    const limit = i === n - 1 ? sceneEnd - 0.1 : cuts[i].t1 - 0.12;
+    let end = Math.min(limit, (i === n - 1 ? b : cuts[i].t0) + 0.35);
+    const need = chunks[i].length / 16.5;
+    if (end - start < need) end = Math.min(limit, start + need);
+    if (end - start < need) start = Math.max(prevEnd + 0.04, end - need);
+    out.push({ start: +Math.max(0, start).toFixed(2), end: +end.toFixed(2), text: chunks[i] });
+  }
   return out;
 }
 export function cues(lang) {
@@ -58,8 +73,7 @@ export function cues(lang) {
     const chunks = s[lang].chunks;
     const tm = TIMING && TIMING.langs[lang] && TIMING.langs[lang].scenes[s.id];
     if (tm) {
-      const next = C.scenes[si + 1] ? C.scenes[si + 1].start : C.duration;
-      alignToSpeech(chunks, tm.segments, s.end, next).forEach((c) => out.push({ scene: s.id, ...c }));
+      alignToSpeech(chunks, tm.segments, s.end).forEach((c) => out.push({ scene: s.id, ...c }));
       return;
     }
     const lead = s.start === 0 ? 0.8 : 0.6, tail = 0.9, gap = 0.3;
