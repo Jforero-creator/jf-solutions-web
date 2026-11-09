@@ -194,6 +194,12 @@ if (timing) {
     await page.click('[data-pl-sound]');
     ok(await page.evaluate(() => document.querySelector('[data-pl-audio]').paused), `${lang}: silenciar detiene la voz; la presentación sigue`);
     ok((await page.evaluate(() => window.JFXP.state().playing)), `${lang}: la presentación continúa sin sonido`);
+    // Activar la voz con la presentación en pausa también la reanuda (y usa MP3, compatible con iPhone)
+    await page.evaluate(() => { window.JFXP.pause(); window.JFXP.seek(12); });
+    await page.click('[data-pl-sound]'); await page.waitForTimeout(2000);
+    const st3 = await page.evaluate(() => window.JFXP.state());
+    ok(st3.playing && st3.sound && !st3.audioPaused && /\.mp3$/.test(st3.audioSrc), `${lang}: activar la voz en pausa reanuda con sonido (MP3)`, JSON.stringify(st3));
+    ok(await page.locator('[data-pl-sound-txt]').isVisible(), `${lang}: el botón de voz tiene texto visible`);
     // Si el audio falla, la experiencia sigue funcionando
     await page.route('**/narracion-*', (r) => r.abort());
     await ctx.close();

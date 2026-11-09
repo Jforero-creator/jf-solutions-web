@@ -423,7 +423,9 @@
       "chapters": "Scenes",
       "end": "End of the presentation",
       "again": "Watch again",
-      "aiNote": "AI-generated narration"
+      "aiNote": "AI-generated narration",
+      "voice": "Voice",
+      "voiceOn": "Voice on"
     }
   },
   "es": {
@@ -597,7 +599,9 @@
       "chapters": "Escenas",
       "end": "Fin de la presentación",
       "again": "Ver de nuevo",
-      "aiNote": "Narración generada con IA"
+      "aiNote": "Narración generada con IA",
+      "voice": "Voz",
+      "voiceOn": "Voz activada"
     }
   }
 }

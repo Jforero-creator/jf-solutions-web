@@ -371,7 +371,7 @@ function PresentationPlayer(l) {
     <div class="pl-controls">
       <button type="button" class="pl-btn" data-pl-play aria-label="${esc(P.play)}"><span class="ico-play" aria-hidden="true"></span></button>
       <button type="button" class="pl-btn" data-pl-restart aria-label="${esc(P.restart)}"><span aria-hidden="true">↺</span></button>
-      <button type="button" class="pl-btn" data-pl-sound aria-pressed="false" aria-label="${esc(P.soundOn)}"><span class="ico-sound" aria-hidden="true"></span></button>
+      <button type="button" class="pl-btn pl-sound" data-pl-sound aria-pressed="false" aria-label="${esc(P.soundOn)}"><span class="ico-sound" aria-hidden="true"></span><span class="pl-sound-txt" data-pl-sound-txt aria-hidden="true">${esc(P.voice)}</span></button>
       <button type="button" class="pl-btn" data-pl-cc aria-pressed="true" aria-label="${esc(P.ccOff)}"><span aria-hidden="true">CC</span></button>
       <label class="pl-lang"><span class="sr-only" data-pl="language">${esc(P.language)}</span>
         <select data-pl-lang><option value="es">ES</option><option value="en">EN</option></select>
