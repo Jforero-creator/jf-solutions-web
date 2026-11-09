@@ -212,8 +212,8 @@ function Visual(s, l) {
       <div class="v-belt"><div class="v-units">${'<i></i>'.repeat(9)}</div><span class="v-flag"><b class="mono">${esc(lab.tag)}</b></span></div>
       <div class="v-records">${[1, 2, 3, 4, 5].map((n) => `<span class="${n === 4 ? 'miss' : ''}">${esc(lab.slot)} ${n === 4 ? '—' : '✓'}</span>`).join('')}</div>`;
   } else if (s.kind === 'disconnect') {
-    art = `<svg class="v-links" viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M95 62 L305 62 M95 163 L305 163 M95 62 L95 163 M305 62 L305 163"/></svg>
-      ${lab.nodes.map((n, i) => `<div class="v-node n${i + 1}"><span>${esc(n)}</span><i class="doc"></i><i class="doc"></i></div>`).join('')}
+    art = `<svg class="v-links" viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M95 62 L305 62 M95 163 L305 163 M95 62 L95 163 M305 62 L305 163"/></svg>
+      ${lab.nodes.map((n, i) => `<div class="v-node vn${i + 1}"><span>${esc(n)}</span><i class="doc"></i><i class="doc"></i></div>`).join('')}
       <span class="v-gap mono">${esc(lab.gap)}</span>`;
   } else if (s.kind === 'flow') {
     art = `<ol class="v-flow">${lab.steps.map((st, i) => `<li style="--i:${i}"><span>${esc(st)}</span></li>`).join('')}</ol>`;
