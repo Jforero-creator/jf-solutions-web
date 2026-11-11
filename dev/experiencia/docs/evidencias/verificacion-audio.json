@@ -1,0 +1,151 @@
+{
+  "model": "Whisper small (sherpa-onnx int8), local",
+  "langs": {
+    "en": {
+      "duration_mp3": 90.04,
+      "duration_webm": 90.01,
+      "duration_decoded": 90.0,
+      "scenes": {
+        "s1": {
+          "window": [
+            0,
+            10
+          ],
+          "voice_first": 0.8,
+          "voice_last": 6.75,
+          "margin_end_s": 3.25,
+          "wer": 0.0,
+          "transcript": "One missing record, one delayed decision, one preventable disruption."
+        },
+        "s2": {
+          "window": [
+            10,
+            30
+          ],
+          "voice_first": 10.6,
+          "voice_last": 22.85,
+          "margin_end_s": 7.15,
+          "wer": 0.0,
+          "transcript": "When quality, production, maintenance and warehouse operate with disconnected information, risks become harder to detect and decisions take longer."
+        },
+        "s3": {
+          "window": [
+            30,
+            55
+          ],
+          "voice_first": 30.6,
+          "voice_last": 48.75,
+          "margin_end_s": 6.25,
+          "wer": 0.0,
+          "transcript": "JF Solutions helps organizations connect evidence, investigate root causes, strengthen traceability, and build practical improvement plans. From receiving to final disposition, every decision should have a clear foundation."
+        },
+        "s4": {
+          "window": [
+            55,
+            75
+          ],
+          "voice_first": 55.85,
+          "voice_last": 74.6,
+          "margin_end_s": 0.4,
+          "wer": 0.037,
+          "transcript": "Quality control, food safety, process improvement, traceability, readiness. We combine operational experience, structured methods and digital innovation to help teams move from reactive work towards better control."
+        },
+        "s5": {
+          "window": [
+            75,
+            90
+          ],
+          "voice_first": 75.6,
+          "voice_last": 84.8,
+          "margin_end_s": 5.2,
+          "wer": 0.0,
+          "transcript": "Better operations begin with better visibility. Explore JF solutions and discover where your next improvement can start."
+        }
+      },
+      "tail_silence_s": 5.2,
+      "voice_covered_by_captions": 1.0,
+      "captions_with_voice": 0.735,
+      "checks": {
+        "duración 90 s (MP3/Opus/decodificado)": true,
+        "voz dentro de su escena (≥0,3 s de margen)": true,
+        "sin corte al final (≥0,5 s de silencio)": true,
+        "transcripción fiel al guion (WER ≤ 0,15 por escena)": true,
+        "la voz está cubierta por subtítulos (≥ 95 %)": true,
+        "los subtítulos coinciden con voz (≥ 70 % del tiempo)": true
+      }
+    },
+    "es": {
+      "duration_mp3": 90.04,
+      "duration_webm": 90.01,
+      "duration_decoded": 90.0,
+      "scenes": {
+        "s1": {
+          "window": [
+            0,
+            10
+          ],
+          "voice_first": 0.8,
+          "voice_last": 6.95,
+          "margin_end_s": 3.05,
+          "wer": 0.0,
+          "transcript": "Un registro faltante. Una decisión tardía. Una interrupción que pudo prevenirse."
+        },
+        "s2": {
+          "window": [
+            10,
+            30
+          ],
+          "voice_first": 10.7,
+          "voice_last": 21.0,
+          "margin_end_s": 9.0,
+          "wer": 0.0,
+          "transcript": "Cuando calidad, producción, mantenimiento y almacén trabajan con información desconectada, los riesgos son más difíciles de detectar y las decisiones tardan más."
+        },
+        "s3": {
+          "window": [
+            30,
+            55
+          ],
+          "voice_first": 30.65,
+          "voice_last": 46.2,
+          "margin_end_s": 8.8,
+          "wer": 0.0,
+          "transcript": "JF Solutions ayuda a conectar evidencia, investigar causas raíz, fortalecer la trazabilidad y construir planes prácticos de mejora. Desde la recepción hasta la disposición final, cada decisión debe tener un fundamento claro."
+        },
+        "s4": {
+          "window": [
+            55,
+            75
+          ],
+          "voice_first": 55.65,
+          "voice_last": 72.15,
+          "margin_end_s": 2.85,
+          "wer": 0.0,
+          "transcript": "Control de calidad, inocuidad alimentaria, mejora de procesos, preparación para trazabilidad. Combinamos experiencia operacional, métodos estructurados e innovación digital para ayudar a los equipos a pasar de la reacción a un mejor control."
+        },
+        "s5": {
+          "window": [
+            75,
+            90
+          ],
+          "voice_first": 75.65,
+          "voice_last": 84.1,
+          "margin_end_s": 5.9,
+          "wer": 0.0,
+          "transcript": "Mejores operaciones comienzan con mayor visibilidad. Explora JF Solutions y descubre donde puede comenzar tu próxima mejora."
+        }
+      },
+      "tail_silence_s": 5.9,
+      "voice_covered_by_captions": 1.0,
+      "captions_with_voice": 0.881,
+      "checks": {
+        "duración 90 s (MP3/Opus/decodificado)": true,
+        "voz dentro de su escena (≥0,3 s de margen)": true,
+        "sin corte al final (≥0,5 s de silencio)": true,
+        "transcripción fiel al guion (WER ≤ 0,15 por escena)": true,
+        "la voz está cubierta por subtítulos (≥ 95 %)": true,
+        "los subtítulos coinciden con voz (≥ 70 % del tiempo)": true
+      }
+    }
+  }
+}

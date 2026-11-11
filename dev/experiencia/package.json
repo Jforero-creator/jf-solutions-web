@@ -1,0 +1,17 @@
+{
+  "name": "jf-experiencia-90s-tests",
+  "private": true,
+  "description": "Pruebas de la experiencia de 90 s de JF Solutions. No forma parte del sitio publicado.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "test:static": "node tests/static.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test": "node build.mjs --check && node tests/static.mjs && node tests/e2e.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.3",
+    "playwright": "1.63.0"
+  }
+}

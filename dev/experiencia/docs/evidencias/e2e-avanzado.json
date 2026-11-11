@@ -1,0 +1,409 @@
+{
+  "nota": "A (audio real) del recorrido completo; B–D de la corrida con red/CPU limitadas y fotos sustitutas con retardo realista",
+  "pass": 56,
+  "fail": 0,
+  "results": [
+    {
+      "ok": true,
+      "name": "es: la presentación con voz termina sola en 01:30",
+      "info": "t=90.00"
+    },
+    {
+      "ok": true,
+      "name": "es: la voz suena a velocidad normal (sin acelerar)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: voz y escenas sincronizadas (deriva máx. 0.02 s)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: cuando suena la voz hay subtítulo en pantalla",
+      "info": "238/240"
+    },
+    {
+      "ok": true,
+      "name": "es: pausa detiene la voz y reanudar continúa en el mismo punto",
+      "info": "{\"pausedAudio\":true,\"tPaused\":20.137506,\"tResumed\":20.83991,\"audioResumed\":true,\"drift\":0.00870700000000113}"
+    },
+    {
+      "ok": true,
+      "name": "es: al saltar, voz y escena se recolocan juntas",
+      "info": "{\"t\":33.888163,\"audio\":33.899773,\"drift\":0.011610000000004561,\"scene\":2}"
+    },
+    {
+      "ok": true,
+      "name": "es: cambiar de idioma con la voz sonando conserva el minuto",
+      "info": "{\"lang\":\"en\",\"src\":\"/media/experiencia/narracion-en.mp3\",\"drift\":0.008476000000001704,\"playing\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es: duración real de reproducción ≈ 90 s (más las pausas de la prueba)",
+      "info": "98.9 s de reloj, con ~1,5 s de pausa y un salto atrás de ~7 s"
+    },
+    {
+      "ok": true,
+      "name": "es: los subtítulos no se quedan largo tiempo sin voz",
+      "info": "23/458"
+    },
+    {
+      "ok": true,
+      "name": "en: la presentación con voz termina sola en 01:30",
+      "info": "t=90.00"
+    },
+    {
+      "ok": true,
+      "name": "en: la voz suena a velocidad normal (sin acelerar)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: voz y escenas sincronizadas (deriva máx. 0.02 s)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: cuando suena la voz hay subtítulo en pantalla",
+      "info": "227/227"
+    },
+    {
+      "ok": true,
+      "name": "en: pausa detiene la voz y reanudar continúa en el mismo punto",
+      "info": "{\"pausedAudio\":true,\"tPaused\":20.120091,\"tResumed\":20.810885,\"audioResumed\":true,\"drift\":0.017911000000001565}"
+    },
+    {
+      "ok": true,
+      "name": "en: al saltar, voz y escena se recolocan juntas",
+      "info": "{\"t\":33.885368,\"audio\":33.899773,\"drift\":0.014405000000003554,\"scene\":2}"
+    },
+    {
+      "ok": true,
+      "name": "en: cambiar de idioma con la voz sonando conserva el minuto",
+      "info": "{\"lang\":\"es\",\"src\":\"/media/experiencia/narracion-es.mp3\",\"drift\":0.011609999999997456,\"playing\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en: duración real de reproducción ≈ 90 s (más las pausas de la prueba)",
+      "info": "98.9 s de reloj, con ~1,5 s de pausa y un salto atrás de ~7 s"
+    },
+    {
+      "ok": true,
+      "name": "en: los subtítulos no se quedan largo tiempo sin voz",
+      "info": "73/458"
+    },
+    {
+      "ok": true,
+      "name": "es: el primer Tab enfoca «Saltar al contenido»",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: el enlace de salto es visible al enfocarlo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: «Saltar al contenido» lleva al contenido principal",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: el botón de la presentación se alcanza con el teclado",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: el foco es visible (contorno ≥ 2 px)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: Enter abre el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: Espacio sobre el botón pausa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: el foco se mantiene dentro del reproductor mientras está abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: las flechas mueven la barra de progreso",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: Esc cierra y devuelve el foco (sin trampas de teclado)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el primer Tab enfoca «Skip to content»",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el enlace de salto es visible al enfocarlo",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: «Saltar al contenido» lleva al contenido principal",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el botón de la presentación se alcanza con el teclado",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el foco es visible (contorno ≥ 2 px)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: Enter abre el reproductor",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: Espacio sobre el botón pausa",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: el foco se mantiene dentro del reproductor mientras está abierto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: las flechas mueven la barra de progreso",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: Esc cierra y devuelve el foco (sin trampas de teclado)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: los 4 «Explorar soluciones» apuntan a /servicios/",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: los 5 «Solicitar consulta» apuntan a /servicios/#contacto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: «Explorar soluciones» abre el catálogo de servicios con sus páginas",
+      "info": "{\"path\":\"/servicios/\",\"h1\":\"Servicios para plantas de alimentos y bebidas\",\"links\":3}"
+    },
+    {
+      "ok": true,
+      "name": "es: «Solicitar consulta» lleva al formulario de contacto existente, visible y completo",
+      "info": "{\"hash\":\"#contacto\",\"inView\":true,\"form\":true,\"fields\":8,\"submit\":true}"
+    },
+    {
+      "ok": true,
+      "name": "es: el CTA de consulta del reproductor también lleva al formulario",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: la página de servicios enlaza a la experiencia (enlace interno)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: los 4 «Explore Our Solutions» apuntan a /en/services/",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: los 5 «Request a Consultation» apuntan a /en/services/#contacto",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: «Explore Our Solutions» abre el catálogo de servicios con sus páginas",
+      "info": "{\"path\":\"/en/services/\",\"h1\":\"Services for food and beverage plants\",\"links\":3}"
+    },
+    {
+      "ok": true,
+      "name": "en: «Request a Consultation» lleva al formulario de contacto existente, visible y completo",
+      "info": "{\"hash\":\"#contacto\",\"inView\":true,\"form\":true,\"fields\":8,\"submit\":true}"
+    },
+    {
+      "ok": true,
+      "name": "en: el CTA de consulta del reproductor también lleva al formulario",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "en: la página de servicios enlaza a la experiencia (enlace interno)",
+      "info": ""
+    },
+    {
+      "ok": true,
+      "name": "es: LCP móvil de laboratorio ≤ 2,5 s",
+      "info": "mediana 2088 ms"
+    },
+    {
+      "ok": true,
+      "name": "es: CLS ≤ 0,1",
+      "info": "mediana 0.000"
+    },
+    {
+      "ok": true,
+      "name": "es: respuesta a toques ≤ 200 ms (aprox. de INP)",
+      "info": "mediana 128 ms"
+    },
+    {
+      "ok": true,
+      "name": "en: LCP móvil de laboratorio ≤ 2,5 s",
+      "info": "mediana 2100 ms"
+    },
+    {
+      "ok": true,
+      "name": "en: CLS ≤ 0,1",
+      "info": "mediana 0.000"
+    },
+    {
+      "ok": true,
+      "name": "en: respuesta a toques ≤ 200 ms (aprox. de INP)",
+      "info": "mediana 128 ms"
+    }
+  ],
+  "metrics": {
+    "audio_es": {
+      "wallSeconds": 98.9,
+      "maxDrift": 0.02,
+      "voicedSamples": 240,
+      "voicedWithCaption": 238,
+      "pauseInfo": {
+        "pausedAudio": true,
+        "tPaused": 20.137506,
+        "tResumed": 20.83991,
+        "audioResumed": true,
+        "drift": 0.00870700000000113
+      },
+      "seekInfo": {
+        "t": 33.888163,
+        "audio": 33.899773,
+        "drift": 0.011610000000004561,
+        "scene": 2
+      },
+      "switchInfo": {
+        "lang": "en",
+        "src": "/media/experiencia/narracion-en.mp3",
+        "drift": 0.008476000000001704,
+        "playing": true
+      }
+    },
+    "audio_en": {
+      "wallSeconds": 98.9,
+      "maxDrift": 0.02,
+      "voicedSamples": 227,
+      "voicedWithCaption": 227,
+      "pauseInfo": {
+        "pausedAudio": true,
+        "tPaused": 20.120091,
+        "tResumed": 20.810885,
+        "audioResumed": true,
+        "drift": 0.017911000000001565
+      },
+      "seekInfo": {
+        "t": 33.885368,
+        "audio": 33.899773,
+        "drift": 0.014405000000003554,
+        "scene": 2
+      },
+      "switchInfo": {
+        "lang": "es",
+        "src": "/media/experiencia/narracion-es.mp3",
+        "drift": 0.011609999999997456,
+        "playing": true
+      }
+    },
+    "carga_es": {
+      "condiciones": "Chromium, CPU 4×, 1,6 Mbps / 150 ms, fotos sustitutas de 330 KB (héroe) y 125 KB (escenas), sin fuentes web",
+      "corridas": [
+        {
+          "lcp": 2068,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 168,
+          "heroLoaded": true,
+          "kb": 1081
+        },
+        {
+          "lcp": 2088,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 120,
+          "heroLoaded": true,
+          "kb": 1081
+        },
+        {
+          "lcp": 2096,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 128,
+          "heroLoaded": true,
+          "kb": 1081
+        }
+      ],
+      "mediana": {
+        "LCP_ms": 2088,
+        "CLS": 0,
+        "interaccion_max_ms": 128,
+        "KB_transferidos": 1081
+      }
+    },
+    "carga_en": {
+      "condiciones": "Chromium, CPU 4×, 1,6 Mbps / 150 ms, fotos sustitutas de 330 KB (héroe) y 125 KB (escenas), sin fuentes web",
+      "corridas": [
+        {
+          "lcp": 2100,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 128,
+          "heroLoaded": true,
+          "kb": 1080
+        },
+        {
+          "lcp": 2080,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 128,
+          "heroLoaded": true,
+          "kb": 1080
+        },
+        {
+          "lcp": 2112,
+          "lcpEl": "IMG.xp-hero-bg",
+          "cls": 0,
+          "inp": 136,
+          "heroLoaded": true,
+          "kb": 1080
+        }
+      ],
+      "mediana": {
+        "LCP_ms": 2100,
+        "CLS": 0,
+        "interaccion_max_ms": 128,
+        "KB_transferidos": 1080
+      }
+    }
+  }
+}
