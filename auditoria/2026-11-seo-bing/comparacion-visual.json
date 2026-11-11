@@ -1,0 +1,134 @@
+[
+ {
+  "dev": "escritorio",
+  "lang": "es",
+  "pixeles_identicos": true,
+  "antes": {
+   "h1_en_dom": 2,
+   "h1_visibles": 1,
+   "h1_texto": "Calidad e inocuidad que se verifican en el piso de planta, no solo en papel.",
+   "h1_caja": [
+    144,
+    166.8,
+    634.2,
+    396
+   ],
+   "font": "80px",
+   "title": "JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera",
+   "docH": 9014
+  },
+  "despues": {
+   "h1_en_dom": 1,
+   "h1_visibles": 1,
+   "h1_texto": "Calidad e inocuidad que se verifican en el piso de planta, no solo en papel.",
+   "h1_caja": [
+    144,
+    166.8,
+    634.2,
+    396
+   ],
+   "font": "80px",
+   "title": "Quality Control y Food Safety en NJ y NY | JF Solutions",
+   "docH": 9014
+  }
+ },
+ {
+  "dev": "escritorio",
+  "lang": "en",
+  "pixeles_identicos": true,
+  "antes": {
+   "h1_en_dom": 2,
+   "h1_visibles": 1,
+   "h1_texto": "Quality and food safety verified on the plant floor, not just on paper.",
+   "h1_caja": [
+    144,
+    166.8,
+    634.2,
+    396
+   ],
+   "font": "80px",
+   "title": "JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera",
+   "docH": 8982
+  },
+  "despues": {
+   "h1_en_dom": 1,
+   "h1_visibles": 1,
+   "h1_texto": "Quality and food safety verified on the plant floor, not just on paper.",
+   "h1_caja": [
+    144,
+    166.8,
+    634.2,
+    396
+   ],
+   "font": "80px",
+   "title": "Quality Control y Food Safety en NJ y NY | JF Solutions",
+   "docH": 8982
+  }
+ },
+ {
+  "dev": "movil",
+  "lang": "es",
+  "pixeles_identicos": true,
+  "antes": {
+   "h1_en_dom": 2,
+   "h1_visibles": 1,
+   "h1_texto": "Calidad e inocuidad que se verifican en el piso de planta, no solo en papel.",
+   "h1_caja": [
+    16,
+    131.8,
+    358,
+    147.8
+   ],
+   "font": "37.44px",
+   "title": "JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera",
+   "docH": 14368
+  },
+  "despues": {
+   "h1_en_dom": 1,
+   "h1_visibles": 1,
+   "h1_texto": "Calidad e inocuidad que se verifican en el piso de planta, no solo en papel.",
+   "h1_caja": [
+    16,
+    131.8,
+    358,
+    147.8
+   ],
+   "font": "37.44px",
+   "title": "Quality Control y Food Safety en NJ y NY | JF Solutions",
+   "docH": 14368
+  }
+ },
+ {
+  "dev": "movil",
+  "lang": "en",
+  "pixeles_identicos": true,
+  "antes": {
+   "h1_en_dom": 2,
+   "h1_visibles": 1,
+   "h1_texto": "Quality and food safety verified on the plant floor, not just on paper.",
+   "h1_caja": [
+    16,
+    131.8,
+    358,
+    147.8
+   ],
+   "font": "37.44px",
+   "title": "JF Solutions | Calidad e inocuidad en planta, negocios, marca y carrera",
+   "docH": 14061
+  },
+  "despues": {
+   "h1_en_dom": 1,
+   "h1_visibles": 1,
+   "h1_texto": "Quality and food safety verified on the plant floor, not just on paper.",
+   "h1_caja": [
+    16,
+    131.8,
+    358,
+    147.8
+   ],
+   "font": "37.44px",
+   "title": "Quality Control y Food Safety en NJ y NY | JF Solutions",
+   "docH": 14061
+  }
+ }
+]
