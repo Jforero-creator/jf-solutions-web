@@ -107,14 +107,14 @@
       <p class="form-note">Your request goes straight to my inbox. If you prefer, send it via WhatsApp or from your email app.</p>
       <p class="form-note"><strong>Service:</strong> To be defined (Services page)</p>
       <div class="row">
-        <div class="fld"><label for="f-nombre">Full name <span class="star">*</span></label><input id="f-nombre" autocomplete="name"></div>
-        <div class="fld"><label for="f-empresa">Company or plant</label><input id="f-empresa" autocomplete="organization"></div>
+        <div class="fld"><label for="f-nombre">Full name <span class="star">*</span></label><input id="f-nombre" autocomplete="name" required aria-required="true" maxlength="120"></div>
+        <div class="fld"><label for="f-empresa">Company or plant</label><input id="f-empresa" autocomplete="organization" maxlength="120"></div>
       </div>
       <div class="row">
-        <div class="fld"><label for="f-correo">Email <span class="star">*</span></label><input id="f-correo" type="email" autocomplete="email"></div>
-        <div class="fld"><label for="f-tel">Phone</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="(201) 555-0123"></div>
+        <div class="fld"><label for="f-correo">Email <span class="star">*</span></label><input id="f-correo" type="email" autocomplete="email" required aria-required="true" maxlength="160"></div>
+        <div class="fld"><label for="f-tel">Phone</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="(201) 555-0123" maxlength="40"></div>
       </div>
-      <div class="fld"><label for="f-msg">Tell me about your case <span class="star">*</span></label><textarea id="f-msg"></textarea></div>
+      <div class="fld"><label for="f-msg">Tell me about your case <span class="star">*</span></label><textarea id="f-msg" required aria-required="true" maxlength="5000"></textarea></div>
       <div class="fld"><span class="lbl" id="lbl-idioma">Reply language</span>
         <div class="chips-in" role="radiogroup" aria-labelledby="lbl-idioma">
           <label><input type="radio" name="f-idioma" value="Español">Español</label>
@@ -122,6 +122,7 @@
         </div>
       </div>
       <input type="checkbox" name="botcheck" id="f-bot" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <div class="fld cap-fld"><span class="lbl">Security check</span><div id="cap-box"></div></div>
       <p class="form-err" id="f-err" role="alert" hidden></p>
       <div class="actions">
         <button class="btn btn-main" type="submit" data-via="web" id="send-web">Send request</button>
@@ -129,6 +130,7 @@
         <button class="btn btn-ghost" type="submit" data-via="mail">Send by email</button>
       </div>
       <p class="form-note"><span class="star">*</span> Required fields.</p>
+      <p class="form-note">I will use your details only to answer your request. See the <a href="/en/privacy/">privacy policy</a>.</p>
     </form>
     </div>
     <div class="contact-grid">
@@ -144,10 +146,11 @@
   <div class="wrap">
     <span>© <span id="year">2026</span> JF Solutions</span>
     <span>Industry · Business · Branding · Careers — New Jersey</span>
-    <span class="foot-links"><a href="/en/services/">Services</a><a href="https://www.instagram.com/jfsolutionsq" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg" target="_blank" rel="noopener">YouTube</a><a href="https://www.fiverr.com/s/oddQWXV" target="_blank" rel="noopener">Fiverr</a><a href="https://ora.jfsolutionsq.com" target="_blank" rel="noopener">ORA</a><a href="/manos.html">GMP challenge</a></span>
+    <span class="foot-links"><a href="/en/services/">Services</a><a href="https://www.instagram.com/jfsolutionsq" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UC5ZBfUsEcBRaYcsDodkk-fg" target="_blank" rel="noopener">YouTube</a><a href="https://www.fiverr.com/s/oddQWXV" target="_blank" rel="noopener">Fiverr</a><a href="https://ora.jfsolutionsq.com" target="_blank" rel="noopener">ORA</a><a href="/manos.html">GMP challenge</a><a href="/en/privacy/">Privacy</a></span>
     <span>Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
   </div>
 </footer>
+<script src="/assets/captcha.js" defer></script>
 <script src="/assets/servicios.js" defer></script>
 <!-- Vercel Web Analytics -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>

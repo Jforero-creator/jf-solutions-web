@@ -1,0 +1,66 @@
+{
+ "mobile|es|/": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "n": 1,
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "t": [
+    ".l-crit > span[lang=\"es\"] :: Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #ffffff, background color: #e0574a, font size: 8.3pt (11px), font"
+   ]
+  }
+ ],
+ "mobile|es|/servicios/": [],
+ "mobile|es|/en/services/": [],
+ "mobile|es|/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/": [],
+ "mobile|es|/en/services/gmp-haccp-procedures-corrective-actions/": [],
+ "mobile|es|/manos.html": [],
+ "mobile|en|/": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "n": 1,
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "t": [
+    ".l-crit > span[lang=\"en\"] :: Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #ffffff, background color: #e0574a, font size: 8.3pt (11px), font"
+   ]
+  }
+ ],
+ "mobile|en|/servicios/": [],
+ "mobile|en|/en/services/": [],
+ "mobile|en|/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/": [],
+ "mobile|en|/en/services/gmp-haccp-procedures-corrective-actions/": [],
+ "mobile|en|/manos.html": [],
+ "desktop|es|/": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "n": 1,
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "t": [
+    ".l-crit > span[lang=\"es\"] :: Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #ffffff, background color: #e0574a, font size: 8.3pt (11px), font"
+   ]
+  }
+ ],
+ "desktop|es|/servicios/": [],
+ "desktop|es|/en/services/": [],
+ "desktop|es|/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/": [],
+ "desktop|es|/en/services/gmp-haccp-procedures-corrective-actions/": [],
+ "desktop|es|/manos.html": [],
+ "desktop|en|/": [
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "n": 1,
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "t": [
+    ".l-crit > span[lang=\"en\"] :: Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #ffffff, background color: #e0574a, font size: 8.3pt (11px), font"
+   ]
+  }
+ ],
+ "desktop|en|/servicios/": [],
+ "desktop|en|/en/services/": [],
+ "desktop|en|/servicios/consultoria-calidad-inocuidad-alimentaria-new-jersey/": [],
+ "desktop|en|/en/services/gmp-haccp-procedures-corrective-actions/": [],
+ "desktop|en|/manos.html": []
+}

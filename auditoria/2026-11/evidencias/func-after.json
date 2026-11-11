@@ -1,0 +1,212 @@
+[
+ {
+  "id": "C02-1",
+  "test": "Sin decisión: GA no se descarga y aparece el aviso",
+  "result": "PASA",
+  "evidence": "gtag.js=0 aviso=1 cookies=''"
+ },
+ {
+  "id": "C02-2",
+  "test": "Rechazar: no hay gtag.js ni cookies _ga tras recargar; el aviso no reaparece",
+  "result": "PASA",
+  "evidence": "gtag.js=0 ls=denied"
+ },
+ {
+  "id": "C02-3",
+  "test": "El enlace \"Preferencias de cookies\" reabre el aviso y enfoca un botón",
+  "result": "PASA",
+  "evidence": ""
+ },
+ {
+  "id": "C02-4",
+  "test": "Aceptar: gtag.js se carga una vez y se crea cookie _ga",
+  "result": "PASA",
+  "evidence": "gtag.js=1 cookies='_ga=GA1.1.test'"
+ },
+ {
+  "id": "C02-5",
+  "test": "Consentimiento persistente: GA se carga al volver sin mostrar aviso",
+  "result": "PASA",
+  "evidence": "gtag.js=2"
+ },
+ {
+  "id": "C02-6",
+  "test": "Retirar consentimiento: se borran cookies _ga y GA no vuelve a cargarse",
+  "result": "PASA",
+  "evidence": "gtag.js=2 cookies=''"
+ },
+ {
+  "id": "C03-1",
+  "test": "CSP aplicada sin violaciones en 13 páginas (GA aceptado, fuentes, imágenes, videos, manos.html)",
+  "result": "PASA",
+  "evidence": "sin violaciones"
+ },
+ {
+  "id": "C03-2",
+  "test": "Sin errores JavaScript en las 13 páginas",
+  "result": "PASA",
+  "evidence": "sin errores"
+ },
+ {
+  "id": "C04-val/",
+  "test": "Validación: campos vacíos muestran error (role=alert), marcan aria-invalid y enfocan el primero; no se envía nada",
+  "result": "PASA",
+  "evidence": "msg='Falta completar: nombre, un correo válido, división, tu caso.' invalid=['f-nombre', 'f-correo', 'f-div', 'f-msg'] foco=f-nombre envios=0"
+ },
+ {
+  "id": "C04-mail/",
+  "test": "Correo con formato inválido se rechaza",
+  "result": "PASA",
+  "evidence": "Falta completar: un correo válido."
+ },
+ {
+  "id": "C04-ok/",
+  "test": "Envío correcto a Web3Forms (simulado) con token hCaptcha: éxito, formulario reiniciado, botcheck=false, h-captcha-response y clave presentes",
+  "result": "PASA",
+  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te respond' botcheck=False hcaptcha=HC-PASS-TOKEN"
+ },
+ {
+  "id": "C04-val/servicios/mejora-procesos-trazabilidad/",
+  "test": "Validación: campos vacíos muestran error (role=alert), marcan aria-invalid y enfocan el primero; no se envía nada",
+  "result": "PASA",
+  "evidence": "msg='Falta completar: nombre, un correo válido, tu caso.' invalid=['f-nombre', 'f-correo', 'f-msg'] foco=f-nombre envios=0"
+ },
+ {
+  "id": "C04-mail/servicios/mejora-procesos-trazabilidad/",
+  "test": "Correo con formato inválido se rechaza",
+  "result": "PASA",
+  "evidence": "Falta completar: un correo válido."
+ },
+ {
+  "id": "C04-ok/servicios/mejora-procesos-trazabilidad/",
+  "test": "Envío correcto a Web3Forms (simulado) con token hCaptcha: éxito, formulario reiniciado, botcheck=false, h-captcha-response y clave presentes",
+  "result": "PASA",
+  "evidence": "okt='Solicitud enviada\n\nGracias. Recibí tu solicitud y te respond' botcheck=False hcaptcha=HC-PASS-TOKEN"
+ },
+ {
+  "id": "C04-val/en/services/",
+  "test": "Validación: campos vacíos muestran error (role=alert), marcan aria-invalid y enfocan el primero; no se envía nada",
+  "result": "PASA",
+  "evidence": "msg='Please complete: name, a valid email, your case.' invalid=['f-nombre', 'f-correo', 'f-msg'] foco=f-nombre envios=0"
+ },
+ {
+  "id": "C04-mail/en/services/",
+  "test": "Correo con formato inválido se rechaza",
+  "result": "PASA",
+  "evidence": "Please complete: a valid email."
+ },
+ {
+  "id": "C04-ok/en/services/",
+  "test": "Envío correcto a Web3Forms (simulado) con token hCaptcha: éxito, formulario reiniciado, botcheck=false, h-captcha-response y clave presentes",
+  "result": "PASA",
+  "evidence": "okt='Request sent\n\nThank you. I received your request and will re' botcheck=False hcaptcha=HC-PASS-TOKEN"
+ },
+ {
+  "id": "C01-cap",
+  "test": "Sin completar hCaptcha: no se envía y se pide la verificación (ES)",
+  "result": "PASA",
+  "evidence": "Completa la verificación de seguridad (la casilla «Soy humano») e inténtalo de nuevo."
+ },
+ {
+  "id": "C01-cap2",
+  "test": "Widget hCaptcha se muestra en el formulario y se reinicia tras cada envío (token de un solo uso)",
+  "result": "PASA",
+  "evidence": "iframes=1 resets=1"
+ },
+ {
+  "id": "C04-xss",
+  "test": "El correo devuelto en el mensaje de éxito se muestra como texto (sin inyección HTML)",
+  "result": "PASA",
+  "evidence": "img inyectada=0"
+ },
+ {
+  "id": "C04-err",
+  "test": "Fallo de envío (Web3Forms responde error): mensaje claro y datos conservados; botón reactivado",
+  "result": "PASA",
+  "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
+ },
+ {
+  "id": "C04-down",
+  "test": "Fallo de envío (Web3Forms inalcanzable): mensaje claro y datos conservados; botón reactivado",
+  "result": "PASA",
+  "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
+ },
+ {
+  "id": "C04-offline",
+  "test": "Fallo de envío (navegador sin conexión): mensaje claro y datos conservados; botón reactivado",
+  "result": "PASA",
+  "evidence": "No se pudo enviar\n\nRevisa tu conexión e inténtalo de nuevo, o usa los botones de WhatsApp o correo."
+ },
+ {
+  "id": "C04-dup",
+  "test": "Prevención de envíos duplicados: 3 clics rápidos = 1 envío",
+  "result": "PASA",
+  "evidence": "envios=1"
+ },
+ {
+  "id": "C04-en",
+  "test": "Mensajes de error en inglés al cambiar idioma",
+  "result": "PASA",
+  "evidence": "Please complete: name, a valid email, division, your case."
+ },
+ {
+  "id": "C04-wa",
+  "test": "WhatsApp: abre wa.me/12012506729 con el texto de la solicitud",
+  "result": "PASA",
+  "evidence": "popup=https://wa.me/12012506729?text=Solicitud%20de%20propuesta%20%E2%80%93%20JF%20Solutions%0AN pestaña_sitio_conservada=True"
+ },
+ {
+  "id": "C04-mailto",
+  "test": "Correo: genera enlaces mailto, Gmail y Outlook con destinatario correcto",
+  "result": "PASA",
+  "evidence": "['mailto:jforero@jfsolutions80.com?subject=New%20Service%20Req', 'https://mail.google.com/mail/?view=cm&fs=1&to=jforero%40jfso', 'https://outlook.office.com/mail/deeplink/compose?to=jforero%']"
+ },
+ {
+  "id": "C09-img",
+  "test": "Logo, foto y emblema (antes en Base64) cargan desde /assets",
+  "result": "PASA",
+  "evidence": "[['img.logo', 'logo.jpg', 96], ['img.avatar', 'jose-forero.webp', 264], ['img.emblem', 'emblema.webp', 440]]"
+ },
+ {
+  "id": "C06-h1",
+  "test": "Inicio: un único H1 visible por idioma (h1 totales=2, ES y EN)",
+  "result": "PASA",
+  "evidence": "h1 total=2 visibles=1"
+ },
+ {
+  "id": "C06-layer",
+  "test": "Subpágina de división (#industrial) sigue visible con su título",
+  "result": "PASA",
+  "evidence": "Industrial Solutions"
+ },
+ {
+  "id": "C08-404",
+  "test": "Ruta inexistente devuelve 404 con página propia y enlace al inicio",
+  "result": "PASA",
+  "evidence": "status=404 title=Página no encontrada · Page not found | JF Solutions"
+ },
+ {
+  "id": "C10-skip",
+  "test": "Primer Tab enfoca \"Saltar al contenido\"",
+  "result": "PASA",
+  "evidence": "skip"
+ },
+ {
+  "id": "C04-iPhone 13",
+  "test": "iPhone 13 (emulado): sin scroll horizontal, aviso no tapa la barra inferior, formulario envía, videos usan versión 720p",
+  "result": "PASA",
+  "evidence": "overflow=False solape=False videos=['holds-720.mp4', 'utilidades-720.mp4', 'empleo-720.mp4']"
+ },
+ {
+  "id": "C04-Pixel 7",
+  "test": "Pixel 7 (emulado): sin scroll horizontal, aviso no tapa la barra inferior, formulario envía, videos usan versión 720p",
+  "result": "PASA",
+  "evidence": "overflow=False solape=False videos=['holds-720.mp4', 'utilidades-720.mp4', 'empleo-720.mp4']"
+ },
+ {
+  "id": "C09-vid-desk",
+  "test": "Escritorio: videos siguen usando la versión 1080p original",
+  "result": "PASA",
+  "evidence": "['holds.mp4', 'utilidades.mp4', 'empleo.mp4']"
+ }
+]
