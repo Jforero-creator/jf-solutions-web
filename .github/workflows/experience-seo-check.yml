@@ -1,0 +1,41 @@
+name: Experience SEO verification
+on:
+  push:
+    branches:
+      - fix/experiencia-seo-alt-20261113
+  pull_request:
+    paths:
+      - dev/experiencia/**
+      - experiencia/index.html
+      - en/experience/index.html
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify generated ES/EN HTML
+        run: node dev/experiencia/build.mjs --check
+      - name: Verify SEO descriptions, photo ALT and existing visible narrative
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import {readFileSync} from 'node:fs';
+          const C=JSON.parse(readFileSync('dev/experiencia/content.json','utf8'));
+          for(const [lang,path] of [['es','experiencia/index.html'],['en','en/experience/index.html']]){
+            const html=readFileSync(path,'utf8');
+            const T=C[lang];
+            assert(T.seoDescription.length>=90 && T.seoDescription.length<=155,lang+' SEO description length');
+            assert(html.includes('<meta name="description" content="'+T.seoDescription+'">'),lang+' meta');
+            assert(html.includes('<meta property="og:description" content="'+T.seoDescription+'">'),lang+' OG');
+            assert(html.includes('<p class="lead">'+T.description+'</p>'),lang+' preserved hero text');
+            const photos=[...html.matchAll(/<img class="v-photo"[^>]*alt="([^"]+)"/g)].map(m=>m[1]);
+            assert.equal(photos.length,5,lang+' photo count');
+            assert.deepEqual(photos,Object.entries(C.photos).filter(([key])=>key!=='hero').map(([,photo])=>photo[lang]),lang+' photo alt content');
+            assert.equal((html.match(/<h1\b/g)||[]).length,1,lang+' single H1');
+            assert(html.includes('hreflang="es"') && html.includes('hreflang="en"'),lang+' translations');
+            console.log(lang+' SEO checks passed');
+          }
+          JS
