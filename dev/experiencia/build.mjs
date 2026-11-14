@@ -118,7 +118,7 @@ function Head(l) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(T.title)}</title>
-<meta name="description" content="${esc(T.description)}">
+<meta name="description" content="${esc(T.seoDescription)}">
 <link rel="canonical" href="${self}">
 <link rel="alternate" hreflang="es" href="${abs(C.routes.es)}">
 <link rel="alternate" hreflang="en" href="${abs(C.routes.en)}">
@@ -126,7 +126,7 @@ function Head(l) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${self}">
 <meta property="og:title" content="${esc(T.title)}">
-<meta property="og:description" content="${esc(T.description)}">
+<meta property="og:description" content="${esc(T.seoDescription)}">
 <meta property="og:image" content="${C.site}/og.png">
 <meta property="og:image:alt" content="JF Solutions">
 <meta property="og:site_name" content="JF Solutions">
@@ -226,7 +226,7 @@ function Visual(s, l) {
       <img class="v-logo" src="/assets/logo.jpg" width="96" height="96" alt="" loading="lazy" decoding="async"><span class="v-url mono">${esc(lab.url)}</span>`;
   }
   return `<figure class="visual v-${s.kind}">
-      <img class="v-photo" src="${photo(p.id, 800, 450)}" srcset="${srcset(p.id, [480, 800, 1200, 1600], 16 / 9)}" sizes="(min-width: 960px) 58vw, 100vw" width="800" height="450" alt="" loading="lazy" decoding="async">
+      <img class="v-photo" src="${photo(p.id, 800, 450)}" srcset="${srcset(p.id, [480, 800, 1200, 1600], 16 / 9)}" sizes="(min-width: 960px) 58vw, 100vw" width="800" height="450" alt="${esc(p[l])}" loading="lazy" decoding="async">
       <div class="v-veil" aria-hidden="true"></div>
       <div class="v-art" aria-hidden="true">${art}</div>
       <span class="v-chip mono" aria-hidden="true">${esc(T.illustrative)}</span>
